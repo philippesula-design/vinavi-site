@@ -354,5 +354,36 @@
 })();
 </script>
 
+<script>
+(function(){
+  const form = document.getElementById('careerForm');
+  if(!form) return;
+
+  form.addEventListener('submit', async function(ev){
+    ev.preventDefault(); // bloque la navigation vers l'action
+    try {
+      // Récupère les champs en JSON pour l'API AJAX de FormSubmit
+      const fd = new FormData(form);
+      const data = {};
+      fd.forEach((v, k) => data[k] = v);
+
+      // Tente un envoi "best-effort" vers FormSubmit (si dispo, tu reçois le mail)
+      await fetch('https://formsubmit.co/ajax/info@vinavi.ca', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch(e) {
+      // Si FormSubmit est down → on ignore l'erreur et on redirige quand même
+      console.warn('FormSubmit indisponible (ignoré) :', e);
+    } finally {
+      // Toujours redirection vers la page de remerciement locale
+      window.location.href = 'merci.html';
+    }
+  }, { once: true });
+})();
+</script>
+
+
 </body>
 </html>
