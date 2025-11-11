@@ -260,7 +260,7 @@
           <p class="en">Join Vi Na Vi and contribute to high‑impact engineering, automation, and digital‑transformation projects across Canada and West Africa. We’re hiring <strong>Instrumentation/Automation Engineers</strong>, <strong>SCADA Developers</strong>, <strong>Electrical Engineers</strong>, and <strong>Commissioning Technicians</strong>.</p>
         </div>
         <div>
-          <form class="contact" action="https://formsubmit.co/info@vinavi.ca" method="POST" data-captcha="true">
+          <form class="contact" action="merci.html" method="post" data-captcha="true" id="careerForm">
             <input type="hidden" name="_subject" value="Candidature via vinavi.ca">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_autoresponse" value="Merci pour votre message. Notre équipe vous répondra sous peu. / Thank you for your message. We will get back to you shortly.">
@@ -325,5 +325,34 @@
     buttons.forEach(b => b.addEventListener('click', () => setLang(b.getAttribute('data-setlang'))));
     try { const saved = localStorage.getItem('vinavi.lang'); if (saved) setLang(saved); } catch(e) { }
   </script>
+
+<script>
+(function(){
+  const form = document.querySelector('form[action*="merci.html"]') || document.querySelector('#careerForm') || document.querySelector('form');
+  if(!form) return;
+  form.setAttribute('method','post');
+  form.setAttribute('action','merci.html');
+  if(!form.id) form.id = 'careerForm';
+
+  form.addEventListener('submit', async function(ev){
+    try {
+      const fd = new FormData(form);
+      const obj = {};
+      fd.forEach((v,k)=>{ obj[k] = v; });
+      await fetch('https://formsubmit.co/ajax/info@vinavi.ca', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(obj)
+      });
+    } catch(e) {
+      console.warn('FormSubmit error ignored:', e);
+    } finally {
+      window.location.href = 'merci.html';
+    }
+    ev.preventDefault();
+  }, { once: true });
+})();
+</script>
+
 </body>
 </html>
