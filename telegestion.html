@@ -427,6 +427,61 @@
 
 
 
+<style>
+
+/* ========= LAYOUT GLOBAL POUR TOUTES LES SECTIONS PRODUITS ========= */
+
+.produit-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 25px auto 0 auto;
+}
+
+/* Colonne Images */
+.produit-images {
+  flex: 0 0 320px;
+  text-align: center;
+}
+
+.produit-images img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+/* Colonne Texte */
+.produit-texte {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+/* ========= VERSION MOBILE ========= */
+@media (max-width: 768px) {
+  .produit-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produit-images {
+    width: 100%;
+  }
+
+  .produit-texte {
+    width: 100%;
+  }
+}
+
+</style>
+
+
+
+
+
 </head>
 <body data-lang="fr">
 <header class="main-header">
@@ -541,203 +596,175 @@
 
 <section id="automates-telemetrie" class="section">
 
-<div style="
-    display:flex;
-    align-items:flex-start;
-    gap:40px;
-    margin-top:25px;
-    max-width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-">
+  <div class="produit-layout">
 
-  <!-- IMAGE -->
-  <div style="flex:0 0 320px; text-align:center;">
-    <img src="ewon.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="redy.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-         <img src="redlion.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-  </div>
-
-  <!-- TEXTE -->
-  <div style="flex:1; font-size:18px; line-height:1.55;">
-
-    <!-- FR -->
-    <div class="fr">
-
-      <p>
-        Grâce à leurs nombreuses compatibilités et options de communication, 
-        les <strong> automates de télémétrie Ewon </strong> offrent une plateforme très flexible pour 
-        la <strong>télémétrie</strong> et la <strong>télégéstion</strong> des installations industrielles.
-      </p>
-
-      <p>
-        Ils permettents l’acquisition de données via les automates connectés ou au moyen de ses propres 
-        modules d’entrées-sorties.
-      </p>
-
-      <p>
-        Ils peuvent fonctionner de manière entièrement autonome grâce à leur
-        <strong>interface Web intégrée</strong>, ou être supervisés via <strong>Talk2M</strong>, 
-        le service Cloud sécurisé d’Ewon dédié au VPN industriel.
-      </p>
-
-      <p>
-        Ils s’intègrent également dans des systèmes de supervision <strong>multisites</strong> tels que 
-        TopKapi, Wonderware, VTScada ou tout autre SCADA.  
-        Les échanges de données sont entièrement sécurisés grâce aux passerelles 
-        <strong>VPN eFive</strong> ou au Cloud Talk2M.
-      </p>
-
-      <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
-
-      <p><strong>Vi Na Vi</strong> déploie, configure et intègre les solutions Ewon dans des environnements industriels complexes, en assurant :</p>
-
-      <ul style="margin-left:20px;">
-        <li>La compatibilité avec vos automates et capteurs existants</li>
-        <li>La configuration sécurisée Talk2M et VPN</li>
-        <li>L’intégration dans vos plateformes SCADA</li>
-        <li>L’adaptation aux contraintes locales</li>
-        <li>et la mise en place d’une télégéstion fiable et évolutive pour vos installations.</li>
-      </ul>
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="ewon.jpg" alt="Ewon">
+      <img src="redy.jpg" alt="Redy">
+      <img src="redlion.jpg" alt="Red Lion">
     </div>
 
-    <!-- EN -->
-    <div class="en">
+    <!-- TEXTE -->
+    <div class="produit-texte">
 
-      <p>
-        Thanks to their wides compatibilities and communication options, 
-        the <strong>Ewon telemetry PLCs</strong> provide a highly flexible platform for 
-        industrial <strong>telemetry</strong> and <strong>remote management</strong>.
-      </p>
+      <!-- FR -->
+      <div class="fr">
 
-      <p>
-        They allow data acquisition via connected PLCs or by means of their own input/output modules.
-      </p>
+        <p>
+          Grâce à leurs nombreuses compatibilités et options de communication, 
+          les <strong>automates de télémétrie Ewon</strong> offrent une plateforme très flexible pour 
+          la <strong>télémétrie</strong> et la <strong>télégéstion</strong> des installations industrielles.
+        </p>
 
-      <p>
-        Ewon PLCs can operate independently via their
-        <strong>integrated web interface</strong>, or be supervised through 
-        <strong>Talk2M</strong>, Ewon’s secure industrial VPN cloud service.
-      </p>
+        <p>
+          Ils permettent l’acquisition de données via les automates connectés ou au moyen de leurs propres 
+          modules d’entrées-sorties.
+        </p>
 
-      <p>
-        They also integrate into <strong>multisite SCADA platforms</strong> such as TopKapi, 
-        Wonderware, VTScada or any other SCADA system.  
-        Data exchanges are fully secured through <strong>VPN eFive</strong> gateways 
-        or the Talk2M Cloud.
-      </p>
+        <p>
+          Ils peuvent fonctionner de manière entièrement autonome grâce à leur
+          <strong>interface Web intégrée</strong>, ou être supervisés via <strong>Talk2M</strong>, 
+          le service Cloud sécurisé d’Ewon dédié au VPN industriel.
+        </p>
 
-      <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+        <p>
+          Ils s’intègrent également dans des systèmes de supervision <strong>multisites</strong> tels que 
+          TopKapi, Wonderware, VTScada ou tout autre SCADA.  
+          Les échanges de données sont entièrement sécurisés grâce aux passerelles 
+          <strong>VPN eFive</strong> ou au Cloud Talk2M.
+        </p>
 
-      <p><strong>Vi Na Vi</strong> deploys, configures and integrates Ewon Flexy solutions in complex industrial environments, ensuring:</p>
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
 
-      <ul style="margin-left:20px;">
-        <li>Compatibility with your existing PLCs and sensors</li>
-        <li>Secure Talk2M and VPN configuration</li>
-        <li>Integration with your SCADA platforms</li>
-        <li>Adaptation to local constraints</li>
-        <li>And deployment of reliable, scalable remote management solutions.</li>
-      </ul>
-    </div>
+        <p><strong>Vi Na Vi</strong> déploie, configure et intègre les solutions Ewon dans des environnements industriels complexes, en assurant :</p>
 
+        <ul style="margin-left:20px;">
+          <li>Compatibilité avec vos automates existants</li>
+          <li>Configuration sécurisée Talk2M et VPN</li>
+          <li>Intégration SCADA</li>
+          <li>Adaptation aux contraintes locales</li>
+          <li>Télégéstion fiable et évolutive</li>
+        </ul>
+      </div>
 
-    <!-- APPLICATIONS -->
-<div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+      <!-- EN -->
+      <div class="en">
 
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Applications</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <p>
+          Thanks to their wide compatibilities and communication options, 
+          the <strong>Ewon telemetry PLCs</strong> provide a highly flexible platform for 
+          industrial <strong>telemetry</strong> and <strong>remote management</strong>.
+        </p>
 
-  <!-- TEXTE FR -->
-  <p class="fr" style="font-size:18px; margin-bottom:15px;">
-    Tous domaines d’activité pour des besoins de <strong>Télémétrie</strong> et de 
-    <strong>Télégéstion</strong> par des opérateurs d’installations techniques :
-  </p>
+        <p>
+          They allow data acquisition via connected PLCs or through their own I/O modules.
+        </p>
 
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li>Gestion de l’eau (postes de pompage, postes de surpression, etc.)</li>
-    <li>Équipement urbain (Contrôle d’accès, éclairage, etc.)</li>
-    <li>Environnement</li>
-    <li>Énergie (Réseaux électriques, éoliennes, génératrices…)</li>
-    <li>Équipements et procédés industriels</li>
-  </ul>
+        <p>
+          Ewon PLCs can operate independently via their
+          <strong>integrated web interface</strong>, or be supervised through 
+          <strong>Talk2M</strong>, Ewon’s secure industrial VPN cloud service.
+        </p>
 
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <p>
+          They also integrate into <strong>multisite SCADA platforms</strong> such as TopKapi, 
+          Wonderware, VTScada or any other SCADA system.  
+          Data exchanges are fully secured through <strong>VPN eFive</strong> gateways 
+          or the Talk2M Cloud.
+        </p>
 
-  <!-- TEXTE EN -->
-  <p class="en" style="font-size:18px; margin-bottom:15px;">
-    All activity sectors requiring <strong>Telemetry</strong> and 
-    <strong>Remote Management</strong> for technical facility operators:
-  </p>
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
 
-  <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li>Water management (pumping stations, booster stations, etc.)</li>
-    <li>Urban equipment (Access control, lighting, etc.)</li>
-    <li>Environmental monitoring</li>
-    <li>Energy (solar plants, wind turbines, generators…)</li>
-    <li>Industrial equipment and processes</li>
-  </ul>
+        <p><strong>Vi Na Vi</strong> deploys, configures and integrates Ewon solutions in complex industrial environments, ensuring:</p>
 
-</div>
+        <ul style="margin-left:20px;">
+          <li>Compatibility with existing PLCs and sensors</li>
+          <li>Secure Talk2M and VPN setup</li>
+          <li>Full SCADA integration</li>
+          <li>Adaptation to local conditions</li>
+          <li>Reliable remote management deployment</li>
+        </ul>
+      </div>
 
-<!-- AVANTAGES -->
-<div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px;">
 
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
 
-  <!-- LISTE FR -->
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+        <p class="fr" style="font-size:18px;">
+          Tous domaines nécessitant <strong>Télémétrie</strong> ou <strong>Télégéstion</strong>.
+        </p>
 
-    <li>Connectivité avec de nombreux produits d’automatismes, logiciels SCADA, plateformes Cloud…</li>
-    <li>Mise en place de solutions de Télémétrie/Télégéstion sur des installations existantes facilitée</li>
-    <li>Accès possible à la programmation des automates connectés (fonction « Pass through »)</li>
-    <li>Fonctionnalités de conversion de protocoles et de passerelles</li>
-    <li>Création de synoptiques de conduite et de tableaux de bord personnalisés</li>
-    <li>Traçabilité et absence de perte de données grâce aux fonctions d’enregistrement local</li>
-    <li>Changement de lien de communication par simple remplacement de carte (ex : passage cellulaire → WiFi)</li>
-    <li>Possibilité de redondance de communications (ex : fibre optique + liaison cellulaire en secours)</li>
-    <li>Gratuité des outils de programmation</li>
-    <li>Gratuité du serveur VPN Talk2M pour un nombre illimité d’équipements et d’utilisateurs</li>
-    <li>Sécurité IT maximale, largement acceptée par les services informatiques exigeants</li>
-    <li>Produit industriel éprouvé sur plus de 100 000 sites dans le monde</li>
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+          <li>Gestion de l’eau</li>
+          <li>Équipements urbains</li>
+          <li>Environnement</li>
+          <li>Énergie</li>
+          <li>Industrie et procédés</li>
+        </ul>
 
-  </ul>
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
 
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <p class="en" style="font-size:18px;">
+          All sectors requiring <strong>Telemetry</strong> or <strong>Remote Management</strong>.
+        </p>
 
-  <!-- LISTE EN -->
-  <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+        <ul class="en" style="font-size:17px; margin-left:20px;">
+          <li>Water management</li>
+          <li>Urban systems</li>
+          <li>Environmental monitoring</li>
+          <li>Energy</li>
+          <li>Industrial processes</li>
+        </ul>
 
-    <li>Connectivity with numerous automation products, SCADA software, and Cloud platforms</li>
-    <li>Easy deployment of Telemetry/Remote Management solutions on existing installations</li>
-    <li>Possible access to PLC programming (Pass-through function)</li>
-    <li>Protocol conversion and gateway features</li>
-    <li>Custom dashboard and monitoring synoptic creation</li>
-    <li>Traceability and no data loss thanks to local logging functions</li>
-    <li>Communication link change by simply replacing the communication card (cellular → WiFi)</li>
-    <li>Communication redundancy options (fiber optic + cellular backup)</li>
-    <li>Free programming tools</li>
-    <li>Free Talk2M VPN server access for unlimited devices and users</li>
-    <li>High IT security, accepted by the most demanding IT departments</li>
-    <li>Proven industrial product deployed in over 100,000 sites worldwide</li>
-
-  </ul>
-
-</div>
+      </div>
 
 
-  </div>
-</div>
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px;">
 
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+          <li>Compatibilité étendue</li>
+          <li>Déploiement simple</li>
+          <li>Pass-through PLC</li>
+          <li>Conversion de protocoles</li>
+          <li>Supervision personnalisable</li>
+          <li>Enregistrement local fiable</li>
+          <li>Redondance des communications</li>
+          <li>Outils gratuits</li>
+          <li>Talk2M gratuit</li>
+          <li>Sécurité IT avancée</li>
+          <li>Produit éprouvé</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; margin-left:20px;">
+          <li>Wide compatibility</li>
+          <li>Easy deployment</li>
+          <li>PLC pass-through</li>
+          <li>Protocol conversion</li>
+          <li>Custom dashboards</li>
+          <li>Local logging</li>
+          <li>Redundant communication</li>
+          <li>Free tools</li>
+          <li>Talk2M VPN free</li>
+          <li>High IT security</li>
+          <li>Proven product</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
 
 </section>
 
@@ -746,205 +773,167 @@
 
 
 
-
 <section id="enregistreurs" class="section">
- <div style="
-    display:flex;
-    align-items:flex-start;
-    gap:40px;
-    margin-top:25px;
-    max-width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-">
 
-  <!-- IMAGE -->
-  <div style="flex:0 0 320px; text-align:center;">
-    <img src="enregistreurs-autonomes.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="enregistreurs-lorawan.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="permanet.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-         <img src="pegasus.png" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="LOGGER_GL900.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="multilog.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-  </div>
+  <div class="produit-layout">
 
-  <!-- TEXTE -->
-  <div style="flex:1; font-size:18px; line-height:1.55;">
-
-    <!-- FR -->
-    <div class="fr">
-
-      <p>
-        Les enregistreurs de données que nous proposons sont conçus pour répondre aux exigences élevées des
-        environnements industriels, y compris ceux présentant des risques potentiellement explosifs, comme les 
-        réseaux d’eaux usées, les installations de traitement de l’eau ou encore les infrastructures gazières.
-      </p>
-
-      <p>
-        Ils sont équipés de modems cellulaires de dernière génération compatibles <strong>LTE-M / NB-IoT / LORAWAN</strong>, garantissant une
-        communication fiable même dans des zones difficiles, éloignées ou souterraines.
-      </p>
-
-      <p>
-        Plusieurs modèles existent selon les applications et les types de capteurs ou d'actionneurs à connecter,
-        offrant une grande autonomie grâce à des batteries internes longue durée et des capacités avancées de
-        traitement et de communication.
-      </p>
-
-      <p>
-        Ils s’intègrent également dans des systèmes de supervision <strong>multisites</strong> tels que 
-        TopKapi, Wonderware, VTScada ou tout autre SCADA.  
-      </p>
-
-      <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
-
-      <p><strong>Vi Na Vi</strong> déploie, configure et intègre les différents enregistreurs-autonomes avec:
-      <ul style="margin-left:20px;">
-        <li>La sélection des enregisteurs les mieux adaptés aux besoins</li>
-        <li>La configuration complète et sécurisée </li>
-        <li>L’intégration dans vos plateformes SCADA</li>
-        <li>L'accompagnement technique et la formation des équipes</li>
-        <li>Le support après vente.</li>
-      </ul>
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="enregistreurs-autonomes.jpg" alt="Enregistreurs autonomes">
+      <img src="enregistreurs-lorawan.jpg" alt="Enregistreurs LoRaWAN">
+      <img src="permanet.jpg" alt="Permanet">
+      <img src="pegasus.png" alt="Pegasus">
+      <img src="LOGGER_GL900.jpg" alt="LOGGER GL900">
+      <img src="multilog.jpg" alt="Multilog">
     </div>
 
-    <!-- EN -->
-    <div class="en">
+    <!-- TEXTE -->
+    <div class="produit-texte">
 
-      <p>
-        The data loggers we offer are designed to meet the demanding requirements of industrial environments,
-        including areas with potentially explosive atmospheres such as wastewater networks, water treatment
-        facilities, or gas distribution systems.
-      </p>
+      <!-- FR -->
+      <div class="fr">
 
-      <p>
-        They are equipped with latest-generation <strong>LTE-M / NB-IoT / LORAWAN</strong> cellular modems, ensuring reliable communication
-        even in challenging, remote or underground locations.
-
-      <p>
-        Various models are available depending on the application and the required sensors or actuators. All units
-        offer long-lasting internal battery autonomy and advanced processing and communication capabilities. 
+        <p>
+          Les enregistreurs de données que nous proposons sont conçus pour répondre aux exigences élevées des
+          environnements industriels, y compris ceux présentant des risques potentiellement explosifs, comme les 
+          réseaux d’eaux usées, les installations de traitement de l’eau ou encore les infrastructures gazières.
         </p>
 
-      <p>
-        They also integrate into <strong>multisite SCADA platforms</strong> such as TopKapi, 
-        Wonderware, VTScada or any other SCADA system.  
-        Data exchanges are fully secured through <strong>VPN eFive</strong> gateways 
-        or the Talk2M Cloud.
-      </p>
+        <p>
+          Ils sont équipés de modems cellulaires de dernière génération compatibles 
+          <strong>LTE-M / NB-IoT / LORAWAN</strong>, garantissant une communication fiable même dans des zones difficiles,
+          éloignées ou souterraines.
+        </p>
 
-      <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+        <p>
+          Plusieurs modèles existent selon les applications et les types de capteurs ou d'actionneurs à connecter,
+          offrant une grande autonomie grâce à des batteries internes longue durée et des capacités avancées de
+          traitement et de communication.
+        </p>
 
-      <p><strong>Vi Na Vi</strong> deploys, configures and integrates the various standalone recorders with:</p>
+        <p>
+          Ils s’intègrent également dans des systèmes de supervision <strong>multisites</strong> tels que 
+          TopKapi, Wonderware, VTScada ou tout autre SCADA.
+        </p>
 
-      <ul style="margin-left:20px;">
-        <li>The selection the recorders best suited to the needs.</li>
-        <li>The complete and secure configuration.</li>
-        <li>The integration with your SCADA platforms.</li>
-        <li>The technical support and team training.</li>
-        <li>After-sales support.</li>
-      </ul>
-    </div>
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
 
+        <p><strong>Vi Na Vi</strong> déploie, configure et intègre les différents enregistreurs autonomes avec :</p>
+        <ul style="margin-left:20px;">
+          <li>La sélection des enregistreurs les mieux adaptés aux besoins</li>
+          <li>La configuration complète et sécurisée</li>
+          <li>L’intégration dans vos plateformes SCADA</li>
+          <li>L'accompagnement technique et la formation des équipes</li>
+          <li>Le support après vente</li>
+        </ul>
+      </div>
 
-    <!-- APPLICATIONS -->
-<div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+      <!-- EN -->
+      <div class="en">
 
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Applications</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <p>
+          The data loggers we offer are designed to meet the demanding requirements of industrial environments,
+          including areas with potentially explosive atmospheres such as wastewater networks, water treatment
+          facilities, or gas distribution systems.
+        </p>
 
-  <!-- TEXTE FR -->
+        <p>
+          They are equipped with latest-generation <strong>LTE-M / NB-IoT / LORAWAN</strong> cellular modems,
+          ensuring reliable communication even in challenging, remote or underground locations.
+        </p>
 
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li>Eau et assainissement / Eaux usées (Surveillance de niveaux d’eaux, Suivi hydrométrique)</li>
-    <li>Détection de débordements, inondations, surveillance permanente sur des sites isolés sans alimentation électrique.</li>
-    <li>Gestion des réseaux d’eau potable / distribution et maintenance des réseaux (compteurs, débitmètres, capteurs de pression ou de niveau)</li>
-    <li>Environnement, milieux naturels, prévention des inondations(Suivi hydrologique dans des zones rurales, milieux naturels, bassins versants.)</li>
-    <li>Energie & réseaux d’énergie, télégestion pour monitoring, relevé à distance, alarmes, et maintenance prédictive.</li>
-    <li>Équipements et procédés industriels</li>
-  </ul>
+        <p>
+          Various models are available depending on the application and the required sensors or actuators.
+          All units offer long-lasting internal battery autonomy and advanced processing and communication capabilities.
+        </p>
 
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <p>
+          They also integrate into <strong>multisite SCADA platforms</strong> such as TopKapi, 
+          Wonderware, VTScada or any other SCADA system.
+        </p>
 
-  <!-- TEXTE EN -->
-  <p class="en" style="font-size:18px; margin-bottom:15px;">
-    All activity sectors requiring <strong>Telemetry</strong> and 
-    <strong>Remote Management</strong> for technical facility operators:
-  </p>
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
 
-   <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li>Water and wastewater management (water level monitoring, hydrometric tracking).</li>
-    <li>Overflow detection, flood prevention, continuous monitoring on remote sites without electrical power.</li>
-    <li>Drinking water networks / distribution and network maintenance (meters, flow meters, pressure or level sensors).</li>
-    <li>Environment and natural areas, flood prevention (hydrological monitoring in rural zones, natural environments, and watershed areas).</li>
-    <li>Energy and power networks, remote monitoring, data logging, alarms, and predictive maintenance.</li>
-    <li>Industrial equipment and process monitoring.</li>
-    </ul>
+        <p><strong>Vi Na Vi</strong> deploys, configures and integrates the various standalone recorders with :</p>
 
-
-</div>
-
-<!-- AVANTAGES -->
-<div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
-
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
-
-  <!-- LISTE FR -->
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
-
-    <li>Fonctionnent sur les nouveaux réseaux cellulaires LTE-M/NBIoT </li>
-    <li>Flexibilité d’adaptation à une grande diversité d’applications</li>
-    <li>Certification ATEX/IECEx pour zones potentiellement explosives (Classe I / Zone 0)</li>
-    <li>Grande autonomie sur batteries (3 à plus de 5 ans pour la majorité des applications)</li>
-    <li>Disponibilité de packs batteries externes certifiés pour augmenter cette autonomie</li>
-    <li>Étanchéité IP68 (submersible) et protection anti-corrosion</li>
-    <li>Grande sécurité des communications, avec secours par SMS en cas de baisse de disponibilité sur le canal Data IP des réseaux</li>
-    <li>Configurable à distance</li>
-    <li>Fonctions avancées de mesure, de traitement et de gestion d’alarmes. Exemples :
-       accélération des mesures et des fréquences de transmission sur alarmes
-        – alerte sur état ON/OFF, sur seuil, sur variation de mesure, etc.
-        – calcul de valeurs mini, maxi, moyennes…, comptages, conversions hauteurs/débits…</li>
-  </ul>
-
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
-
-  <!-- LISTE EN -->
-  <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
-
-  <li>Operation on new LTE-M/NB-IoT cellular networks</li>
-     <li>Flexibility to adapt to a wide variety of applications</li>
-     <li>ATEX/IECEx certification for potentially explosive zones (Class I / Zone 0)</li>
-     <li>Long battery autonomy (3 to more than 5 years for most applications)</li>
-     <li>Availability of certified external battery packs to further extend autonomy</li>
-     <li>IP68 sealing (submersible) and reinforced anti-corrosion protection</li>
-     <li>High communication security, with SMS fallback in case of low availability on the network’s IP Data channel</li>
-     <li>Remote configurable</li>
-     <li>Advanced measurement, processing, and alarm management functions. Examples:
-         – measurement rate acceleration and transmission frequency increase on alarms  
-         – ON/OFF status alarms, threshold alarms, measurement variation alarms, etc.  
-         – calculation of minimum, maximum, average values, counting, level/flow conversions…
-</li>
-
-  </ul>
-
-</div>
+        <ul style="margin-left:20px;">
+          <li>The selection of the most suitable recorders</li>
+          <li>The complete and secure configuration</li>
+          <li>Integration with your SCADA platforms</li>
+          <li>Technical support and training</li>
+          <li>After-sales assistance</li>
+        </ul>
+      </div>
 
 
-  </div>
-</div>
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>Eau et assainissement (surveillance de niveaux, suivi hydrométrique)</li>
+          <li>Détection de débordements, prévention des inondations, surveillance sur sites isolés</li>
+          <li>Gestion des réseaux d’eau potable : compteurs, débitmètres, capteurs de pression et de niveau</li>
+          <li>Environnement et milieux naturels : suivi hydrologique, bassins versants</li>
+          <li>Énergie & réseaux : monitoring, alarmes, maintenance prédictive</li>
+          <li>Équipements et procédés industriels</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>Water and wastewater management (level monitoring, hydrometric tracking)</li>
+          <li>Overflow detection, flood prevention, remote site monitoring</li>
+          <li>Drinking water networks: meters, flow meters, pressure/level sensors</li>
+          <li>Environment and natural areas: hydrological monitoring, watershed management</li>
+          <li>Energy networks: monitoring, alarm reporting, predictive maintenance</li>
+          <li>Industrial equipment and process monitoring</li>
+        </ul>
+
+      </div>
+
+
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>Compatibles LTE-M / NB-IoT</li>
+          <li>Adaptables à de nombreuses applications</li>
+          <li>Certification ATEX/IECEx (Classe I / Zone 0)</li>
+          <li>Autonomie batterie 3 à 5 ans (voire plus)</li>
+          <li>Packs batteries externes certifiés disponibles</li>
+          <li>Étanchéité IP68, protection anti-corrosion</li>
+          <li>Sécurité élevée, secours SMS en cas de défaillance IP</li>
+          <li>Configuration à distance</li>
+          <li>Mesure avancée et gestion d’alarmes (seuils, variations, ON/OFF, calculs…)</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>LTE-M / NB-IoT compatible</li>
+          <li>Highly adaptable to applications</li>
+          <li>ATEX/IECEx certified (Class I / Zone 0)</li>
+          <li>Battery autonomy from 3 to 5+ years</li>
+          <li>Certified external battery packs available</li>
+          <li>IP68 waterproof, anti-corrosion protection</li>
+          <li>High communication security with SMS fallback</li>
+          <li>Remote configuration</li>
+          <li>Advanced measurement and alarm management (threshold, variation, counting…)</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
 
 </section>
 
@@ -954,241 +943,211 @@
 
 <section id="scada-supervision" class="section">
 
+  <div class="produit-layout">
 
- 
- <div style="
-    display:flex;
-    align-items:flex-start;
-    gap:40px;
-    margin-top:25px;
-    max-width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-">
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="SCADA.jpg" alt="SCADA">
+      <img src="trend.jpg" alt="Trend">
+      <img src="trimble.jpg" alt="Trimble">
+      <img src="talk_to_m.jpg" alt="Talk2M">
+    </div>
 
-  <!-- IMAGE -->
-  <div style="flex:0 0 320px; text-align:center;">
-    <img src="SCADA.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="trend.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="trimble.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-      
-    <img src="talk_to_m.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-  </div>
+    <!-- TEXTE -->
+    <div class="produit-texte">
 
-  <!-- TEXTE -->
-  <div style="flex:1; font-size:18px; line-height:1.55;">
+      <!-- FR -->
+      <div class="fr">
 
-    <!-- FR -->
-    <div class="fr">
+        <p style="font-size:18px; margin-bottom:15px;">
+          Les systèmes SCADA (Supervisory Control And Data Acquisition) sont essentiels pour surveiller, contrôler et optimiser les infrastructures 
+          industrielles, énergétiques et environnementales.
+          Ils permettent de collecter les données terrain, de les analyser en temps réel, puis de piloter les équipements à distance, même lorsque 
+          les installations sont réparties sur de vastes territoires ou situées dans des zones difficiles d’accès.
+        </p>
 
-      <p class="fr" style="font-size:18px; margin-bottom:15px;">
-        Les systèmes SCADA (Supervisory Control And Data Acquisition) sont essentiels pour surveiller, contrôler et optimiser les infrastructures 
-        industrielles, énergétiques et environnementales.
-        Ils permettent de collecter les données terrain, de les analyser en temps réel, puis de piloter les équipements à distance, même lorsque 
-        les installations sont réparties sur de vastes territoires ou situées dans des zones difficiles d’accès.
-      </p>
-
-      <p>Un SCADA assure notamment :</p>
-      
+        <p>Un SCADA assure notamment :</p>
         <ul style="margin-left:20px;">
-        <li>La centralisation de toutes les informations opérationnelles</li>
-        <li>La visualisation en temps réel des réseaux, capteurs et équipements </li>
-        <li>La détection rapide des anomalies, alarmes et dérives</li>
-        <li>Le pilotage à distance des actionneurs et automates</li>
-        <li>La traçabilité et l’analyse historique pour améliorer les performances.</li>
+          <li>La centralisation de toutes les informations opérationnelles</li>
+          <li>La visualisation en temps réel des réseaux, capteurs et équipements</li>
+          <li>La détection rapide des anomalies, alarmes et dérives</li>
+          <li>Le pilotage à distance des actionneurs et automates</li>
+          <li>La traçabilité et l’analyse historique pour améliorer les performances</li>
         </ul>
 
-        <p>Il s’agit d’un outil indispensable pour moderniser les installations, réduire les coûts d’exploitation et améliorer la fiabilité des opérations.</p>
+        <p>
+          Il s’agit d’un outil indispensable pour moderniser les installations, réduire les coûts d’exploitation et améliorer la fiabilité des opérations.
+        </p>
         
         <h3 style="margin-top:25px;">→ Outils de supervision</h3>
 
-      <p>Les outils de supervision regroupent l’ensemble des solutions qui permettent de surveiller l’état des installations, d’analyser les données et 
-        d’aider à la prise de décision. Ils transforment des données brutes en informations utiles et exploitables au quotidien.
-      <ul style="margin-left:20px;">
-        <li>Affichage de l’état des installations sous forme de tableaux de bord, cartes ou synoptiques</li>
-        <li>Gestion des alarmes, événements et historiques</li>
-        <li>Édition de rapports automatiques pour le suivi de performance</li>
-        <li>Communication avec les capteurs, automates, enregistreurs et passerelles (IP, LTE-M, LoRaWAN, Modbus, etc.)</li>
-        <li>Prise en compte de la cybersécurité et de la continuité des opérations critiques.</li>
-      </ul>
+        <p>
+          Les outils de supervision regroupent l’ensemble des solutions qui permettent de surveiller l’état des installations, d’analyser les données et 
+          d’aider à la prise de décision. Ils transforment des données brutes en informations utiles et exploitables au quotidien.
+        </p>
+
+        <ul style="margin-left:20px;">
+          <li>Affichage de l’état des installations sous forme de tableaux de bord, cartes ou synoptiques</li>
+          <li>Gestion des alarmes, événements et historiques</li>
+          <li>Édition de rapports automatiques pour le suivi de performance</li>
+          <li>Communication avec capteurs, automates, enregistreurs et passerelles (IP, LTE-M, LoRaWAN, Modbus, etc.)</li>
+          <li>Prise en compte de la cybersécurité et de la continuité des opérations critiques</li>
+        </ul>
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+        <p>
+          <strong>Vi Na Vi</strong> accompagne les organisations dans la mise en œuvre complète de leurs systèmes de supervision et SCADA avec la 
+          suite logicielle <strong>TOPKAPI</strong>, en combinant expertise technique, connaissance terrain et maîtrise des technologies IoT et industrielles.
+        </p>
+
+        <ul style="margin-left:20px;">
+          <li>Intégration complète clé en main, de la sélection des capteurs à la configuration du SCADA</li>
+          <li>Expertise en télémétrie et communications industrielles</li>
+          <li>Support local en Afrique de l’Ouest</li>
+          <li>Formation & transfert de compétences</li>
+          <li>Sécurité et fiabilité</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+
+        <p>
+          SCADA (Supervisory Control And Data Acquisition) systems are essential for monitoring, controlling, and optimizing industrial, energy, 
+          and environmental infrastructures. They collect field data, analyze it in real time, and allow remote control of equipment, even when 
+          installations are spread over large areas or located in hard-to-reach zones.
+        </p>
+
+        <p>A SCADA system provides:</p>
+        <ul style="margin-left:20px;">
+          <li>Centralization of all operational information</li>
+          <li>Real-time visualization of networks, sensors, and equipment</li>
+          <li>Rapid detection of anomalies, alarms, and drifts</li>
+          <li>Remote control of actuators and PLCs</li>
+          <li>Full traceability and historical analysis to improve performance</li>
+        </ul>
+
+        <p>
+          It is a key tool to modernize installations, reduce operating costs, and improve reliability.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+        <p>
+          <strong>Vi Na Vi</strong> supports organizations in the complete implementation of their supervision and SCADA systems using the 
+          <strong>TOPKAPI</strong> software suite, combining technical expertise, field knowledge, and mastery of IoT and industrial technologies.
+        </p>
+
+        <ul style="margin-left:20px;">
+          <li>Turnkey integration, from sensor selection to SCADA configuration</li>
+          <li>Expertise in telemetry and industrial communications</li>
+          <li>Local support in West Africa</li>
+          <li>Training & skills transfer</li>
+          <li>Security and reliability</li>
+        </ul>
+      </div>
 
 
-            <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
 
-      <p><strong>Vi Na Vi</strong> accompagne les organisations dans la mise en œuvre complète de leurs systèmes de supervision et SCADA avec la 
-        suite de logiciel <strong>TOPKAPI</strong> , en combinant expertise technique, connaissance terrain et maîtrise des technologies IoT et industrielles. 
-      <ul style="margin-left:20px;">
-        <li>Intégration complète clé en main, de la sélection des capteurs à la configuration du SCADA</li>
-        <li>Expertise en télémétrie et communications industrielles</li>
-        <li>Support local en Afrique de l’Ouest</li>
-        <li>Formation & transfert de compétences</li>
-        <li>Sécurité et fiabilité.</li>
-      </ul>
-    </div>
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
 
-    <!-- EN -->
-    <div class="en">
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Surveillance des procédés et équipements critiques</li>
+          <li>Surveillance et contrôle des procédés industriels</li>
+          <li>Gestion des réseaux d’eau et d’assainissement</li>
+          <li>Exploitation des réseaux électriques (transport et distribution)</li>
+          <li>Gestion des installations de traitement (eau, eaux usées, air, gaz, vapeur)</li>
+          <li>Environnement et monitoring climatique</li>
+        </ul>
 
-      <p>
-        SCADA (Supervisory Control And Data Acquisition) systems are essential for monitoring, controlling, and optimizing industrial, energy, 
-        and environmental infrastructures. They collect field data, analyze it in real time, and allow remote control of equipment, even when 
-        installations are spread over large areas or located in hard-to-reach zones.
-      </p>
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
 
-      <p>
-        A SCADA system provides:
-       <ul style="margin-left:20px;">
-        <li>Centralization of all operational information</li>
-        <li>Real-time visualization of networks, sensors, and equipment</li>
-        <li>Rapid detection of anomalies, alarms, and drifts</li>
-        <li>Remote control of actuators and PLCs</li>
-        <li>Full traceability and historical analysis to improve performance.</li>
-          </ul>
-         <p > 
-            It is a key tool to modernize installations, reduce operating costs, and improve reliability.
-         </p>
+        <p class="en" style="font-size:18px; margin-bottom:15px;">
+          Typical applications for <strong>supervision</strong> and <strong>SCADA</strong> systems include:
+        </p>
 
-      <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Monitoring of processes and critical equipment</li>
+          <li>Monitoring and control of industrial processes</li>
+          <li>Management of water and wastewater networks</li>
+          <li>Operation of electrical networks (transmission and distribution)</li>
+          <li>Management of treatment facilities (water, wastewater, air, gas, steam)</li>
+          <li>Environmental and climate monitoring</li>
+        </ul>
 
-     <p><strong>Vi Na Vi</strong> supports organizations in the complete implementation of their supervision and SCADA systems using the 
-      <strong>TOPKAPI</strong> software suite, combining technical expertise, field knowledge, and mastery of IoT and industrial technologies.</p>
-
-      <ul style="margin-left:20px;">
-        <li>Turnkey integration, from sensor selection to SCADA configuration</li>
-        <li>Expertise in telemetry and industrial communications</li>
-        <li>Local support in West Africa</li>
-        <li>Training & skills transfer</li>
-        <li>Security and reliability</li>
-     </ul>
- 
-    </div>
+      </div>
 
 
-    <!-- APPLICATIONS -->
-<div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
 
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Applications</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
 
-  <!-- TEXTE FR -->
+        <p class="fr" style="font-size:18px; margin-bottom:15px;">
+          <strong>TOPKAPI</strong> est une suite logicielle modulaire et ouverte permettant de répondre aussi bien aux besoins d’applications 
+          traditionnelles de supervision (offre de type «&nbsp;SCADA&nbsp;») qu’aux besoins plus récents de plateformes de services de données 
+          avec diverses connectivités IoT (portails Web, en mode Cloud ou propriétaire).
+        </p>
 
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li>Surveillance des procédés et équipements critiques</li>
-    <li>Surveillance et contrôle des procédés industriels</li>
-    <li>Gestion des réseaux d’eau et d’assainissement</li>
-    <li>Exploitation des réseaux électriques (transport et distribution)</li>
-    <li>Gestion des installations de traitement (Eau, eaux usées, air, gaz, vapeur)</li>
-    <li>Environnement et monitoring climatique</li>
-  </ul>
+        <p class="fr"><strong>Avantages principaux :</strong></p>
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Produit tout-en-un économique, simple à installer et à maintenir : fonctions SCADA + alarme + rapports + portail Web</li>
+          <li>Ensemble très large de compatibilités :
+            <ul>
+              <li>Automates traditionnels (Schneider, Rockwell, Omron, Siemens, etc.)</li>
+              <li>Automates de télégestion (eWON, TBox, Scadapack, Xylem, WIT, etc.)</li>
+              <li>Enregistreurs de données (HWM, Ijinus, Primayer, ABB, etc.)</li>
+              <li>Systèmes CVC/HVAC (BACnet, LonWorks, etc.)</li>
+              <li>Protocoles : Modbus, IEC60870, DNP3, LoRaWAN, OPC, SNMP, etc.</li>
+            </ul>
+          </li>
+          <li>Serveur Web «&nbsp;Full HTML5&nbsp;» accessible depuis PC, tablettes, smartphones, sans application dédiée</li>
+          <li>Couplage et enrichissement de SCADA existants (solution Topkapi Frontal)</li>
+          <li>Gestion des pertes de communication avec récupération des données horodatées après rétablissement</li>
+          <li>Autoconfiguration et traitement des tags à partir des fichiers de programmation automates</li>
+          <li>Produit éprouvé : dizaines de milliers de licences dans plus de 80 pays</li>
+          <li>Respect des normes de sécurité les plus avancées</li>
+        </ul>
 
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
 
-  <!-- TEXTE EN -->
-  <p class="en" style="font-size:18px; margin-bottom:15px;">
-    All activity sectors requiring <strong>Telemetry</strong> and 
-    <strong>Remote Management</strong> for technical facility operators:
-  </p>
+        <p class="en" style="font-size:18px; margin-bottom:15px;">
+          <strong>TOPKAPI</strong> is a modular and open software suite designed to meet both traditional supervision needs (classic “SCADA”) 
+          and modern requirements for data service platforms with various IoT connectivity options (Web portals, Cloud-based or private).
+        </p>
 
-   <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li>Monitoring of processes and critical equipment</li>
-    <li>Monitoring and control of industrial processes</li>
-    <li>Management of water and wastewater networks</li>
-    <li>Operation of electrical networks (transmission and distribution)</li>
-    <li>Management of treatment facilities (water, wastewater, air, gas, steam)</li>
-    <li>Environmental and climate monitoring</li>
-    </ul>
+        <p class="en"><strong>Main advantages:</strong></p>
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>All-in-one product: traditional SCADA + alarm module + reporting + Web portal</li>
+          <li>Unique compatibility range:
+            <ul>
+              <li>Traditional PLCs (Schneider, Rockwell, Omron, Siemens, etc.)</li>
+              <li>Remote management PLCs (eWON, TBox, Scadapack, Xylem, WIT, etc.)</li>
+              <li>Data loggers (HWM, Ijinus, Primayer, ABB, etc.)</li>
+              <li>HVAC systems (BACnet, LonWorks, etc.)</li>
+              <li>Protocols and networks: Modbus, IEC60870, DNP3, LoRaWAN, OPC, SNMP, etc.</li>
+            </ul>
+          </li>
+          <li>“Full HTML5” Web Server: access from any device (PC, tablet, smartphone) without specific apps</li>
+          <li>Coupling and enhancement of existing SCADA software (Topkapi Frontal)</li>
+          <li>Management of communication losses with PLCs/loggers and retrieval of timestamped data once restored</li>
+          <li>Auto-configuration and tag processing from PLC program files</li>
+          <li>Proven industrial product with tens of thousands of licenses in 80+ countries</li>
+          <li>Compliance with the highest security standards</li>
+        </ul>
 
+      </div>
 
-</div>
+    </div> <!-- FIN TEXTE -->
 
-<!-- AVANTAGES -->
-<div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
-
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
-
-  <!-- LISTE FR -->
-<p class="fr" style="font-size:18px; margin-bottom:15px;">
-  <strong>TOPKAPI</strong> est une suite logicielle modulaire et ouverte permettant de répondre aussi bien aux besoins d’applications 
-  traditionnelles de supervision (offre de type «&nbsp;SCADA&nbsp;») qu’aux besoins plus récents de plateformes de services de données 
-  avec diverses connectivités IoT (offre de type portails Web, en mode Cloud ou propriétaire).
-</p>
-
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
-
-<p><strong>Avantages principaux :</strong></p>
-  <li>Produit tout-en-un plus économique, simple à installer et à maintenir : fonctions SCADA traditionnelles + module d’alerte + module de 
-    rapports + portail Web.</li>
-  <li>Ensemble inédit de compatibilités :
-    <ul>
-      <li>Automates traditionnels (Schneider, Rockwell, Omron, Siemens, etc.).</li>
-      <li>Automates de télégestion (eWON, TBox, Scadapack, Xylem, WIT, etc.).</li>
-      <li>Enregistreurs de données (HWM, Ijinus, Primayer, ABB, etc.).</li>
-      <li>Systèmes CVC/HVAC (BACnet, LonWorks, etc.).</li>
-      <li>Protocoles et réseaux divers : Modbus, IEC60870, DNP3, LoRaWAN, OPC, SNMP, etc.</li>
-    </ul>
-  </li>
-  <li>Serveur Web «&nbsp;Full HTML5&nbsp;» permettant l’accès depuis tout type de terminal (PC, tablettes, téléphones intelligents) sans 
-    application spécifique à installer ni à maintenir.</li>
-  <li>Couplage et enrichissement des logiciels SCADA existants (solution Topkapi Frontal).</li>
-  <li>Gestion des pertes de communication avec les automates et enregistreurs, avec récupération des données enregistrées horodatées après 
-    rétablissement de la communication.</li>
-  <li>Autoconfiguration et traitement des tags à partir des fichiers de programmation des automates.</li>
-  <li>Produit industriel éprouvé : plusieurs dizaines de milliers de licences déployées dans plus de 80 pays.</li>
-  <li>Respect des normes de sécurité les plus avancées.</li>
-</ul>
-
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
-
-  <!-- LISTE EN -->
-   <p class="en" style="font-size:18px; margin-bottom:15px;">
-  <strong>TOPKAPI</strong> is a modular and open software suite designed to meet both traditional supervision application needs (classic “SCADA” offering) 
-           and more modern requirements for data service platforms with various IoT connectivity options (Web Portals, Cloud-based or private deployments).
-</p>
-  <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <p ><strong>Main advantages:</strong></p>
-     <li>All-in-one product that is more cost-effective, easier to install and maintain: traditional SCADA functions + alarm module + reporting module + Web portal.</li>
-      <li>Unique compatibility range:
-     <ul>
-      <li>Traditional PLCs (Schneider, Rockwell, Omron, Siemens, etc.).</li>
-      <li>Remote management PLCs (eWON, TBox, Scadapack, Xylem, WIT, etc.).</li>
-      <li>Data loggers (HWM, Ijinus, Primayer, ABB, etc.).</li>
-      <li>HVAC systems (BACnet, LonWorks, etc.).</li>
-      <li>Various protocols and networks: Modbus, IEC60870, DNP3, LoRaWAN, OPC, SNMP, etc.</li>
-    </ul>
-  </li>
-  <li>“Full HTML5” Web Server allowing access from any terminal (PC, tablets, smartphones) with no specific applications to install or maintain.</li>
-  <li>Coupling and enhancement of existing SCADA software (Topkapi Frontal solution).</li>
-  <li>Management of communication losses with PLCs/data loggers, including retrieval of timestamped recorded data once communication is restored.</li>
-  <li>Auto-configuration and tag processing from PLC programming files.</li>
-  <li>Proven industrial product: tens of thousands of licenses deployed in more than 80 countries.</li>
-  <li>Compliance with the highest security standards.</li>
-</ul>
-
-
-
-
-</div>
-
-
-  </div>
-</div>
-
-
-
-
-
-
+  </div> <!-- FIN LAYOUT -->
 
 </section>
 
@@ -1198,217 +1157,187 @@
 
 <section id="routeurs-passerelles" class="section">
 
+  <div class="produit-layout">
 
-<div style="
-    display:flex;
-    align-items:flex-start;
-    gap:40px;
-    margin-top:25px;
-    max-width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-">
-
-  <!-- IMAGE -->
-  <div style="flex:0 0 320px; text-align:center;">
-    <img src="ewon_cosy.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-    <img src="ewon_flexy3101.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-         <img src="ewon_netbiter.jpg" 
-         style="width:100%; max-width:300px; height:auto; border-radius:10px;">
-  </div>
-
-  <!-- TEXTE -->
-  <div style="flex:1; font-size:18px; line-height:1.55;">
-
-    <!-- FR -->
-    <div class="fr">
-
-      <p>
-        La famille de routeurs-passerelles <strong>Cosy</strong> permet d’accéder à distance aux         équipements industriels — automates, interfaces 
-        opérateur, caméras ou autres systèmes de contrôle — tout en garantissant un haut niveau de sécurité. 
-        Cette capacité de visualisation et de diagnostic à distance réduit les interventions sur site, optimise les coûts de support et améliore la disponibilité 
-        des installations.
-      </p>
-
-      <p>
-        L’ensemble des routeurs Cosy est administré via <strong>Talk2M</strong>, une plateforme Cloud VPN sécurisée (disponible en version gratuite
-        ou professionnelle selon les besoins). 
-        Ce service centralisé simplifie la gestion, la supervision et la mise en service des équipements.
-      </p>
-
-      <p>
-        Le modèle <strong>Cosy+</strong>, dernière évolution de la gamme, introduit un niveau de protection renforcé en intégrant une chaîne de confiance 
-        au cœur même de l’architecture matérielle («&nbsp;Hardware Root of Trust&nbsp;»). 
-        Cette approche renforce la cybersécurité et rend l’accès distant encore plus fiable pour les environnements les plus critiques.
-      </p>
-
-      <p>
-        Les routeurs Cosy constituent ainsi une solution de référence pour une télémaintenance industrielle moderne, flexible et sécurisée.
-      </p>
-
-
-      <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
-
-      <p><strong>Vi Na Vi</strong> déploie, configure et intègre les solutions Ewon dans des environnements industriels complexes, en assurant :</p>
-
-      <ul style="margin-left:20px;">
-        <li><strong>Expertise technique complète :</strong> sélection, configuration et intégration des routeurs, capteurs, automates et solutions de télémétrie.</li>        <li>La configuration sécurisée Talk2M et VPN</li>
-        <li><strong>Cybersécurité intégrée :</strong> architectures sécurisées, VPN Talk2M, gestion des accès et protection des sites critiques.</li>
-        <li><strong>Supervision centralisée :</strong> interconnexion avec les plateformes SCADA pour alarmes, historiques et monitoring en temps réel.</li>
-        <li><strong>Réduction des coûts d’exploitation :</strong> moins d’interventions sur site, diminution des arrêts et optimisation du support.</li>
-        <li><strong>Présence locale et appui canadien :</strong> support rapide en Afrique de l’Ouest.</li>
-        <li><strong>Accompagnement complet :</strong> audit, fourniture, installation, formation et maintenance continue.</li>
-        </ul>
-      </ul>
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="ewon_cosy.jpg" alt="Ewon Cosy">
+      <img src="ewon_flexy3101.jpg" alt="Ewon Flexy 3101">
+      <img src="ewon_netbiter.jpg" alt="Ewon Netbiter">
     </div>
 
-    <!-- EN -->
-    <div class="en">
+    <!-- TEXTE -->
+    <div class="produit-texte">
 
-      <h3 class="en">Cosy Remote Access Routers</h3>
+      <!-- FR -->
+      <div class="fr">
 
-      <p>
-        The <strong>Cosy</strong> family of remote access routers allows secure connectivity to industrial equipment — PLCs, HMIs, cameras, and other control 
-        systems — from anywhere. 
-        This remote visualization and troubleshooting capability significantly reduces on-site interventions, lowers support costs, and improves overall system 
-        availability.
-      </p>
-
-      <p>
-        All Cosy routers are managed through <strong>Talk2M</strong>, a secure Cloud-based VPN platform available in both free and professional editions. 
-        This centralized service streamlines device management, supervision, and commissioning.
-      </p>
-
-      <p>
-       he latest addition to the range, <strong>Cosy+</strong>, brings enhanced protection by embedding a hardware-level trust chain (“&nbsp;Hardware Root of Trust&nbsp;”). 
-       This architecture strengthens cybersecurity and ensures highly reliable remote access for the most critical environments.
-       </p>
-       <p>
-       Cosy routers are therefore an ideal solution for modern, flexible, and secure industrial remote maintenance.
+        <p>
+          La famille de routeurs-passerelles <strong>Cosy</strong> permet d’accéder à distance aux équipements industriels — automates, interfaces 
+          opérateur, caméras ou autres systèmes de contrôle — tout en garantissant un haut niveau de sécurité. 
+          Cette capacité de visualisation et de diagnostic à distance réduit les interventions sur site, optimise les coûts de support et améliore la disponibilité 
+          des installations.
         </p>
-      
 
-      <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+        <p>
+          L’ensemble des routeurs Cosy est administré via <strong>Talk2M</strong>, une plateforme Cloud VPN sécurisée (disponible en version gratuite
+          ou professionnelle selon les besoins). Ce service centralisé simplifie la gestion, la supervision et la mise en service des équipements.
+        </p>
 
-      <p><strong>Vi Na Vi</strong> deploys, configures and integrates Ewon Flexy solutions in complex industrial environments, ensuring:</p>
+        <p>
+          Le modèle <strong>Cosy+</strong>, dernière évolution de la gamme, introduit un niveau de protection renforcé en intégrant une chaîne de confiance 
+          au cœur même de l’architecture matérielle («&nbsp;Hardware Root of Trust&nbsp;»). 
+          Cette approche renforce la cybersécurité et rend l’accès distant encore plus fiable pour les environnements les plus critiques.
+        </p>
 
-      <ul style="margin-left:20px;">
-       <li><strong>Comprehensive technical expertise:</strong> selection, configuration, and integration of routers, sensors, PLCs, and telemetry solutions.</li>
-       <li><strong>Built-in cybersecurity:</strong> secure architectures, Talk2M VPN, access management, and protection of critical sites.</li>
-       <li><strong>Centralized supervision:</strong> seamless integration with SCADA platforms for alarms, historical data, and real-time monitoring.</li>
-       <li><strong>Reduced operational costs:</strong> fewer site visits, decreased downtime, and optimized technical support.</li>
-       <li><strong>Local presence with Canadian support:</strong> fast assistance in West Africa reinforced by the expertise.</li>
-       <li><strong>End-to-end support:</strong> audits, equipment supply, installation, training, and ongoing maintenance.</li>
-      </ul>
-    </div>
+        <p>
+          Les routeurs Cosy constituent ainsi une solution de référence pour une télémaintenance industrielle moderne, flexible et sécurisée.
+        </p>
 
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
 
-    <!-- APPLICATIONS -->
-<div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+        <p><strong>Vi Na Vi</strong> déploie, configure et intègre les solutions Ewon dans des environnements industriels complexes, en assurant :</p>
 
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Applications</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <ul style="margin-left:20px;">
+          <li><strong>Expertise technique complète :</strong> sélection, configuration et intégration des routeurs, capteurs, automates et solutions de télémétrie.</li>
+          <li>Configuration sécurisée Talk2M et VPN</li>
+          <li><strong>Cybersécurité intégrée :</strong> architectures sécurisées, VPN Talk2M, gestion des accès et protection des sites critiques.</li>
+          <li><strong>Supervision centralisée :</strong> interconnexion avec les plateformes SCADA pour alarmes, historiques et monitoring en temps réel.</li>
+          <li><strong>Réduction des coûts d’exploitation :</strong> moins d’interventions sur site, diminution des arrêts et optimisation du support.</li>
+          <li><strong>Présence locale et appui canadien :</strong> support rapide en Afrique de l’Ouest.</li>
+          <li><strong>Accompagnement complet :</strong> audit, fourniture, installation, formation et maintenance continue.</li>
+        </ul>
+      </div>
 
-  <!-- TEXTE FR -->
-  <p class="fr" style="font-size:18px; margin-bottom:15px;">
-    Tous domaines d’activité pour des besoins de <strong>Télémétrie</strong> et de 
-    <strong>Télégéstion</strong> par des opérateurs d’installations techniques :
-  </p>
+      <!-- EN -->
+      <div class="en">
 
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li><strong>Accès distant aux automates (PLC)</strong> pour la programmation, les mises à jour et le dépannage.</li>
-   <li><strong>Télémaintenance des machines industrielles</strong> sans déplacement d’équipes sur site.</li>
-   <li><strong>Diagnostic à distance des IHM/HMI</strong> pour un support technique rapide.</li>
-   <li><strong>Surveillance d’équipements critiques</strong> : moteurs, pompes, stations de pompage, convoyeurs, turbines, etc.</li>
-   <li><strong>Connexion sécurisée aux réseaux industriels</strong> via VPN Talk2M.</li>
-   <li><strong>Suivi des alarmes et notifications</strong> par e-mail ou SMS pour des interventions rapides.</li>
-   <li><strong>Accès aux caméras industrielles</strong> pour inspection et monitoring visuel.</li>
-   <li><strong>Support technique international</strong> permettant à des experts à distance d’intervenir sur des installations locales.</li>
-   <li><strong>Intégration IoT</strong> pour la collecte de données vers des plateformes SCADA ou Cloud.</li>
-   <li><strong>Gestion de parcs de machines dispersés</strong> (mines, énergie, eau, télécoms, stations isolées).</li>
-   <li><strong>Accès distant aux stations isolées</strong> : réservoirs, cuves, stations de pompage, postes électriques.</li>
-   </ul>
-  </ul>
+        <h3>Cosy Remote Access Routers</h3>
 
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <p>
+          The <strong>Cosy</strong> family of remote access routers allows secure connectivity to industrial equipment — PLCs, HMIs, cameras, and other control 
+          systems — from anywhere. This remote visualization and troubleshooting capability significantly reduces on-site interventions, lowers support costs, 
+          and improves overall system availability.
+        </p>
 
-  <!-- TEXTE EN -->
-  <p class="en" style="font-size:18px; margin-bottom:15px;">
-    All activity sectors requiring <strong>Telemetry</strong> and 
-    <strong>Remote Management</strong> for technical facility operators:
-  </p>
+        <p>
+          All Cosy routers are managed through <strong>Talk2M</strong>, a secure Cloud-based VPN platform available in both free and professional editions. 
+          This centralized service streamlines device management, supervision, and commissioning.
+        </p>
 
-  <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
-    <li><strong>Remote access to PLCs</strong> for programming, updates, and troubleshooting.</li>
-    <li><strong>Remote maintenance of industrial machines</strong> without sending technicians on site.</li>
-    <li><strong>Remote diagnostics of HMIs</strong> for fast technical support.</li>
-    <li><strong>Monitoring of critical equipment</strong> such as motors, pumps, pumping stations, conveyors, and turbines.</li>
-    <li><strong>Secure connection to industrial networks</strong> through the Talk2M VPN.</li>
-    <li><strong>Alarm monitoring and notifications</strong> via email or SMS for quick intervention.</li>
-    <li><strong>Access to industrial cameras</strong> for visual inspection and monitoring.</li>
-    <li><strong>International technical support</strong> allowing remote experts to work on local installations.</li>
-    <li><strong>IoT integration</strong> for data collection into SCADA or cloud platforms.</li>
-    <li><strong>Management of distributed machine fleets</strong> (mining, energy, water, telecom, remote stations).</li>
-    <li><strong>Remote access to isolated stations</strong> such as tanks, reservoirs, pumping stations, and electrical substations.</li>
-  </ul>
+        <p>
+          The latest addition to the range, <strong>Cosy+</strong>, brings enhanced protection by embedding a hardware-level trust chain (“&nbsp;Hardware Root of Trust&nbsp;”). 
+          This architecture strengthens cybersecurity and ensures highly reliable remote access for the most critical environments.
+        </p>
 
-</div>
+        <p>
+          Cosy routers are therefore an ideal solution for modern, flexible, and secure industrial remote maintenance.
+        </p>
 
-<!-- AVANTAGES -->
-<div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
 
-  <!-- TITRE FR -->
-  <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
-  <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+        <p><strong>Vi Na Vi</strong> deploys, configures and integrates Ewon solutions in complex industrial environments, ensuring:</p>
 
-  <!-- LISTE FR -->
-  <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
-
-    <li><strong>Réduction des coûts de support :</strong> possibilité d’intervenir à distance, améliorant le service client et facilitant la gestion de sites éloignés.</li>
-    <li><strong>Mise en service simplifiée :</strong> aucune expertise informatique avancée n’est nécessaire.</li>
-    <li><strong>Installation rapide :</strong> déploiement sans interruption des automates ou des machines en production.</li>
-    <li><strong>Large choix de communications :</strong> Ethernet, ports Série, WiFi ou réseau cellulaire, avec options de redondance.</li>
-    <li><strong>Plateforme VPN Talk2M intégrée :</strong> gestion d’un grand nombre d’équipements et d’utilisateurs selon les besoins.</li>
-    <li><strong>Cybersécurité renforcée :</strong> protection complète répondant aux exigences des services IT et aux environnements critiques.</li>
-    <li><strong>Commande locale de l’accès distant :</strong> activation/désactivation possible via un commutateur externe pour le contrôle final par l’utilisateur.</li>
-    <li><strong>Alertes configurables :</strong> notifications SMS ou courriel pour anticiper les interventions et optimiser la maintenance.</li>
-    <li><strong>Connexion multi-équipements :</strong> possibilité de relier plusieurs machines à un seul routeur Cosy.</li>
-    <li><strong>Solution éprouvée :</strong> technologie utilisée sur plus de 200&nbsp;000 sites industriels dans le monde.</li>
-
-  </ul>
-
-  <!-- TITRE EN -->
-  <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
-  <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
-
-  <!-- LISTE EN -->
-  <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
-
-    <li><strong>Reduced support costs:</strong> remote access allows faster service and efficient management of geographically distant sites.</li>
-    <li><strong>Simplified deployment:</strong> no advanced IT skills required to install or configure the device.</li>
-    <li><strong>Fast installation:</strong> commissioning can be completed without stopping PLCs or production equipment.</li>
-    <li><strong>Flexible communication options:</strong> Ethernet, Serial, WiFi, and Cellular connectivity with possible redundancy.</li>
-    <li><strong>Integrated Talk2M VPN platform:</strong> supports a large number of devices and users depending on operational needs.</li>
-    <li><strong>Enhanced cybersecurity:</strong> end-to-end protection that meets the expectations of modern IT departments and critical environments.</li>
-    <li><strong>Local remote-access control:</strong> the user can enable or disable remote connectivity using an external key switch.</li>
-    <li><strong>Configurable alerts:</strong> SMS and email notifications available for proactive maintenance.</li>
-   <li><strong>Multi-equipment connectivity:</strong> several machines can be managed through a single Cosy router.</li>
-   <li><strong>Proven industrial solution:</strong> deployed on more than 200,000 installations worldwide.</li>
-
-  </ul>
-
-</div>
+        <ul style="margin-left:20px;">
+          <li><strong>Comprehensive technical expertise:</strong> selection, configuration, and integration of routers, sensors, PLCs, and telemetry solutions.</li>
+          <li><strong>Built-in cybersecurity:</strong> secure architectures, Talk2M VPN, access management, and protection of critical sites.</li>
+          <li><strong>Centralized supervision:</strong> seamless integration with SCADA platforms for alarms, historical data, and real-time monitoring.</li>
+          <li><strong>Reduced operational costs:</strong> fewer site visits, decreased downtime, and optimized technical support.</li>
+          <li><strong>Local presence with Canadian support:</strong> fast assistance in West Africa reinforced by Canadian expertise.</li>
+          <li><strong>End-to-end support:</strong> audits, equipment supply, installation, training, and ongoing maintenance.</li>
+        </ul>
+      </div>
 
 
-  </div>
-</div>
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="fr" style="font-size:18px; margin-bottom:15px;">
+          Tous domaines d’activité pour des besoins de <strong>Télémétrie</strong> et de 
+          <strong>Télégéstion</strong> par des opérateurs d’installations techniques :
+        </p>
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Accès distant aux automates (PLC)</strong> pour la programmation, les mises à jour et le dépannage.</li>
+          <li><strong>Télémaintenance des machines industrielles</strong> sans déplacement d’équipes sur site.</li>
+          <li><strong>Diagnostic à distance des IHM/HMI</strong> pour un support technique rapide.</li>
+          <li><strong>Surveillance d’équipements critiques</strong> : moteurs, pompes, stations de pompage, convoyeurs, turbines, etc.</li>
+          <li><strong>Connexion sécurisée aux réseaux industriels</strong> via VPN Talk2M.</li>
+          <li><strong>Suivi des alarmes et notifications</strong> par e-mail ou SMS pour des interventions rapides.</li>
+          <li><strong>Accès aux caméras industrielles</strong> pour inspection et monitoring visuel.</li>
+          <li><strong>Support technique international</strong> permettant à des experts à distance d’intervenir sur des installations locales.</li>
+          <li><strong>Intégration IoT</strong> pour la collecte de données vers des plateformes SCADA ou Cloud.</li>
+          <li><strong>Gestion de parcs de machines dispersés</strong> (mines, énergie, eau, télécoms, stations isolées).</li>
+          <li><strong>Accès distant aux stations isolées</strong> : réservoirs, cuves, stations de pompage, postes électriques.</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="en" style="font-size:18px; margin-bottom:15px;">
+          Typical applications for <strong>remote access</strong> and <strong>remote management</strong>:
+        </p>
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Remote access to PLCs</strong> for programming, updates, and troubleshooting.</li>
+          <li><strong>Remote maintenance of industrial machines</strong> without sending technicians on site.</li>
+          <li><strong>Remote diagnostics of HMIs</strong> for fast technical support.</li>
+          <li><strong>Monitoring of critical equipment</strong> such as motors, pumps, pumping stations, conveyors, and turbines.</li>
+          <li><strong>Secure connection to industrial networks</strong> through the Talk2M VPN.</li>
+          <li><strong>Alarm monitoring and notifications</strong> via email or SMS for quick intervention.</li>
+          <li><strong>Access to industrial cameras</strong> for visual inspection and monitoring.</li>
+          <li><strong>International technical support</strong> allowing remote experts to work on local installations.</li>
+          <li><strong>IoT integration</strong> for data collection into SCADA or cloud platforms.</li>
+          <li><strong>Management of distributed machine fleets</strong> (mining, energy, water, telecom, remote stations).</li>
+          <li><strong>Remote access to isolated stations</strong> such as tanks, reservoirs, pumping stations, and electrical substations.</li>
+        </ul>
+
+      </div>
 
 
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Réduction des coûts de support :</strong> possibilité d’intervenir à distance, améliorant le service client et facilitant la gestion de sites éloignés.</li>
+          <li><strong>Mise en service simplifiée :</strong> aucune expertise informatique avancée n’est nécessaire.</li>
+          <li><strong>Installation rapide :</strong> déploiement sans interruption des automates ou des machines en production.</li>
+          <li><strong>Large choix de communications :</strong> Ethernet, ports Série, WiFi ou réseau cellulaire, avec options de redondance.</li>
+          <li><strong>Plateforme VPN Talk2M intégrée :</strong> gestion d’un grand nombre d’équipements et d’utilisateurs selon les besoins.</li>
+          <li><strong>Cybersécurité renforcée :</strong> protection complète répondant aux exigences des services IT et aux environnements critiques.</li>
+          <li><strong>Commande locale de l’accès distant :</strong> activation/désactivation possible via un commutateur externe pour le contrôle final par l’utilisateur.</li>
+          <li><strong>Alertes configurables :</strong> notifications SMS ou courriel pour anticiper les interventions et optimiser la maintenance.</li>
+          <li><strong>Connexion multi-équipements :</strong> possibilité de relier plusieurs machines à un seul routeur Cosy.</li>
+          <li><strong>Solution éprouvée :</strong> technologie utilisée sur plus de 200&nbsp;000 sites industriels dans le monde.</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Reduced support costs:</strong> remote access allows faster service and efficient management of geographically distant sites.</li>
+          <li><strong>Simplified deployment:</strong> no advanced IT skills required to install or configure the device.</li>
+          <li><strong>Fast installation:</strong> commissioning can be completed without stopping PLCs or production equipment.</li>
+          <li><strong>Flexible communication options:</strong> Ethernet, Serial, WiFi, and Cellular connectivity with possible redundancy.</li>
+          <li><strong>Integrated Talk2M VPN platform:</strong> supports a large number of devices and users depending on operational needs.</li>
+          <li><strong>Enhanced cybersecurity:</strong> end-to-end protection that meets the expectations of modern IT departments and critical environments.</li>
+          <li><strong>Local remote-access control:</strong> the user can enable or disable remote connectivity using an external key switch.</li>
+          <li><strong>Configurable alerts:</strong> SMS and email notifications available for proactive maintenance.</li>
+          <li><strong>Multi-equipment connectivity:</strong> several machines can be managed through a single Cosy router.</li>
+          <li><strong>Proven industrial solution:</strong> deployed on more than 200,000 installations worldwide.</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
 
 </section>
 
