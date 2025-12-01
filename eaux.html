@@ -6,10 +6,10 @@
 <title>Vi Na Vi — Ingénierie, Automatisation & SCADA</title>
 <meta name="description" content="Vi Na Vi — Consultation technique, Ingénierie, Contrôle industriel, Industrie 4.0, SCADA & IT.">
 <!-- FAVICONS -->
-<link rel="icon" type="public/png" sizes="16x16" href="/favicon-16.png">
-<link rel="icon" type="public/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="public/png" sizes="16x16" href="public/favicon-16.png">
+<link rel="icon" type="public/png" sizes="32x32" href="public/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
+<link rel="shortcut icon" href="public/favicon.ico">
 
 <style>
   :root { --blue: #003366; --ink: #0f172a; --muted: #64748b; --line:#e2e8f0; --bg:#ffffff; }
@@ -416,14 +416,70 @@
 
 <style>
   /* Décalage pour que les sections ne passent pas sous le header sticky */
-    #automates-telemetrie,
-    #enregistreurs,
-    #geolocalisation,
-    #routeurs-passerelles,
-    #scada-supervision {
+    #analyseur-eau,
+    #mesure-niveau,
+    #mesure-debit,
+    #mesure-pression,
+    #hydrocarbures,
+    #systeme-traitement {
     scroll-margin-top: 120px; /* ajuste à 100–130px selon ton header si besoin */
   }
 </style>
+
+
+
+<style>
+
+/* ========= LAYOUT GLOBAL POUR TOUTES LES SECTIONS PRODUITS ========= */
+
+.produit-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 25px auto 0 auto;
+}
+
+/* Colonne Images */
+.produit-images {
+  flex: 0 0 320px;
+  text-align: center;
+}
+
+.produit-images img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+/* Colonne Texte */
+.produit-texte {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+/* ========= VERSION MOBILE ========= */
+@media (max-width: 768px) {
+  .produit-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produit-images {
+    width: 100%;
+  }
+
+  .produit-texte {
+    width: 100%;
+  }
+}
+
+</style>
+
+
 
 
 
@@ -464,10 +520,987 @@
     <a href="mines.html" class="fr">Mines</a><a href="mines.html" class="en">Mining</a>
     <a href="environnement.html" class="fr">Environnement</a><a href="environnement.html" class="en">Environment</a> 
     <a href="energie.html" class="fr">Énergie Électrique</a><a href="energie.html" class="en">Electrical Energy</a>
-    <a href="eaux.html" class="fr">Traitement des eaux</a><a href="eaux.html" class="en">Water Treatment</a> 
+    <a href="eaux.html" class="fr">Traitement des Eaux</a><a href="eaux.html" class="en">Water Treatment</a>
+    <a href="traitement.html" class="fr">Systèmes de Traitement des Eaux</a><a href="traitement.html" class="en">Water Treatment Systems</a>
       </nav>
 
 </header>
+
+</header>
+
+<style>
+/* Désactiver bandeau figé + réduire sa taille sur mobile */
+@media (max-width: 768px) {
+  .main-header {
+    position: static !important;
+  }
+
+  .header-top {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .brand-title,
+  .brand-subtitle-eng,
+  .brand-subtitle,
+  nav a {
+    font-size: 14px !important;
+  }
+}
+</style>
+
+
+
+<style>
+/* Cartes télégestion – mise en forme globale */
+#eaux-carte .cards-eaux {
+  gap: 24px;
+}
+
+/* Lien de carte */
+#eaux-carte .card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Bloc figure */
+#eaux-carte .card-figure {
+  margin: 0;
+  text-align: center;
+}
+
+/* Image de carte (taille uniforme + réduction) */
+#eaux-carte .card-img {
+  width: 100%;
+  height: 160px;        /* <-- ajuste ici si tu veux plus petit ou plus grand */
+  object-fit: cover;    /* recadrage propre sans déformation */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Titres sous les images */
+#eaux-carte .card-title {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.3;
+}
+</style>
+
+
+<!-- ===== Cartes cliquables Télégestion ===== -->
+<section id="eaux-carte" class="section">
+  <div class="container pad">
+    <div class="grid cols-3 cards-eaux">
+
+      <!-- Analyse Qualité Eau -->
+      <a href="#analyseur-eau" class="card-link">
+        <figure class="card-figure">
+          <img src="eaux_analyseur_qualité.jpg"
+               alt="Analyse de la Qualité de l’Eau"
+               class="card-img">
+          <h3 class="card-title fr">Analyse de la Qualité de l’Eau (Paramètres Physico-Chimiques)</h3>
+          <h3 class="card-title en">Water Quality Analysis (Physico-Chemical Parameters)</h3>
+        </figure>
+      </a>
+
+      <!-- Mesure de Niveau -->
+      <a href="#mesure-niveau" class="card-link">
+        <figure class="card-figure">
+          <img src="eau_niveau.png"
+               alt="Mesure de Niveau"
+               class="card-img">
+          <h3 class="card-title fr">Mesure de Niveau</h3>
+          <h3 class="card-title en">Level Measurement</h3>
+        </figure>
+      </a>
+
+      <!-- Mesure de Débit -->
+      <a href="#mesure-debit" class="card-link">
+        <figure class="card-figure">
+          <img src="debit.jpg"
+               alt="Mesure de Débit"
+               class="card-img">
+          <h3 class="card-title fr">Mesure de Débit</h3>
+          <h3 class="card-title en">Flow Measurement</h3>
+        </figure>
+      </a>
+
+      <!-- Mesure de Pression -->
+      <a href="#mesure-pression" class="card-link">
+        <figure class="card-figure">
+          <img src="pression.jpg"
+               alt="Mesure de Pression"
+               class="card-img">
+          <h3 class="card-title fr">Mesure de Pression</h3>
+          <h3 class="card-title en">Pressure Measurement</h3>
+        </figure>
+      </a>
+
+      <!-- Détection hydrocarbures -->
+      <a href="#hydrocarbures" class="card-link">
+        <figure class="card-figure">
+          <img src="hydrocarbures.jpg"
+               alt="Détection hydrocarbures"
+               class="card-img">
+          <h3 class="card-title fr">Détection en temps réel des hydrocarbures à la surface de l'eau</h3>
+          <h3 class="card-title en">Real-time detection of hydrocarbons on the water surface</h3>
+        </figure>
+      </a>
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+ 
+ <!-- Section analyseurs -->
+
+<section id="analyseur-eau" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="analyse_portable.jpg" alt="">
+      <img src="analyseur_autonome.jpg" alt="">
+      <img src="analyseur_multilog.jpg" alt="">
+      <img src="analyse_preleve.jpg" alt="">
+      <img src="analyseur_fluidion.jpg" alt="">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+      <!-- FR -->
+      <div class="fr">
+      
+     <h3 class="fr">Nos technologies d'analyse d'eau</h3>
+
+
+     <p class="fr">
+       Vi Na Vi met à disposition une gamme complète d’analyseurs, d’échantillonneurs automatiques et d’enregistreurs de données conçus pour offrir une surveillance avancée de la qualité de l’eau potable, industrielle et des eaux usées. Grâce à nos partenaires canadiens spécialisés, nous distribuons des analyseurs précis et robustes capables de mesurer en continu les paramètres essentiels — pH, turbidité, conductivité, oxygène dissous, ammonium, nitrates, phosphates, métaux lourds, chlore résiduel, et bien plus encore.
+     </p>
+
+      <p class="fr">
+      Pour les applications nécessitant une acquisition multisource, un enregistrement longue durée et une transmission fiable des données, nous proposons également le <strong>Multilog 2 / Metrinet</strong>, un enregistreur multicanal de nouvelle génération. Cet équipement permet de connecter plusieurs capteurs simultanément, d’assurer la télémétrie cellulaire et de fournir une supervision complète des réseaux d’eau, des stations de traitement et des sites environnementaux isolés.
+      </p>
+
+      <p class="fr">
+        En combinant analyseurs en ligne, prélèvement automatique, télémétrie et intégration SCADA, Vi Na Vi offre une solution complète et adaptée aux besoins des municipalités, exploitants industriels, mines et agences environnementales souhaitant garantir un suivi continu, conforme et sécurisé de la qualité de l’eau.
+      </p>
+
+
+
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+        <p>En tant que fournisseur local et intégrateur spécialisé,<strong>Vi Na Vi</strong> arantit bien plus que la simple fourniture d’analyseurs et d’équipements de mesure. Nous offrons un accompagnement technique complet couvrant la sélection, l’installation, l’intégration et la maintenance des solutions de surveillance de la qualité de l’eau. Grâce à notre présence conjointe au Canada et en Afrique de l’Ouest, nous facilitons l'accès à des technologies de pointe tout en assurant un support de proximité adapté aux réalités opérationnelles locales.</p>
+
+     <p class="fr"><strong>Nos principaux apports :</strong></p>
+
+        <ul style="margin-left:20px;">
+          <li>Sélection technique adaptée. </li>
+          <li>Intégration complète des capteurs & systèmes.</li>
+          <li>Expertise locale et rapidité d’intervention.</li>
+          <li>Solutions clé en main.</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+         
+
+        <h3 class="en">Our Water Analysis Technologies</h3>
+
+        <p class="en">
+        Vi Na Vi provides a complete range of analyzers, automatic samplers, and data loggers designed to deliver advanced monitoring of drinking water, industrial water, and wastewater quality. Through our specialized Canadian partners, we supply precise and robust analyzers capable of continuously measuring essential parameters — pH, turbidity, conductivity, dissolved oxygen, ammonium, nitrates, phosphates, heavy metals, residual chlorine, and much more.
+        </p>
+
+        <p class="en">
+         For applications requiring multisource acquisition, long-term data recording, and reliable transmission, we also offer the <strong>Multilog 2 / Metrinet</strong>, a new-generation multichannel data logger. This device allows the connection of multiple sensors simultaneously, ensures cellular telemetry, and provides comprehensive monitoring of water networks, treatment facilities, and remote environmental sites.
+         </p>
+
+         <p class="en">
+           By combining online analyzers, automatic sampling, telemetry, and SCADA integration, Vi Na Vi delivers a complete solution tailored to the needs of municipalities, industrial operators, mining sites, and environmental agencies seeking continuous, compliant, and secure water quality monitoring.
+          </p>
+
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+         <p class="en">As a local supplier and specialized integrator, <strong>Vi Na Vi</strong> provides far more than the simple delivery of analyzers and measurement equipment. We offer complete technical support covering the selection, installation, integration, and maintenance of water quality monitoring solutions. Thanks to our combined presence in Canada and West Africa, we facilitate access to cutting-edge technologies while ensuring proximity support adapted to local operational realities.</p>
+         <p class="en"><strong>Our key contributions:</strong></p>
+
+          <ul style="margin-left:20px;">
+          <li>Tailored technical selection: we help clients choose the analyzers and data loggers best suited to their needs.</li>
+          <li>Complete integration of sensors & systems.</li>
+          <li>Local expertise and fast response.</li>
+          <li>Turnkey solutions.</li>
+          </ul>
+
+      </div>
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        
+
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+         <div class="fr">
+
+      <h4>Eau potable – Production &amp; Distribution</h4>
+       <ul>
+       <li>Contrôle du chlore et de la turbidité pour assurer une désinfection efficace et une filtration optimale.</li>
+       <li>Détection des variations anormales dans le réseau afin de limiter les risques de contamination.</li>
+       </ul>
+
+      <h4>Eaux usées – Stations d’épuration (STEP)</h4>
+      <ul>
+       <li>Contrôle de la décantation, des boues et de l’aération pour réduire les coûts énergétiques.</li>
+       <li>Analyse de la charge polluante en entrée et monitoring du rejet final dans l’environnement.</li>
+       <li>Déclenchement automatique des prélèvements en cas de dépassement de seuil.</li>
+       </ul>
+
+       <h4>Environnement &amp; Hydrologie</h4>
+       <ul>
+       <li>Surveillance des milieux naturels : rivières, lacs et zones côtières.</li>
+       <li>Détection rapide des pollutions accidentelles grâce au suivi de paramètres critiques.</li>
+       <li>Contrôle de la qualité et du niveau des eaux souterraines.</li>
+       </ul>
+
+       <h4>Mines et carrières</h4>
+       <ul>
+       <li>Surveillance des eaux de drainage acide pour prévenir les impacts environnementaux.</li>
+       <li>Contrôle des bassins de rétention et des rejets miniers.</li>
+       <li>Prévention des surcharges polluantes.</li>
+       </ul>
+
+      <h4>Projets gouvernementaux &amp; agences environnementales</h4>
+      <ul>
+       <li>Déploiement de réseaux nationaux de surveillance de la qualité de l’eau.</li>
+      <li>Suivi continu des impacts environnementaux dans le cadre des EIES.</li>
+      </ul>
+
+       </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+      <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+      <h4>Drinking Water – Production &amp; Distribution</h4>
+       
+       <li>Monitoring chlorine and turbidity to ensure effective disinfection and optimal filtration.</li>
+       <li>Detection of abnormal variations in the network to reduce contamination risks.</li>
+      
+
+      <h4>Wastewater – Treatment Plants (WWTP)</h4>
+         <ul>
+       <li>Monitoring settling processes, sludge levels, and aeration to reduce energy costs.</li>
+       <li>Analysis of pollutant load at the inlet and monitoring of the final discharge into the environment.</li>
+      <li>Automatic sampling triggered when threshold limits are exceeded.</li>
+      </ul>
+
+         <h4>Environment &amp; Hydrology</h4>
+        <ul>
+        <li>Monitoring natural environments: rivers, lakes, and coastal zones.</li>
+        <li>Rapid detection of accidental pollution through critical parameter tracking.</li>
+       <li>Monitoring groundwater quality and water levels.</li>
+       </ul>
+
+       <h4>Mines &amp; Quarries</h4>
+       <ul>
+       <li>Monitoring acid mine drainage to prevent environmental impacts.</li>
+       <li>Control of retention basins and mining discharges.</li>
+       <li>Prevention of pollutant overloads.</li>
+        </ul>
+
+        <h4>Government Projects &amp; Environmental Agencies</h4>
+        <ul>
+        <li>Deployment of national water quality monitoring networks.</li>
+        <li>Continuous monitoring of environmental impacts within the framework of EIA/EIES.</li>
+       </ul>
+       </ul>
+
+
+      </div>
+
+
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+
+
+
+ <!-- Section mesure de niveau -->
+
+<section id="mesure-niveau" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="mesure_vitesse.jpg" alt="">
+      <img src="mesure_radar.jpg" alt="">
+      <img src="mesure_sonicsens.jpg" alt="">
+      <img src="mesure_flotte.jpg" alt="">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+      <!-- FR -->
+      <div class="fr">
+
+        <h3 class="fr">Nos technologies de mesure de niveau</h3>
+
+
+        <p style="font-size:18px; margin-bottom:15px;">
+          La mesure de niveau joue un rôle essentiel dans le contrôle des procédés, la gestion des réservoirs et la surveillance des ouvrages 
+          hydrauliques. Vi Na Vi propose une gamme complète de capteurs de niveau adaptés aux environnements industriels, miniers, environnementaux 
+          et au traitement des eaux. Nous offrons des solutions fiables, robustes et adaptées 
+          aux conditions les plus exigeantes.
+        </p>
+
+        <p>Notre portefeuille technologique couvre les principales méthodes de mesure :</p>
+        <ul style="margin-left:20px;">
+          <li><strong>Capteurs de niveau radar</strong>: Idéals pour des mesures précises et stables, même en conditions difficiles (vapeur, poussière, variations de température). 
+            Ils offrent une grande portée et une fiabilité exceptionnelle pour les réservoirs, bassins, silos et ouvrages critiques.</li>
+          <li><strong>Capteurs à ultrasons</strong>: Solutions sans contact, économiques et polyvalentes, parfaites pour suivre les niveaux de cuves, de canaux ouverts, de bassins 
+               d’alimentation ou de rejets. Leur simplicité d’installation en fait un choix très répandu dans l’eau potable et l’assainissement.</li>
+          <li><strong>Capteurs hydrostatiques / piézométriques</strong>: Adaptés aux mesures immergées, ils garantissent une lecture précise du niveau via la pression exercée par 
+               la colonne d’eau. Particulièrement utilisés pour les forages, puits, rivières, nappes phréatiques et réservoirs profonds.</li>
+          <li><strong>Capteurs à flotteur</strong>: Technologie simple, robuste et fiable pour les applications d’alarme, de commande de pompes ou de contrôle de niveau dans les 
+              stations de pompage et les petites installations industrielles.</li>
+        </ul>
+
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+            <p>En combinant ces technologies, Vi Na Vi accompagne les opérateurs dans le choix de la solution la mieux adaptée à leurs besoins : haute précision, faible maintenance, mesures 
+              sans contact, suivi en continu ou détection de seuils. Notre expertise en instrumentation et télémétrie permet également d’intégrer ces capteurs dans des systèmes connectés, SCADA 
+              ou réseaux de supervision à distance.</p>
+
+        <p>
+
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+       <h3 class="en">Our Level Measurement Technologies</h3>
+
+       <p style="font-size:18px; margin-bottom:15px;">
+          Level measurement plays a crucial role in process control, reservoir management, 
+         and the monitoring of hydraulic structures. Vi Na Vi offers a complete range of 
+         level sensors designed for industrial, mining, environmental, and water treatment 
+         applications. We provide reliable, robust solutions engineered to perform even in 
+         the most demanding conditions.
+         </p>
+
+        <p>Our technology portfolio covers the main measurement methods:</p>
+
+        <ul style="margin-left:20px;">
+        <li><strong>Radar level sensors</strong>: Ideal for precise and stable measurements, even in challenging conditions (steam, dust, temperature variations). 
+        They offer long range and exceptional reliability for tanks, basins, silos, and critical structures.</li>
+
+        <li><strong>Ultrasonic sensors</strong>: Non-contact, cost-effective, and versatile solutions, perfect for monitoring the level of tanks, open channels, 
+        inlet or discharge basins. Their easy installation makes them a widely used option in drinking water and wastewater applications.</li>
+
+       <li><strong>Hydrostatic / piezometric sensors</strong>: Designed for submerged measurements, they provide accurate level readings based on the pressure 
+        exerted by the water column. Commonly used in boreholes, wells, rivers, groundwater monitoring, and deep reservoirs.</li>
+
+        <li><strong>Float sensors</strong>: A simple, robust, and reliable technology for alarm functions, pump control, or level detection in pumping stations 
+         and small industrial installations.</li>
+         </ul>
+
+
+         <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+         <p>
+         By combining these technologies, Vi Na Vi supports operators in selecting the solution best suited to their needs: high accuracy, low maintenance, 
+         non-contact measurements, continuous monitoring, or threshold detection. Our expertise in instrumentation and telemetry also allows us to integrate 
+         these sensors into connected systems, SCADA platforms, or remote supervision networks.
+         </p>
+
+      </div>
+
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Gestion des réservoirs et cuves</li>
+          <li>Suivi des canaux ouverts et déversoirs</li>
+          <li>Surveillance des rivières, nappes phréatiques et forages</li>
+          <li>Bassins d’orage et prévention des inondations</li>
+          <li>Suivi de rejets et exutoires</li>
+          <li>Intégration SCADA / IoT / télémétrie (pour la surveillance à distance)</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Tank and reservoir management</li>
+          <li>Monitoring of open channels and spillways</li>
+           <li>Monitoring of rivers, groundwater levels, and boreholes</li>
+         <li>Stormwater basins and flood prevention</li>
+         <li>Monitoring of discharges and outfalls</li>
+         <li>SCADA / IoT / telemetry integration (for remote monitoring)</li>
+        </ul>
+
+      </div>
+
+
+
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+
+<!-- Section mesure de debit -->
+
+<section id="mesure-debit" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="debit_velocite.jpg" alt="">
+      <img src="debit_radar.jpg" alt="">
+      <img src="debit_insertion.jpg" alt="">
+      <img src="debit_tuyau.jpg" alt="">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+      <!-- FR -->
+      <div class="fr">
+          <h3 class="fr">Nos technologies de mesure de débit</h3>
+
+        <p style="font-size:18px; margin-bottom:15px;">
+         Vi Na Vi propose une <strong>gamme complète de débitmètres</strong> conçus pour répondre aux besoins des réseaux d’eau potable, 
+         d’assainissement, d’hydrologie et des procédés industriels. Nos solutions couvrent aussi bien les conduites fermées 
+         que les canaux ouverts, allant des installations permanentes aux campagnes de mesure temporaires.
+         </p>
+         
+
+          <ul style="margin-left:20px;">
+         <li><strong>Débitmètres hauteur/vitesse</strong><br>
+         Idéals pour les canaux ouverts, rivières, bassins d’orage, collecteurs d’eaux usées ou d’irrigation.<br>
+         Ils combinent la mesure du niveau et de la vitesse pour calculer le débit avec précision, même en conditions difficiles.
+         </li>
+
+         <li><strong>Débitmètres à insertion</strong><br>
+         Solution privilégiée pour les conduites fermées.<br>
+         Ils s’installent <strong>sans interruption du service</strong>, sans découpe de tuyaux, et conviennent parfaitement aux grands diamètres comme aux réseaux complexes.
+       </li>
+
+        <li><strong>Débitmètres ultrasoniques</strong><br>
+         Technologie non intrusive permettant la mesure de débit sans contact direct avec le fluide.<br>
+       Particulièrement adaptés pour les réseaux où l’intervention mécanique doit être minimale.
+       </li>
+
+       <li><strong>Canaux jaugeurs &amp; déversoirs</strong><br>
+       Pour la mesure de débit en régime libre, utilisés en hydraulique, en environnement ou en assainissement.<br>
+       Ils peuvent être combinés à des capteurs de niveau ou à des enregistreurs transmetteurs pour une supervision complète.
+       </li>
+
+      <li><strong>Solutions spécialisées</strong><br>
+       Incluant :
+       <ul>
+      <li>systèmes “bulle à bulle”</li>
+      <li>vélocimètres</li>
+      <li>sondes de vitesse</li>
+      </ul>
+       Conçus pour les mesures ponctuelles, les diagnostics de réseau ou les environnements complexes.
+     </li>
+       </ul>
+
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+         <ul style="margin-left:20px;">
+            <li>Conseil technique & choix de la technologie (canal ouvert, conduite fermée, réseau d’assainissement, STEP, irrigation, hydraulique, industriel, etc.)</li>
+            <li>Fourniture d’équipements certifiés et adaptés</li>
+            <li>Installation, mise en service & optimisation sur site</li>
+            <li>Intégration complète dans les systèmes de télémétrie & SCADA</li>
+            <li>Installation, mise en service & maintenance</li>
+            <li>Formation des équipes</li>
+            
+              </ul>
+        
+
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 class="en">Our Flow Measurement Technologies</h3>
+
+        <p style="font-size:18px; margin-bottom:15px;">
+           Vi Na Vi offers a <strong>complete range of flow meters</strong> designed to meet the needs of drinking water networks,
+             wastewater systems, hydrology applications, and industrial processes. Our solutions cover both closed pipes
+           and open channels, from permanent installations to temporary measurement campaigns.
+          </p>
+
+          <ul style="margin-left:20px;">
+
+         <li><strong>Level/velocity flow meters</strong><br>
+           Ideal for open channels, rivers, stormwater basins, and wastewater or irrigation collectors.<br>
+         They combine level and velocity measurements to calculate flow accurately, even in challenging conditions.
+                  </li>
+
+        <li><strong>Insertion flow meters</strong><br>
+         A preferred solution for closed pipes.<br>
+        They can be installed <strong>without service interruption</strong>, with no pipe cutting, and are perfectly suited for large diameters and complex networks.
+         </li>
+
+        <li><strong>Ultrasonic flow meters</strong><br>
+           Non-intrusive technology that enables flow measurement without direct contact with the fluid.<br>
+        Particularly suitable for networks where mechanical intervention must be kept to a minimum.
+         </li>
+
+         <li><strong>Weirs & flumes</strong><br>
+       Used for free-flow measurement in hydraulics, environmental applications, or wastewater systems.<br>
+        They can be combined with level sensors or data loggers/transmitters for complete supervision.
+        </li>
+
+        <li><strong>Specialized solutions</strong><br>
+         Including:
+         <ul>
+         <li>bubble-to-bubble systems</li>
+         <li>velocimeters</li>
+         <li>velocity probes</li>
+         </ul>
+          Designed for spot measurements, network diagnostics, or complex environments.
+         </li>
+
+       </ul>
+
+
+         <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+          <ul style="margin-left:20px;">
+          <li>Technical consulting & technology selection (open channel, closed pipe, wastewater network, WWTP, irrigation, hydraulics, industrial processes, etc.)</li>
+          <li>Supply of certified and application-ready equipment</li>
+          <li>On-site installation, commissioning & optimisation</li>
+          <li>Full integration into telemetry & SCADA systems</li>
+          <li>Installation, commissioning & maintenance services</li>
+          <li>Team training</li>
+            </ul>
+
+      </div>
+
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Réseaux d’eau potable</li>
+          <li>Réseaux d’assainissement</li>
+          <li>Stations d’épuration (STEP)</li>
+          <li>Hydrologie & Environnement (Suivi des crues, prévention des inondations, Mesures dans les rivières, canaux naturels) </li>
+          <li>Industrie & procédés industriels</li>
+          <li>Ouvrages hydrauliques & infrastructures</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Drinking water networks</li>
+       <li>Wastewater networks</li>
+        <li>Wastewater treatment plants (WWTP)</li>
+           <li>Hydrology & Environment (Flood monitoring, flood prevention, measurements in rivers and natural channels)</li>
+        <li>Industry & industrial processes</li>
+        <li>Hydraulic structures & infrastructure</li>
+
+        </ul>
+
+      </div>
+
+
+
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+
+
+<!-- Section mesure de pression -->
+
+
+<section id="mesure-pression" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="pression_piezo.jpg" alt="">
+      <img src="pression_paratronic.jpg" alt="">
+      <img src="pression_liveline.jpg" alt="">
+      <img src="pression_solide.jpg" alt="">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+      <!-- FR -->
+      <div class="fr">
+       <h3 class="fr">Nos capteurs piezométrique et submersibles</h3>
+        <p style="font-size:18px; margin-bottom:15px;">
+             Vi Na Vi propose une gamme complète de <strong>capteurs et sondes immergées</strong> conçues pour la surveillance du 
+             niveau, de la pression et de la qualité de l’eau dans les réseaux d’eau potable, d’assainissement, d’hydrologie, 
+             d’eaux souterraines et d’environnements industriels.
+        </p>
+
+       <h3 style="margin-top:25px;">Capteurs de niveau submersibles paramétrables</h3>
+         <p>
+         Sondes robustes pour mesurer précisément le <strong>niveau d’eau</strong> dans les rivières, canaux, stations de pompage 
+         ou déversoirs. Leur échelle de mesure ajustable (50 cm à 10 m) et leur signal 4–20 mA assurent une intégration 
+        simple avec les systèmes de télégestion et SCADA.
+        <br><strong>Idéal pour :</strong> réseaux d’assainissement, ouvrages hydrauliques, bassins, canaux.
+       </p>
+
+       <h3 style="margin-top:25px;">Sondes piézométriques (pression / niveau)</h3>
+        <p>
+        Capteurs haute précision destinés au <strong>suivi des nappes, forages, réservoirs et eaux usées</strong>. Leur construction 
+       en inox ou titane et leur compatibilité avec de longues profondeurs garantissent fiabilité et durabilité même 
+        dans des environnements difficiles.
+        <br><strong>Idéal pour :</strong> eaux souterraines, réservoirs, industries, surveillance environnementale.
+        </p>
+
+        <h3 style="margin-top:25px;">Gamme LeveLine (niveau, conductivité, température, salinité)</h3>
+       <p>
+        Sondes multiparamètres autonomes permettant la mesure du <strong>niveau d’eau</strong>, mais aussi de la 
+        <strong>conductivité, salinité et température</strong>. Dotées d’une grande mémoire et d’une autonomie pouvant dépasser 10 ans, 
+        elles conviennent parfaitement aux suivis hydrologiques continus, aux piézomètres et aux zones côtières.
+        <br><strong>Idéal pour :</strong> hydrologie, environnement, eaux souterraines, études côtières.
+         </p>
+      
+
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+          <ul style="margin-left:20px;">
+            <li>Sélection des capteurs les mieux adaptés selon les applications (eaux souterraines, hydrologie, assainissement, eau potable, industrie).</li>
+            <li>Installation, paramétrage et mise en service sur site</li>
+           <li>Suivi, maintenance et accompagnement technique</li>
+           <li>Intégration complète des sondes avec les automates, enregistreurs, systèmes de télégestion, IoT et plateformes SCADA.</li>
+          </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+          <h3 class="en">Our Piezometric and Submersible Sensors</h3>
+
+      <p style="font-size:18px; margin-bottom:15px;">
+      Vi Na Vi offers a complete range of <strong>immersible sensors and probes</strong> designed for monitoring water level, pressure, 
+      and water quality in drinking water networks, wastewater systems, hydrology applications, groundwater monitoring, 
+      and industrial environments.
+        </p>
+
+
+       <h3 style="margin-top:25px;">Configurable Submersible Level Sensors</h3>
+         <p>Robust probes designed to accurately measure <strong>water level</strong> in rivers, canals, pumping stations, 
+            or spillways. Their adjustable measurement range (50 cm to 10 m) and 4–20 mA output ensure seamless integration 
+                with telemetry and SCADA systems.
+               <br><strong>Ideal for:</strong> wastewater networks, hydraulic structures, basins, canals.
+             </p>
+
+       <h3 style="margin-top:25px;">Piezometric Probes (pressure / level)</h3>
+        <p>
+       High-precision sensors designed for the <strong>monitoring of aquifers, boreholes, reservoirs and wastewater</strong>. 
+       Their stainless steel or titanium construction and compatibility with great depths ensure reliability and durability 
+      even in harsh environments.
+      <br><strong>Ideal for:</strong> groundwater, reservoirs, industrial sites, environmental monitoring.
+       </p>
+
+        <h3 style="margin-top:25px;">LeveLine Range (level, conductivity, temperature, salinity)</h3>
+        <p>
+        Autonomous multiparameter probes enabling the measurement of <strong>water level</strong> as well as 
+      <strong>conductivity, salinity and temperature</strong>. With large memory capacity and autonomy exceeding 10 years, 
+      they are perfectly suited for continuous hydrological monitoring, piezometers, and coastal zone studies.
+      <br><strong>Ideal for:</strong> hydrology, environmental monitoring, groundwater, coastal studies.
+      </p>
+
+
+
+         <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+         <ul style="margin-left:20px;"><li>Selection of the most suitable sensors based on the application (groundwater, hydrology, wastewater, drinking water, industry).</li>
+          <li>On-site installation, configuration and commissioning</li>
+          <li>Monitoring, maintenance and technical support</li>
+         <li>Full integration of probes with PLCs, data loggers, telemetry systems, IoT platforms and SCADA systems.</li>
+         </ul>
+        
+
+      </div>
+
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Surveillance des eaux de surface</li>
+          <li>Gestion des eaux souterraines</li>
+          <li>Eau potable & infrastructures hydrauliques</li>
+          <li>Industrie & environnement</li>
+          <li>Études hydrologiques & suivis scientifiques</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+        <li>Surface water monitoring</li>
+          <li>Groundwater management</li>
+         <li>Drinking water & hydraulic infrastructure</li>
+         <li>Industry & environmental applications</li>
+         <li>Hydrological studies & scientific monitoring</li>
+        </ul>
+
+      </div>
+
+
+
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+
+
+
+
+<section id="hydrocarbures" class="section">
+
+
+
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="hydrocarbure_ext.jpg" alt="">
+      <img src="hydrocarbure_exter.jpg" alt="">
+      <img src="hydrocarbureau_eau.jpg" alt="">
+      <img src="hydrocarbure_port.jpg" alt="">
+
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+       <h3 class="fr">Nos solutions de détection d'hydrocarbures</h3>
+
+      <!-- FR -->
+      <div class="fr">
+
+     <p class="fr">
+      Le <strong>LDI ROW</strong> est un capteur autonome de détection d’hydrocarbures capable d’identifier des films d’huile extrêmement fins — jusqu’à 1&nbsp;µm — sur l’eau ou dans des environnements industriels, avec une portée pouvant atteindre <strong>10&nbsp;mètres</strong>.
+     </p>
+
+     <p class="fr">
+      Grâce à sa technologie sans contact, il assure une <strong>surveillance continue</strong> des fuites, déversements et pollutions aux hydrocarbures, que ce soit dans les milieux naturels, les réseaux d’assainissement ou sur les installations industrielles. Sa conception robuste et son fonctionnement sans maintenance lourde en font une solution fiable pour les sites sensibles.
+     </p>
+
+     <p class="fr">
+      Le LDI ROW est proposé en <strong>trois versions</strong> pour répondre aux différents environnements d’utilisation&nbsp;:
+    </p>
+
+     <ul class="fr">
+      <li><strong>ROW Aluminum</strong> : modèle standard pour les applications générales.</li>
+      <li><strong>ROW ATEX EXD</strong> : version antidéflagrante destinée aux zones dangereuses, équipée d’un boîtier Inox 316 certifié <strong>ATEX</strong> et <strong>IECEx Zone 1</strong>.</li>
+     <li><strong>ROW Stainless Steel</strong> : spécialement conçu pour les environnements agressifs et corrosifs, avec un boîtier entièrement en acier inoxydable.</li>
+      </ul>
+
+     <p class="fr">
+      Côté intégration, le LDI ROW dispose de <strong>sorties industrielles universelles</strong> (Modbus, 4–20&nbsp;mA, relais), permettant son raccordement direct à des automatismes, systèmes de contrôle ou plateformes de télémétrie. Plusieurs capteurs peuvent également être interconnectés afin de couvrir de grandes zones.
+     </p>
+
+
+
+
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+         <p class="fr">
+         En tant que partenaire technique, <strong>Vi Na Vi</strong> assure une <strong>prise en charge complète</strong> autour du LDI ROW, depuis le choix de la technologie jusqu’à l’exploitation des données sur le terrain.
+         </p>
+        <ul style="margin-left:20px;">
+          <li><strong>Sélection et dimensionnement</strong> du modèle le mieux adapté (Aluminum, ATEX EXD ou Stainless Steel) selon l’environnement et les contraintes du site.</li>
+
+  <li><strong>Fourniture d’équipements certifiés</strong> pour les milieux industriels, corrosifs ou zones à risques explosifs.</li>
+
+  <li><strong>Intégration directe</strong> du capteur dans les architectures de contrôle existantes : automates, systèmes de supervision, solutions IoT ou plateformes de télémétrie.</li>
+
+  <li><strong>Installation et mise en service</strong> sur les réseaux d’assainissement, sites industriels, stations de traitement ou zones sensibles à risque de pollution.</li>
+
+  <li><strong>Support technique, maintenance et diagnostic</strong>, assurant la continuité de la surveillance et la fiabilité des mesures.</li>
+
+  <li><strong>Analyse et valorisation des données</strong> afin d’aider les exploitants à anticiper les fuites, protéger l’environnement et optimiser leurs opérations.</li>
+         </ul>
+
+       <p class="fr">
+  Grâce à son expertise en instrumentation et supervision, <strong>Vi Na Vi transforme le LDI ROW en une solution clé en main</strong> pour la détection précoce de pollutions aux hydrocarbures.
+</p>
+
+         
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+       <h3 class="en">Our Hydrocarbon Detection Solutions</h3>
+        <p>
+         Modern geolocation plays a key role in mapping, asset management,
+         environmental monitoring, and field operations. Thanks to next-generation
+         GNSS receivers, it is possible to obtain reliable and accurate positioning
+         data, suitable for even the most demanding environments. Compact, robust,
+         and easy to integrate with today’s digital tools, these receivers deliver
+          real-time positioning for industrial, urban, or environmental applications.
+       </p>
+
+<h3 class="en">Geolocation Receivers – Sub-meter Precision Version (Type R1)</h3>
+
+   <p class="en">
+  The <strong>LDI ROW</strong> is an autonomous hydrocarbon detection sensor capable of identifying extremely thin oil films — down to 1&nbsp;µm — on water surfaces or in industrial environments, with a detection range of up to <strong>10&nbsp;meters</strong>.
+  </p>
+
+<p class="en">
+  Thanks to its non-contact technology, it provides <strong>continuous monitoring</strong> of leaks, spills, and hydrocarbon pollution, whether in natural environments, wastewater networks, or industrial facilities. Its robust design and low-maintenance operation make it a reliable solution for sensitive sites.
+</p>
+
+<p class="en">
+  The LDI ROW is available in <strong>three versions</strong> to meet different operating environments:
+</p>
+
+<ul class="en">
+  <li><strong>ROW Aluminum</strong>: Standard model for general applications.</li>
+  <li><strong>ROW ATEX EXD</strong>: Explosion-proof version for hazardous areas, equipped with a 316 stainless steel enclosure certified <strong>ATEX</strong> and <strong>IECEx Zone 1</strong>.</li>
+  <li><strong>ROW Stainless Steel</strong>: Specifically designed for aggressive and corrosive environments, featuring a full stainless-steel enclosure.</li>
+</ul>
+
+<p class="en">
+  For integration, the LDI ROW features <strong>universal industrial outputs</strong> (Modbus, 4–20&nbsp;mA, relay), allowing direct connection to control systems, automation equipment, or telemetry platforms. Multiple sensors can also be interconnected to cover large areas.
+</p>
+
+
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+       <p class="en">
+        As a technical partner, <strong>Vi Na Vi</strong> provides <strong>end-to-end support</strong> for the LDI ROW, from technology selection to field data exploitation.
+        </p>
+        <ul style="margin-left:20px;">
+         <li><strong>Selection and sizing</strong> of the most suitable model (Aluminum, ATEX EXD or Stainless Steel) based on the environment and site constraints.</li>
+
+        <li><strong>Supply of certified equipment</strong> for industrial, corrosive or explosive-risk areas.</li>
+
+         <li><strong>Direct integration</strong> of the sensor into existing control architectures: PLCs, SCADA systems, IoT solutions, or telemetry platforms.</li>
+
+       <li><strong>Installation and commissioning</strong> on wastewater networks, industrial sites, treatment facilities or environmentally sensitive zones.</li>
+
+          <li><strong>Technical support, maintenance and diagnostics</strong>, ensuring continuous monitoring and reliable measurements.</li>
+
+           <li><strong>Data analysis and interpretation</strong> to help operators anticipate leaks, protect the environment and optimize operations.</li>
+        </ul>
+
+                <p class="en">
+        With its expertise in instrumentation and supervision, <strong>Vi Na Vi turns the LDI ROW into a complete turnkey solution</strong> for early detection of hydrocarbon pollution.
+          </p>
+
+      </div>
+
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+          <li>Surveillance environnementale</li>
+          <li>Réseaux d’assainissement</li>
+          <li>Sites industriels </li>
+          <li>Installations classées / zones dangereuses </li>
+          <li>Ports, terminaux et infrastructures maritimes</li>
+          <li>Mines et carrières </li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+
+        <ul class="en" style="font-size:17px; margin-left:20px;">
+      <ul class="en" style="font-size:17px; margin-left:20px;">
+          <li>Environmental monitoring</li>
+         <li>Wastewater networks</li>
+        <li>Industrial sites</li>
+        <li>Classified installations / hazardous areas</li>
+        <li>Ports, terminals and maritime infrastructure</li>
+           <li>Mines and quarries</li>
+           </ul>
+        </ul>
+
+      </div>
+
+
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
 
 
 
