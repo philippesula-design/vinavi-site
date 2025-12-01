@@ -520,69 +520,108 @@
     <a href="environnement.html" class="fr">Environnement</a><a href="environnement.html" class="en">Environment</a> 
     <a href="energie.html" class="fr">Énergie Électrique</a><a href="energie.html" class="en">Electrical Energy</a>
     <a href="eaux.html" class="fr">Traitement des eaux</a><a href="eaux.html" class="en">Water Treatment</a>
+    <a href="traitement.html" class="fr">Systèmes de Traitement des Eaux</a><a href="traitement.html" class="en">Water Treatment Systems</a>
       </nav>
 
 </header>
 
 
 
+<style>
+/* ===== Cartes Télégestion — style commun ===== */
+
+#telegestion-cartes .cards-tele {
+  gap: 24px;
+}
+
+/* Lien de navigation des cartes */
+#telegestion-cartes .card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Bloc intérieur */
+#telegestion-cartes .card-figure {
+  margin: 0;
+  text-align: center;
+}
+
+/* Images uniformisées et réduites */
+#telegestion-cartes .card-img {
+  width: 100%;
+  height: 160px;     /* Ajuste ici si tu veux + petit ou + grand */
+  object-fit: cover; /* Recadre proprement sans déformation */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Titres */
+#telegestion-cartes .card-title {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.3;
+}
+</style>
+
+
+
 <!-- ===== Cartes cliquables Télégestion ===== -->
 <section id="telegestion-cartes" class="section">
   <div class="container pad">
-    <div class="grid cols-3" style="gap:24px; margin-top:16px;">
+    <div class="grid cols-3 cards-tele">
 
       <!-- Automates & télémétrie -->
-      <a href="#automates-telemetrie" style="text-decoration:none; color:inherit;">
-        <figure style="margin:0; text-align:center;">
+      <a href="#automates-telemetrie" class="card-link">
+        <figure class="card-figure">
           <img src="automate_telemetrie.jpg"
                alt="Automates & télémétrie"
-               style="max-width:100%; height:auto; border-radius:8px; cursor:pointer;">
-          <h3 class="fr" style="margin-top:10px;">Automates &amp; Télémétrie</h3>
-          <h3 class="en" style="margin-top:10px;">PLCs &amp; Telemetry</h3>
+               class="card-img">
+          <h3 class="card-title fr">Automates &amp; Télémétrie</h3>
+          <h3 class="card-title en">PLCs &amp; Telemetry</h3>
         </figure>
       </a>
 
       <!-- Enregistreurs -->
-      <a href="#enregistreurs" style="text-decoration:none; color:inherit;">
-        <figure style="margin:0; text-align:center;">
+      <a href="#enregistreurs" class="card-link">
+        <figure class="card-figure">
           <img src="enregisteurs.jpg"
-               alt="Enregistreurs"
-               style="max-width:100%; height:auto; border-radius:8px; cursor:pointer;">
-          <h3 class="fr" style="margin-top:10px;">Enregistreurs Autonomes</h3>
-          <h3 class="en" style="margin-top:10px;">Standalone Data Loggers</h3>
+               alt="Enregistreurs autonomes"
+               class="card-img">
+          <h3 class="card-title fr">Enregistreurs Autonomes</h3>
+          <h3 class="card-title en">Standalone Data Loggers</h3>
         </figure>
       </a>
 
       <!-- Géolocalisation -->
-      <a href="#geolocalisation" style="text-decoration:none; color:inherit;">
-        <figure style="margin:0; text-align:center;">
+      <a href="#geolocalisation" class="card-link">
+        <figure class="card-figure">
           <img src="geolocalisation.jpg"
                alt="Géolocalisation"
-               style="max-width:100%; height:auto; border-radius:8px; cursor:pointer;">
-          <h3 class="fr" style="margin-top:10px;">Géolocalisation</h3>
-          <h3 class="en" style="margin-top:10px;">Geolocation</h3>
+               class="card-img">
+          <h3 class="card-title fr">Géolocalisation</h3>
+          <h3 class="card-title en">Geolocation</h3>
         </figure>
       </a>
 
       <!-- Routeurs & passerelles -->
-      <a href="#routeurs-passerelles" style="text-decoration:none; color:inherit;">
-        <figure style="margin:0; text-align:center;">
+      <a href="#routeurs-passerelles" class="card-link">
+        <figure class="card-figure">
           <img src="routeur_passerelles.jpg"
-               alt="Routeurs & passerelles"
-               style="max-width:100%; height:auto; border-radius:8px; cursor:pointer;">
-          <h3 class="fr" style="margin-top:10px;">Routeurs &amp; Passerelles</h3>
-          <h3 class="en" style="margin-top:10px;">Routers &amp; Gateways</h3>
+               alt="Routeurs et passerelles"
+               class="card-img">
+          <h3 class="card-title fr">Routeurs &amp; Passerelles</h3>
+          <h3 class="card-title en">Routers &amp; Gateways</h3>
         </figure>
       </a>
 
       <!-- SCADA -->
-      <a href="#scada-supervision" style="text-decoration:none; color:inherit;">
-        <figure style="margin:0; text-align:center;">
+      <a href="#scada-supervision" class="card-link">
+        <figure class="card-figure">
           <img src="SCADA.jpg"
-               alt="SCADA & supervision"
-               style="max-width:100%; height:auto; border-radius:8px; cursor:pointer;">
-          <h3 class="fr" style="margin-top:10px;">SCADA &amp; Supervision</h3>
-          <h3 class="en" style="margin-top:10px;">SCADA &amp; Supervision</h3>
+               alt="SCADA & Supervision"
+               class="card-img">
+          <h3 class="card-title fr">SCADA &amp; Supervision</h3>
+          <h3 class="card-title en">SCADA &amp; Supervision</h3>
         </figure>
       </a>
 
