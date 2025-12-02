@@ -480,10 +480,52 @@
 </style>
 
 
+<style>
+/* Fix affichage mobile des sections Environnement */
+@media (max-width: 768px) {
+  #qualite-mesure-eau > div,
+  #air-pluviometrie > div,
+  #innondation > div,
+  #pollution > div,
+  #minier > div {
+    flex-direction: column !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
+  #qualite-mesure-eau img,
+  #air-pluviometrie img,
+  #innondation img,
+  #pollution img,
+  #minier img {
+    max-width: 260px !important;
+    margin: auto;
+  }
+
+  #qualite-mesure-eau div,
+  #air-pluviometrie div,
+  #innondation div,
+  #pollution div,
+  #minier div {
+    width: 100% !important;
+  }
+
+  /* Scroll anchors fix sur mobile */
+  #qualite-mesure-eau,
+  #air-pluviometrie,
+  #innondation,
+  #pollution,
+  #minier,
+  #systeme-traitement {
+    scroll-margin-top: 40px !important;
+  }
+}
+</style>
 
 
 
 </head>
+
 <body data-lang="fr">
 <header class="main-header">
 
