@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Test FormSubmit</title>
+</head>
+<body>
+  <h1>Test FormSubmit vers info@vinavi.ca</h1>
+
+  <form action="https://formsubmit.co/info@vinavi.ca" method="POST">
+    <input type="hidden" name="_subject" value="TEST SIMPLE FormSubmit">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://vinavi.ca/merci.html">
+    <input type="hidden" name="_captcha" value="false">
+
+    <input type="text" name="name" placeholder="Nom" required>
+    <input type="email" name="email" placeholder="Votre courriel" required>
+    <textarea name="message" placeholder="Message de test" required></textarea>
+
+    <button type="submit">Envoyer le test</button>
+  </form>
+</body>
+</html>

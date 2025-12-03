@@ -1,0 +1,1796 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vi Na Vi — Ingénierie, Automatisation & SCADA</title>
+<meta name="description" content="Vi Na Vi — Consultation technique, Ingénierie, Contrôle industriel, Industrie 4.0, SCADA & IT.">
+<!-- FAVICONS -->
+<link rel="icon" type="public/png" sizes="16x16" href="public/favicon-16.png">
+<link rel="icon" type="public/png" sizes="32x32" href="public/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
+<link rel="shortcut icon" href="public/favicon.ico">
+
+<style>
+  :root { --blue: #003366; --ink: #0f172a; --muted: #64748b; --line:#e2e8f0; --bg:#ffffff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background: var(--bg); color: var(--ink); }
+  a { color: var(--blue); text-decoration: none; }
+  header { position: sticky; top: 0; background:#fff; border-bottom:1px solid var(--line); z-index:10; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 12px 16px; }
+  .brand { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .brand-id { display:flex; align-items:center; gap:12px; }
+  .brand-id img { height: 40px; width:auto; }
+  nav { display:flex; gap:12px; flex-wrap:wrap; }
+  nav a { padding:6px 10px; border-radius:8px; border:1px solid transparent; }
+  nav a:hover { border-color: var(--line); background:#f8fafc; }
+  .lang { display:flex; gap:8px; }
+  .lang button { border:1px solid var(--line); background:#fff; padding:6px 10px; border-radius:8px; cursor:pointer; font-weight:600; color: var(--ink); }
+  .lang button.active { background: var(--blue); color:#fff; border-color: var(--blue); }
+  section { border-top:1px solid var(--line); }
+  h2 { font-size: 22px; margin: 0 0 12px 0; }
+  p { line-height: 1.7; margin: 0; }
+  .lead { font-size: 18px; color: var(--muted); }
+  .pad { padding: 28px 16px; }
+  .grid { display:grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 16px; }
+  @media (min-width: 640px) { .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  @media (min-width: 768px) { .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+  @media (min-width: 1024px) { .grid.cols-4 { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+  .card { display:flex; align-items:center; justify-content:center; padding: 12px; border:1px solid var(--line); border-radius: 12px; background:#fff; transition: transform .15s ease, box-shadow .15s ease; }
+  .card:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+  .card img { max-width: 100%; height: auto; object-fit: contain; }
+  img.schneider, img.siemens { height: 38px; }
+  img.abb { height: 44px; }
+  img.rockwell { height: 34px; }
+  img.ab { height: 38px; }
+  img.gedigital { height: 38px; }
+  img.endress { height: 34px; }
+  img.yaskawa, img.hms, img.crimson { height: 34px; }
+  img.win911 { height: 30px; }
+  img.topkapi { height: 36px; }
+  img.isa, img.gamp { height: 34px; }
+  img.csa, img.ulc, img.ce { height: 30px; }
+  footer { border-top:1px solid var(--line); }
+  .muted { color: var(--muted); font-size: 12px; }
+  [data-lang="fr"] .en, [data-lang="en"] .fr { display:none; }
+  ul.check { padding-left: 1.2em; }
+  ul.check li { margin: 6px 0; }
+  .map img { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:12px; }
+  form.contact { display:grid; gap:10px; }
+  form.contact input, form.contact textarea { border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:16px; }
+  form.contact button { background: var(--blue); color:#fff; border:none; border-radius:10px; padding:10px 14px; cursor:pointer; font-weight:700; }
+  form.contact button:hover { opacity:.95; }
+  .toprow { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .captcha-note { font-size:12px; color:var(--muted); }
+</style>
+
+<!-- === Vi Na Vi – drop-in design layer (no markup changes) === -->
+<style>
+  :root{
+    --brand:#0b5fff; --ink:#0f172a; --bg:#ffffff; --muted:#64748b; --line:#e2e8f0;
+    --accent:#00a870; --soft:#f8fafc; --chip:#eef2ff;
+  }
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+       color:var(--ink);background:var(--bg);}
+  header, .site-header, nav.topbar{
+    position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:40;
+    backdrop-filter:saturate(150%) blur(6px);
+  }
+  header .container, .site-header .container, nav.topbar .container{
+    max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;
+  }
+  header nav a, .site-header nav a, nav.topbar a{
+    padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--ink);border:1px solid transparent;
+  }
+  header nav a:hover{background:var(--soft);border-color:var(--line)}
+  .hero, .banner, .splash{
+    background:linear-gradient(135deg,#f5f9ff, #ffffff);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .inner, .banner .inner, .splash .inner{max-width:1200px;margin:auto;padding:40px 16px;display:grid;gap:20px;grid-template-columns:1.2fr 1fr;align-items:center}
+  .hero h1,.banner h1,.splash h1{font-size:clamp(28px,4vw,40px);margin:0}
+  .hero p.lead{color:var(--muted);font-size:clamp(16px,2.2vw,18px);line-height:1.7}
+  .hero img, .banner img, .splash img{width:100%;height:auto;border-radius:16px;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+  section{border-top:1px solid var(--line);}
+  .container{max-width:1200px;margin:auto;padding:28px 16px}
+  h2{font-size:22px;margin:0 0 10px}
+  p{line-height:1.75}
+  .lead{color:var(--muted)}
+  .grid{display:grid;gap:16px}
+  @media (min-width:640px){.grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (min-width:1100px){.grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.04);transition:.15s transform,.15s box-shadow}
+  .card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.08)}
+  .card img{max-width:100%;height:auto;object-fit:contain}
+  ul.check{padding-left:1.1em}
+  ul.check li{margin:6px 0}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;border:0}
+  .btn:hover{opacity:.95}
+  .chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:var(--chip);border:1px solid #dbe2ff;font-weight:600;color:#334155}
+  form input, form textarea, form select{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:16px;width:100%}
+  form button{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+  form button:hover{opacity:.95}
+  footer{border-top:1px solid var(--line);background:#fff}
+  footer .muted{color:var(--muted);font-size:12px}
+  :target::before{content:"";display:block;height:70px;margin-top:-70px}
+</style>
+
+
+
+
+</script>
+<!-- === End design layer === -->
+<!-- === Vi Na Vi — VISUEL v2 (option 2) : drop-in theme for index_enhanced.html === -->
+<style>
+  :root{
+    --brand:#0b5fff;
+    --brand-600:#0a4ce0;
+    --ink:#0f172a;
+    --muted:#64748b;
+    --bg:#f6f8fc;
+    --card:#ffffff;
+    --ring: rgba(11,95,255,.25);
+    --shadow: 0 10px 30px rgba(2,8,23,.08), 0 2px 6px rgba(2,8,23,.06);
+    --radius:18px;
+    --radius-sm:12px;
+    --radius-xs:10px;
+  }
+
+  /* Typo & base */
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; color:var(--ink); background:var(--bg);
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji";
+  }
+  h1,h2,h3{letter-spacing:-.01em}
+  h1{font-size:clamp(28px,4.6vw,44px); line-height:1.12; margin:0 0 12px}
+  h2{font-size:clamp(22px,3.2vw,32px); line-height:1.15; margin:0 0 8px}
+  h3{font-size:clamp(18px,2.2vw,22px); margin:0 0 6px}
+  p{margin:0 0 10px; color:var(--muted)}
+  .muted{color:var(--muted)}
+  .container{max-width:1100px; margin:0 auto; padding:0 20px}
+  section{padding:72px 0}
+  .section-title{margin:0 0 18px}
+  .section-lead{max-width:760px}
+
+  /* Header glass sticky */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:saturate(180%) blur(12px);
+    background:rgba(255,255,255,.72);
+    border-bottom:1px solid rgba(2,8,23,.06);
+  }
+  .site-header .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink); text-decoration:none}
+  .brand img{height:26px}
+  .nav{display:flex; gap:18px}
+  .nav a{color:var(--ink); text-decoration:none; padding:10px 8px; border-radius:10px}
+  .nav a:hover{background:rgba(2,8,23,.04)}
+  .nav a.active{color:var(--brand); background:rgba(11,95,255,.08)}
+
+  /* Hero */
+  .hero{
+    position:relative; isolation:isolate; overflow:hidden;
+    background:
+      radial-gradient(1200px 500px at 70% -20%, rgba(11,95,255,.12), transparent 55%),
+      linear-gradient(180deg, #f7faff 0%, #ffffff 65%);
+    padding: 90px 0 64px;
+  }
+  .hero .grid{display:grid; gap:30px; grid-template-columns:repeat(12,1fr)}
+  .hero .col-text{grid-column: span 7}
+  .hero .col-media{grid-column: span 5; position:relative}
+  .hero .badge{display:inline-flex; gap:8px; align-items:center; background:#eef3ff; color:var(--brand); padding:7px 12px; border-radius:999px; font-weight:600}
+  .hero p{font-size:17px}
+  .hero .media{
+    border-radius:var(--radius);
+    border:1px solid rgba(2,8,23,.05);
+    box-shadow: var(--shadow);
+    overflow:hidden;
+    transform: translateZ(0);
+  }
+  .hero .media img{display:block; width:100%; height:auto}
+
+  /* Cards / grids */
+  .grid{display:grid; gap:22px}
+  .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width: 900px){ .grid-2,.grid-3{grid-template-columns:1fr} }
+
+  .card{
+    background:var(--card);
+    border:1px solid rgba(2,8,23,.06);
+    border-radius:var(--radius);
+    box-shadow: var(--shadow);
+    padding:22px;
+  }
+  .card:hover{transform:translateY(-2px); transition:.25s transform}
+  .card h3{margin-bottom:6px}
+  .chip{display:inline-flex; gap:8px; align-items:center; border:1px solid rgba(2,8,23,.08); border-radius:999px; padding:6px 12px; background:#fff; color:var(--muted); font-weight:600; font-size:12px}
+
+  /* Logo cloud */
+  .logo-cloud{display:grid; gap:18px; grid-template-columns:repeat(6,minmax(0,1fr))}
+  .logo-cloud img{
+    width:100%; height:48px; object-fit:contain; background:#fff;
+    border:1px solid rgba(2,8,23,.06); border-radius:12px; box-shadow: var(--shadow);
+    padding:10px; transition: transform .2s ease;
+  }
+  .logo-cloud img:hover{transform:scale(1.03)}
+  @media (max-width:1000px){ .logo-cloud{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:640px){ .logo-cloud{grid-template-columns:repeat(2,1fr)} }
+
+  /* Buttons */
+  .btn{appearance:none; border:0; cursor:pointer; font-weight:700; border-radius:12px; padding:12px 16px; display:inline-flex; align-items:center; gap:10px; text-decoration:none}
+  .btn-primary{background:var(--brand); color:#fff; box-shadow:0 6px 20px var(--ring)}
+  .btn-primary:hover{background:var(--brand-600)}
+  .btn-outline{background:#fff; color:var(--brand); border:1px solid rgba(11,95,255,.24)}
+  .btn-outline:hover{background:#f3f6ff}
+
+  /* Form */
+  .form-card{background:#fff; border:1px solid rgba(2,8,23,.08); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
+  .form-row{display:grid; gap:14px; grid-template-columns:repeat(2,1fr)}
+  .form-row-1{grid-template-columns:1fr}
+  .input, textarea{
+    width:100%; border:1px solid rgba(2,8,23,.12); background:#fff; color:var(--ink);
+    border-radius:12px; padding:12px 14px; font:inherit;
+  }
+  .input:focus, textarea:focus{outline:3px solid var(--ring); border-color:var(--brand)}
+  textarea{min-height:140px; resize:vertical}
+
+  /* Footer */
+  .site-footer{
+    background: radial-gradient(900px 300px at 80% -10%, rgba(11,95,255,.15), transparent 45%),
+    #0f172a; color:#e8eefb; padding:32px 0 48px; margin-top:40px
+  }
+  .site-footer a{color:#a7c4ff; text-decoration:none}
+  .site-footer a:hover{text-decoration:underline}
+</style>
+
+<script>
+  // Lien actif au scroll
+  (function(){
+    const links=[...document.querySelectorAll('.nav a[href^="#"]')];
+    const ids=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const onScroll=()=>{
+      const y=window.scrollY+120;
+      let active=null;
+      ids.forEach(sec=>{
+        const top=sec.offsetTop, bottom=top+sec.offsetHeight;
+        if(y>=top && y<bottom) active=sec.id;
+      });
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+active));
+    };
+    window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  })();
+
+  // Reveal on view
+  (function(){
+    const els=[...document.querySelectorAll('.reveal')];
+    if(!('IntersectionObserver' in window)){ els.forEach(el=>el.classList.add('is-visible')); return; }
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    els.forEach(el=>io.observe(el));
+  })();
+</script>
+
+<!-- Nav buttons override -->
+<style>
+  header nav {
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  header nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #eef2ff;
+    color: var(--ink);
+    border: 1px solid #dbe2ff;
+    box-shadow: 0 2px 8px rgba(2,8,23,.06);
+    transition: background .2s ease, box-shadow .2s ease, transform .08s ease;
+  }
+  header nav a:hover {
+    background: #e2e8ff;
+    box-shadow: 0 6px 18px rgba(2,8,23,.10);
+    transform: translateY(-1px);
+  }
+  header nav a:focus {
+    outline: 3px solid var(--ring, rgba(11,95,255,.25));
+    outline-offset: 2px;
+  }
+  header nav a.active {
+    background: var(--brand, #0b5fff);
+    color: #fff;
+    border-color: var(--brand, #0b5fff);
+    box-shadow: 0 8px 24px var(--ring, rgba(11,95,255,.25));
+  }
+</style>
+
+<!-- Chapter UX layer v5 (no-reveal, safe for #anchors) -->
+<style>
+  .section { padding: 96px 0; }
+  .section--alt { background: #f7f9fc; }
+  .section .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section h2 { margin: 0 0 10px; position: relative; }
+  .section h2::after { content:""; display:block; width:64px; height:4px; border-radius:999px;
+    background: var(--brand, #0b5fff); margin-top: 10px; }
+
+  .hero-intro{position:relative; isolation:isolate; overflow:hidden;
+    background: radial-gradient(1200px 500px at 70% -20%, rgba(11,95,255,.12), transparent 55%),
+               linear-gradient(180deg, #f7faff 0%, #ffffff 65%);
+    border-bottom:1px solid rgba(2,8,23,.06);
+    padding: 90px 0 64px;
+  }
+  .hero-intro .inner{display:grid; gap:26px; grid-template-columns: 1.2fr 1fr; align-items:center; max-width:1100px; margin:0 auto; padding:0 20px;}
+  @media (max-width: 900px){ .hero-intro .inner{grid-template-columns:1fr} }
+  .hero-intro h1{font-size:clamp(28px, 4.6vw, 44px); margin:0}
+  .hero-intro p{font-size:17px; max-width:720px}
+  .hero-intro .media{ border-radius:16px; border:1px solid rgba(2,8,23,.06); box-shadow:0 12px 30px rgba(0,0,0,.06); overflow:hidden }
+
+  .chapters-bar{
+    position: sticky; top: 58px; z-index: 30;
+    background: #fff; border-bottom:1px solid rgba(2,8,23,.06);
+  }
+  .chapters-bar .wrap{max-width:1100px; margin:0 auto; padding:10px 20px; display:flex; gap:10px; flex-wrap:wrap}
+  .chapters-bar a{
+    display:inline-flex; align-items:center; gap:8px; padding:10px 14px; font-weight:600;
+    border-radius:12px; text-decoration:none;
+    background:#eef2ff; color:#0f172a; border:1px solid #dbe2ff; transition:.2s;
+  }
+  .chapters-bar a:hover{ background:#e2e8ff; box-shadow:0 6px 18px rgba(2,8,23,.10); transform: translateY(-1px) }
+  .chapters-bar a.active{ background: var(--brand,#0b5fff); color:#fff; border-color: var(--brand,#0b5fff); box-shadow:0 8px 24px rgba(11,95,255,.25) }
+
+  :target::before{content:""; display:block; height:78px; margin-top:-78px}
+</style>
+
+<style>
+/* === Sector list with icons (injected) === */
+.sector-list{list-style:none;padding:0;margin:12px 0;display:grid;gap:14px}
+.sector-list li{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line, #e2e8f0);border-radius:12px;padding:12px;background:#fff}
+.sector-list img{width:44px;height:44px;object-fit:cover;border-radius:8px;flex:0 0 44px}
+.sector-list .text{line-height:1.6}
+.sector-list .title{font-weight:700;color:var(--ink,#0f172a)}
+</style>
+<style>
+/* === Sector list images: bigger/visible === */
+.sector-list img{width:88px;height:88px;object-fit:cover;border-radius:10px;flex:0 0 88px;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.sector-list li{background:#ffffffcc}
+@media (max-width:640px){
+  .sector-list img{width:72px;height:72px;flex-basis:72px}
+}
+</style>
+
+<!-- === NOUVEAU : mise en page logo + texte à droite === -->
+<style>
+  .header-top{
+    /* déjà flex via header .container, on renforce juste le layout */
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand-block{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex:1 1 auto;
+    min-width:280px;
+  }
+  .logo-img{
+    height:64px;
+    width:auto;
+    flex:0 0 auto;
+  }
+  .brand-text{
+    display:flex;
+    flex-direction:column;
+  }
+  .brand-title{
+    margin:0;
+    font-size:clamp(26px,3vw,32px);
+    line-height:1.1;
+  }
+  .brand-subtitle-eng{
+    margin:2px 0 0;
+    font-size:clamp(18px,2.2vw,22px);
+    font-weight:700;
+  }
+  .brand-subtitle{
+    margin:4px 0 0;
+    color:var(--muted);
+  }
+  @media (max-width:600px){
+    .header-top{align-items:flex-start;}
+    .brand-block{align-items:flex-start;}
+  }
+</style>
+
+<style>
+  /* Décalage pour que les sections ne passent pas sous le header sticky */
+    #automates-telemetrie,
+    #enregistreurs,
+    #geolocalisation,
+    #routeurs-passerelles,
+    #scada-supervision {
+    scroll-margin-top: 120px; /* ajuste à 100–130px selon ton header si besoin */
+  }
+</style>
+
+
+
+<style>
+
+/* ========= LAYOUT GLOBAL POUR TOUTES LES SECTIONS PRODUITS ========= */
+
+.produit-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 25px auto 0 auto;
+}
+
+/* Colonne Images */
+.produit-images {
+  flex: 0 0 320px;
+  text-align: center;
+}
+
+.produit-images img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+/* Colonne Texte */
+.produit-texte {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+/* ========= VERSION MOBILE ========= */
+@media (max-width: 768px) {
+  .produit-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produit-images {
+    width: 100%;
+  }
+
+  .produit-texte {
+    width: 100%;
+  }
+}
+
+</style>
+
+
+<style>
+/* Ligne claire, épaisse et bien visible entre les sections */
+.section-divider-strong {
+  width: 100%;
+  height: 5px;
+  background: #cbd5e1;   /* gris moyen très visible */
+  border-radius: 4px;
+  margin: 60px 0;         /* Espace avant / après */
+}
+</style>
+
+
+
+</head>
+
+<body data-lang="fr">
+<header class="main-header">
+
+  <!-- Ligne supérieure : logo + textes + langues -->
+  <div class="header-top container">
+
+    <!-- Bloc Gauche : Logo + Vi Na Vi + Slogan -->
+    <div class="brand-block">
+      <img 
+        class="logo-img"
+        alt="Vi Na Vi"
+        src="data:image/png;base64,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">
+
+      <div class="brand-text">
+        <h1 class="brand-title">Vi Na Vi</h1>
+        <h2 class="brand-subtitle-eng">ENGINEERING &amp; TECHNOLOGIES</h2>
+        <p class="brand-subtitle">
+          Ingénierie – Instrumentation – Automatisation – SCADA
+        </p>
+      </div>
+    </div>
+
+    <!-- Bloc droite : langues -->
+    <div class="lang">
+      <button data-setlang="fr" class="active">Français</button>
+      <button data-setlang="en">English</button>
+    </div>
+  </div>
+
+  <!-- Ligne du menu : aligné à gauche -->
+  <nav class="main-nav container">
+    <a href="index.html" class="fr">Accueil</a><a href="index.html" class="en">Home</a>
+    <a href="telegestion.html" class="fr">Télégestion</a><a href="telegestion.html" class="en">Remote Management</a>
+    <a href="mines.html" class="fr">Mines</a><a href="mines.html" class="en">Mining</a>
+    <a href="environnement.html" class="fr">Environnement</a><a href="environnement.html" class="en">Environment</a> 
+    <a href="energie.html" class="fr">Énergie Électrique</a><a href="energie.html" class="en">Electrical Energy</a>
+    <a href="eaux.html" class="fr">Traitement des Eaux</a><a href="eaux.html" class="en">Water Treatment</a>
+      </nav>
+
+</header>
+
+
+
+</header>
+
+<style>
+/* Désactiver bandeau figé + réduire sa taille sur mobile */
+@media (max-width: 768px) {
+  .main-header {
+    position: static !important;
+  }
+
+  .header-top {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .brand-title,
+  .brand-subtitle-eng,
+  .brand-subtitle,
+  nav a {
+    font-size: 14px !important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== Cartes Télégestion — style commun ===== */
+
+#telegestion-cartes .cards-tele {
+  gap: 24px;
+}
+
+/* Lien de navigation des cartes */
+#telegestion-cartes .card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Bloc intérieur */
+#telegestion-cartes .card-figure {
+  margin: 0;
+  text-align: center;
+}
+
+/* Images uniformisées et réduites */
+#telegestion-cartes .card-img {
+  width: 100%;
+  height: 160px;     /* Ajuste ici si tu veux + petit ou + grand */
+  object-fit: cover; /* Recadre proprement sans déformation */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Titres */
+#telegestion-cartes .card-title {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.3;
+}
+</style>
+
+
+
+<!-- ===== Cartes cliquables Télégestion ===== -->
+<section id="telegestion-cartes" class="section">
+  <div class="container pad">
+    <div class="grid cols-3 cards-tele">
+
+      <!-- Automates & télémétrie -->
+      <a href="#automates-telemetrie" class="card-link">
+        <figure class="card-figure">
+          <img src="automate_telemetrie.jpg"
+               alt="Automates & télémétrie"
+               class="card-img">
+          <h3 class="card-title fr">Automates &amp; Télémétrie</h3>
+          <h3 class="card-title en">PLCs &amp; Telemetry</h3>
+        </figure>
+      </a>
+
+      <!-- Enregistreurs -->
+      <a href="#enregistreurs" class="card-link">
+        <figure class="card-figure">
+          <img src="enregisteurs.jpg"
+               alt="Enregistreurs autonomes"
+               class="card-img">
+          <h3 class="card-title fr">Enregistreurs Autonomes</h3>
+          <h3 class="card-title en">Standalone Data Loggers</h3>
+        </figure>
+      </a>
+
+      <!-- Géolocalisation -->
+      <a href="#geolocalisation" class="card-link">
+        <figure class="card-figure">
+          <img src="geolocalisation.jpg"
+               alt="Géolocalisation"
+               class="card-img">
+          <h3 class="card-title fr">Géolocalisation</h3>
+          <h3 class="card-title en">Geolocation</h3>
+        </figure>
+      </a>
+
+      <!-- Routeurs & passerelles -->
+      <a href="#routeurs-passerelles" class="card-link">
+        <figure class="card-figure">
+          <img src="routeur_passerelles.jpg"
+               alt="Routeurs et passerelles"
+               class="card-img">
+          <h3 class="card-title fr">Routeurs &amp; Passerelles</h3>
+          <h3 class="card-title en">Routers &amp; Gateways</h3>
+        </figure>
+      </a>
+
+      <!-- SCADA -->
+      <a href="#scada-supervision" class="card-link">
+        <figure class="card-figure">
+          <img src="SCADA.jpg"
+               alt="SCADA & Supervision"
+               class="card-img">
+          <h3 class="card-title fr">SCADA &amp; Supervision</h3>
+          <h3 class="card-title en">SCADA &amp; Supervision</h3>
+        </figure>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!--/* Ligne de séparation VISUELLE pour chaque bloc image + texte */ -->
+<div class="section-divider-strong"></div> 
+
+ 
+
+<section id="automates-telemetrie" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="ewon.jpg" alt="Ewon">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+      <!-- FR -->
+      <div class="fr">
+
+
+        <h3 class="fr">Notre gamme d'automates de témétrie</h3>
+ 
+        <p>
+          Grâce à leurs nombreuses compatibilités et options de communication, 
+          les <strong>automates de télémétrie Ewon</strong> offrent une plateforme très flexible pour 
+          la <strong>télémétrie</strong> et la <strong>télégéstion</strong> des installations industrielles.
+        </p>
+
+        <p>
+          Ils permettent l’acquisition de données via les automates connectés ou au moyen de leurs propres 
+          modules d’entrées-sorties.
+        </p>
+
+        <p>
+          Ils peuvent fonctionner de manière entièrement autonome grâce à leur
+          <strong>interface Web intégrée</strong>, ou être supervisés via <strong>Talk2M</strong>, 
+          le service Cloud sécurisé d’Ewon dédié au VPN industriel.
+        </p>
+
+        <p>
+          Ils s’intègrent également dans des systèmes de supervision <strong>multisites</strong> tels que 
+          TopKapi, Wonderware, VTScada ou tout autre SCADA.  
+          Les échanges de données sont entièrement sécurisés grâce aux passerelles 
+          <strong>VPN eFive</strong> ou au Cloud Talk2M.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+        <p><strong>Vi Na Vi</strong> déploie, configure et intègre les solutions Ewon dans des environnements industriels complexes, en assurant :</p>
+
+        <ul style="margin-left:20px;">
+          <li>Compatibilité avec vos automates existants</li>
+          <li>Configuration sécurisée Talk2M et VPN</li>
+          <li>Intégration SCADA</li>
+          <li>Adaptation aux contraintes locales</li>
+          <li>Télégéstion fiable et évolutive</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+
+      <h3 class="en">Our Telemetry Controllers</h3>
+
+      <div class="en">
+
+        <p>
+          Thanks to their wide compatibilities and communication options, 
+          the <strong>Ewon telemetry PLCs</strong> provide a highly flexible platform for 
+          industrial <strong>telemetry</strong> and <strong>remote management</strong>.
+        </p>
+
+        <p>
+          They allow data acquisition via connected PLCs or through their own I/O modules.
+        </p>
+
+        <p>
+          Ewon PLCs can operate independently via their
+          <strong>integrated web interface</strong>, or be supervised through 
+          <strong>Talk2M</strong>, Ewon’s secure industrial VPN cloud service.
+        </p>
+
+        <p>
+          They also integrate into <strong>multisite SCADA platforms</strong> such as TopKapi, 
+          Wonderware, VTScada or any other SCADA system.  
+          Data exchanges are fully secured through <strong>VPN eFive</strong> gateways 
+          or the Talk2M Cloud.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+        <p><strong>Vi Na Vi</strong> deploys, configures and integrates Ewon solutions in complex industrial environments, ensuring:</p>
+
+        <ul style="margin-left:20px;">
+          <li>Compatibility with existing PLCs and sensors</li>
+          <li>Secure Talk2M and VPN setup</li>
+          <li>Full SCADA integration</li>
+          <li>Adaptation to local conditions</li>
+          <li>Reliable remote management deployment</li>
+        </ul>
+      </div>
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="fr" style="font-size:18px;">
+          Tous domaines nécessitant <strong>Télémétrie</strong> ou <strong>Télégéstion</strong>.
+        </p>
+
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+          <li>Gestion de l’eau</li>
+          <li>Équipements urbains</li>
+          <li>Environnement</li>
+          <li>Énergie</li>
+          <li>Industrie et procédés</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="en" style="font-size:18px;">
+          All sectors requiring <strong>Telemetry</strong> or <strong>Remote Management</strong>.
+        </p>
+
+        <ul class="en" style="font-size:17px; margin-left:20px;">
+          <li>Water management</li>
+          <li>Urban systems</li>
+          <li>Environmental monitoring</li>
+          <li>Energy</li>
+          <li>Industrial processes</li>
+        </ul>
+
+      </div>
+
+
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px;">
+
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+          <li>Compatibilité étendue</li>
+          <li>Déploiement simple</li>
+          <li>Pass-through PLC</li>
+          <li>Conversion de protocoles</li>
+          <li>Supervision personnalisable</li>
+          <li>Enregistrement local fiable</li>
+          <li>Redondance des communications</li>
+          <li>Outils gratuits</li>
+          <li>Talk2M gratuit</li>
+          <li>Sécurité IT avancée</li>
+          <li>Produit éprouvé</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; margin-left:20px;">
+          <li>Wide compatibility</li>
+          <li>Easy deployment</li>
+          <li>PLC pass-through</li>
+          <li>Protocol conversion</li>
+          <li>Custom dashboards</li>
+          <li>Local logging</li>
+          <li>Redundant communication</li>
+          <li>Free tools</li>
+          <li>Talk2M VPN free</li>
+          <li>High IT security</li>
+          <li>Proven product</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+
+<!--/* Ligne de séparation VISUELLE pour chaque bloc image + texte */ -->
+<div class="section-divider-strong"></div> 
+
+
+
+
+
+<section id="enregistreurs" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="enregistreurs-autonomes.jpg" alt="Enregistreurs autonomes">
+      <img src="enregistreurs-lorawan.jpg" alt="Enregistreurs LoRaWAN">
+      <img src="permanet.jpg" alt="Permanet">
+      <img src="pegasus.png" alt="Pegasus">
+      <img src="LOGGER_GL900.jpg" alt="LOGGER GL900">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+      <!-- FR -->
+      <div class="fr">
+         <h3 class="fr">Nos Enregistreurs</h3>
+
+        <p>
+          Les enregistreurs de données que nous proposons sont conçus pour répondre aux exigences élevées des
+          environnements industriels, y compris ceux présentant des risques potentiellement explosifs, comme les 
+          réseaux d’eaux usées, les installations de traitement de l’eau ou encore les infrastructures gazières.
+        </p>
+
+        <p>
+          Ils sont équipés de modems cellulaires de dernière génération compatibles 
+          <strong>LTE-M / NB-IoT / LORAWAN</strong>, garantissant une communication fiable même dans des zones difficiles,
+          éloignées ou souterraines.
+        </p>
+
+        <p>
+          Plusieurs modèles existent selon les applications et les types de capteurs ou d'actionneurs à connecter,
+          offrant une grande autonomie grâce à des batteries internes longue durée et des capacités avancées de
+          traitement et de communication.
+        </p>
+
+        <p>
+          Ils s’intègrent également dans des systèmes de supervision <strong>multisites</strong> tels que 
+          TopKapi, Wonderware, VTScada ou tout autre SCADA.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+        <p><strong>Vi Na Vi</strong> déploie, configure et intègre les différents enregistreurs autonomes avec :</p>
+        <ul style="margin-left:20px;">
+          <li>La sélection des enregistreurs les mieux adaptés aux besoins</li>
+          <li>La configuration complète et sécurisée</li>
+          <li>L’intégration dans vos plateformes SCADA</li>
+          <li>L'accompagnement technique et la formation des équipes</li>
+          <li>Le support après vente</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+         
+        <h3 class="en">Our Data Loggers</h3>
+
+        <p>
+          The data loggers we offer are designed to meet the demanding requirements of industrial environments,
+          including areas with potentially explosive atmospheres such as wastewater networks, water treatment
+          facilities, or gas distribution systems.
+        </p>
+
+        <p>
+          They are equipped with latest-generation <strong>LTE-M / NB-IoT / LORAWAN</strong> cellular modems,
+          ensuring reliable communication even in challenging, remote or underground locations.
+        </p>
+
+        <p>
+          Various models are available depending on the application and the required sensors or actuators.
+          All units offer long-lasting internal battery autonomy and advanced processing and communication capabilities.
+        </p>
+
+        <p>
+          They also integrate into <strong>multisite SCADA platforms</strong> such as TopKapi, 
+          Wonderware, VTScada or any other SCADA system.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+        <p><strong>Vi Na Vi</strong> deploys, configures and integrates the various standalone recorders with :</p>
+
+        <ul style="margin-left:20px;">
+          <li>The selection of the most suitable recorders</li>
+          <li>The complete and secure configuration</li>
+          <li>Integration with your SCADA platforms</li>
+          <li>Technical support and training</li>
+          <li>After-sales assistance</li>
+        </ul>
+      </div>
+
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>Eau et assainissement (surveillance de niveaux, suivi hydrométrique)</li>
+          <li>Détection de débordements, prévention des inondations, surveillance sur sites isolés</li>
+          <li>Gestion des réseaux d’eau potable : compteurs, débitmètres, capteurs de pression et de niveau</li>
+          <li>Environnement et milieux naturels : suivi hydrologique, bassins versants</li>
+          <li>Énergie & réseaux : monitoring, alarmes, maintenance prédictive</li>
+          <li>Équipements et procédés industriels</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>Water and wastewater management (level monitoring, hydrometric tracking)</li>
+          <li>Overflow detection, flood prevention, remote site monitoring</li>
+          <li>Drinking water networks: meters, flow meters, pressure/level sensors</li>
+          <li>Environment and natural areas: hydrological monitoring, watershed management</li>
+          <li>Energy networks: monitoring, alarm reporting, predictive maintenance</li>
+          <li>Industrial equipment and process monitoring</li>
+        </ul>
+
+      </div>
+
+
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>Compatibles LTE-M / NB-IoT</li>
+          <li>Adaptables à de nombreuses applications</li>
+          <li>Certification ATEX/IECEx (Classe I / Zone 0)</li>
+          <li>Autonomie batterie 3 à 5 ans (voire plus)</li>
+          <li>Packs batteries externes certifiés disponibles</li>
+          <li>Étanchéité IP68, protection anti-corrosion</li>
+          <li>Sécurité élevée, secours SMS en cas de défaillance IP</li>
+          <li>Configuration à distance</li>
+          <li>Mesure avancée et gestion d’alarmes (seuils, variations, ON/OFF, calculs…)</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; margin-left:20px; line-height:1.6;">
+          <li>LTE-M / NB-IoT compatible</li>
+          <li>Highly adaptable to applications</li>
+          <li>ATEX/IECEx certified (Class I / Zone 0)</li>
+          <li>Battery autonomy from 3 to 5+ years</li>
+          <li>Certified external battery packs available</li>
+          <li>IP68 waterproof, anti-corrosion protection</li>
+          <li>High communication security with SMS fallback</li>
+          <li>Remote configuration</li>
+          <li>Advanced measurement and alarm management (threshold, variation, counting…)</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+<!--/* Ligne de séparation VISUELLE pour chaque bloc image + texte */ -->
+<div class="section-divider-strong"></div> 
+
+
+
+
+
+<section id="scada-supervision" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="SCADA.jpg" alt="SCADA">
+      <img src="trend.jpg" alt="Trend">
+      <img src="trimble.jpg" alt="Trimble">
+      <img src="talk_to_m.jpg" alt="Talk2M">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+      <!-- FR -->
+      <div class="fr">
+
+          <h3 class="fr">Nos solutions de supervision</h3>
+
+
+        <p style="font-size:18px; margin-bottom:15px;">
+          Les systèmes SCADA (Supervisory Control And Data Acquisition) sont essentiels pour surveiller, contrôler et optimiser les infrastructures 
+          industrielles, énergétiques et environnementales.
+          Ils permettent de collecter les données terrain, de les analyser en temps réel, puis de piloter les équipements à distance, même lorsque 
+          les installations sont réparties sur de vastes territoires ou situées dans des zones difficiles d’accès.
+        </p>
+
+        <p>Un SCADA assure notamment :</p>
+        <ul style="margin-left:20px;">
+          <li>La centralisation de toutes les informations opérationnelles</li>
+          <li>La visualisation en temps réel des réseaux, capteurs et équipements</li>
+          <li>La détection rapide des anomalies, alarmes et dérives</li>
+          <li>Le pilotage à distance des actionneurs et automates</li>
+          <li>La traçabilité et l’analyse historique pour améliorer les performances</li>
+        </ul>
+
+        <p>
+          Il s’agit d’un outil indispensable pour moderniser les installations, réduire les coûts d’exploitation et améliorer la fiabilité des opérations.
+        </p>
+        
+        <h3 style="margin-top:25px;">→ Outils de supervision</h3>
+
+        <p>
+          Les outils de supervision regroupent l’ensemble des solutions qui permettent de surveiller l’état des installations, d’analyser les données et 
+          d’aider à la prise de décision. Ils transforment des données brutes en informations utiles et exploitables au quotidien.
+        </p>
+
+        <ul style="margin-left:20px;">
+          <li>Affichage de l’état des installations sous forme de tableaux de bord, cartes ou synoptiques</li>
+          <li>Gestion des alarmes, événements et historiques</li>
+          <li>Édition de rapports automatiques pour le suivi de performance</li>
+          <li>Communication avec capteurs, automates, enregistreurs et passerelles (IP, LTE-M, LoRaWAN, Modbus, etc.)</li>
+          <li>Prise en compte de la cybersécurité et de la continuité des opérations critiques</li>
+        </ul>
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+        <p>
+          <strong>Vi Na Vi</strong> accompagne les organisations dans la mise en œuvre complète de leurs systèmes de supervision et SCADA avec la 
+          suite logicielle <strong>TOPKAPI</strong>, en combinant expertise technique, connaissance terrain et maîtrise des technologies IoT et industrielles.
+        </p>
+
+        <ul style="margin-left:20px;">
+          <li>Intégration complète clé en main, de la sélection des capteurs à la configuration du SCADA</li>
+          <li>Expertise en télémétrie et communications industrielles</li>
+          <li>Support local en Afrique de l’Ouest</li>
+          <li>Formation & transfert de compétences</li>
+          <li>Sécurité et fiabilité</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+
+      <h3 class="en">Our Supervision Solutions</h3>
+
+      <div class="en">
+
+        <p>
+          SCADA (Supervisory Control And Data Acquisition) systems are essential for monitoring, controlling, and optimizing industrial, energy, 
+          and environmental infrastructures. They collect field data, analyze it in real time, and allow remote control of equipment, even when 
+          installations are spread over large areas or located in hard-to-reach zones.
+        </p>
+
+        <p>A SCADA system provides:</p>
+        <ul style="margin-left:20px;">
+          <li>Centralization of all operational information</li>
+          <li>Real-time visualization of networks, sensors, and equipment</li>
+          <li>Rapid detection of anomalies, alarms, and drifts</li>
+          <li>Remote control of actuators and PLCs</li>
+          <li>Full traceability and historical analysis to improve performance</li>
+        </ul>
+
+        <p>
+          It is a key tool to modernize installations, reduce operating costs, and improve reliability.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+        <p>
+          <strong>Vi Na Vi</strong> supports organizations in the complete implementation of their supervision and SCADA systems using the 
+          <strong>TOPKAPI</strong> software suite, combining technical expertise, field knowledge, and mastery of IoT and industrial technologies.
+        </p>
+
+        <ul style="margin-left:20px;">
+          <li>Turnkey integration, from sensor selection to SCADA configuration</li>
+          <li>Expertise in telemetry and industrial communications</li>
+          <li>Local support in West Africa</li>
+          <li>Training & skills transfer</li>
+          <li>Security and reliability</li>
+        </ul>
+      </div>
+
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Surveillance des procédés et équipements critiques</li>
+          <li>Surveillance et contrôle des procédés industriels</li>
+          <li>Gestion des réseaux d’eau et d’assainissement</li>
+          <li>Exploitation des réseaux électriques (transport et distribution)</li>
+          <li>Gestion des installations de traitement (eau, eaux usées, air, gaz, vapeur)</li>
+          <li>Environnement et monitoring climatique</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="en" style="font-size:18px; margin-bottom:15px;">
+          Typical applications for <strong>supervision</strong> and <strong>SCADA</strong> systems include:
+        </p>
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Monitoring of processes and critical equipment</li>
+          <li>Monitoring and control of industrial processes</li>
+          <li>Management of water and wastewater networks</li>
+          <li>Operation of electrical networks (transmission and distribution)</li>
+          <li>Management of treatment facilities (water, wastewater, air, gas, steam)</li>
+          <li>Environmental and climate monitoring</li>
+        </ul>
+
+      </div>
+
+
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="fr" style="font-size:18px; margin-bottom:15px;">
+          <strong>TOPKAPI</strong> est une suite logicielle modulaire et ouverte permettant de répondre aussi bien aux besoins d’applications 
+          traditionnelles de supervision (offre de type «&nbsp;SCADA&nbsp;») qu’aux besoins plus récents de plateformes de services de données 
+          avec diverses connectivités IoT (portails Web, en mode Cloud ou propriétaire).
+        </p>
+
+        <p class="fr"><strong>Avantages principaux :</strong></p>
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>Produit tout-en-un économique, simple à installer et à maintenir : fonctions SCADA + alarme + rapports + portail Web</li>
+          <li>Ensemble très large de compatibilités :
+            <ul>
+              <li>Automates traditionnels (Schneider, Rockwell, Omron, Siemens, etc.)</li>
+              <li>Automates de télégestion (eWON, TBox, Scadapack, Xylem, WIT, etc.)</li>
+              <li>Enregistreurs de données (HWM, Ijinus, Primayer, ABB, etc.)</li>
+              <li>Systèmes CVC/HVAC (BACnet, LonWorks, etc.)</li>
+              <li>Protocoles : Modbus, IEC60870, DNP3, LoRaWAN, OPC, SNMP, etc.</li>
+            </ul>
+          </li>
+          <li>Serveur Web «&nbsp;Full HTML5&nbsp;» accessible depuis PC, tablettes, smartphones, sans application dédiée</li>
+          <li>Couplage et enrichissement de SCADA existants (solution Topkapi Frontal)</li>
+          <li>Gestion des pertes de communication avec récupération des données horodatées après rétablissement</li>
+          <li>Autoconfiguration et traitement des tags à partir des fichiers de programmation automates</li>
+          <li>Produit éprouvé : dizaines de milliers de licences dans plus de 80 pays</li>
+          <li>Respect des normes de sécurité les plus avancées</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="en" style="font-size:18px; margin-bottom:15px;">
+          <strong>TOPKAPI</strong> is a modular and open software suite designed to meet both traditional supervision needs (classic “SCADA”) 
+          and modern requirements for data service platforms with various IoT connectivity options (Web portals, Cloud-based or private).
+        </p>
+
+        <p class="en"><strong>Main advantages:</strong></p>
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li>All-in-one product: traditional SCADA + alarm module + reporting + Web portal</li>
+          <li>Unique compatibility range:
+            <ul>
+              <li>Traditional PLCs (Schneider, Rockwell, Omron, Siemens, etc.)</li>
+              <li>Remote management PLCs (eWON, TBox, Scadapack, Xylem, WIT, etc.)</li>
+              <li>Data loggers (HWM, Ijinus, Primayer, ABB, etc.)</li>
+              <li>HVAC systems (BACnet, LonWorks, etc.)</li>
+              <li>Protocols and networks: Modbus, IEC60870, DNP3, LoRaWAN, OPC, SNMP, etc.</li>
+            </ul>
+          </li>
+          <li>“Full HTML5” Web Server: access from any device (PC, tablet, smartphone) without specific apps</li>
+          <li>Coupling and enhancement of existing SCADA software (Topkapi Frontal)</li>
+          <li>Management of communication losses with PLCs/loggers and retrieval of timestamped data once restored</li>
+          <li>Auto-configuration and tag processing from PLC program files</li>
+          <li>Proven industrial product with tens of thousands of licenses in 80+ countries</li>
+          <li>Compliance with the highest security standards</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+
+<!--/* Ligne de séparation VISUELLE pour chaque bloc image + texte */ -->
+<div class="section-divider-strong"></div> 
+
+
+
+
+<section id="routeurs-passerelles" class="section">
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="ewon_cosy.jpg" alt="Ewon Cosy">
+      <img src="ewon_flexy3101.jpg" alt="Ewon Flexy 3101">
+      <img src="ewon_netbiter.jpg" alt="Ewon Netbiter">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+        
+       <h3 class="fr">Nos passerelles réseau et convertisseurs de protocoles de communication</h3>
+
+
+      <!-- FR -->
+      <div class="fr">
+
+        <p>
+          La famille de routeurs-passerelles <strong>Cosy</strong> permet d’accéder à distance aux équipements industriels — automates, interfaces 
+          opérateur, caméras ou autres systèmes de contrôle — tout en garantissant un haut niveau de sécurité. 
+          Cette capacité de visualisation et de diagnostic à distance réduit les interventions sur site, optimise les coûts de support et améliore la disponibilité 
+          des installations.
+        </p>
+
+        <p>
+          L’ensemble des routeurs Cosy est administré via <strong>Talk2M</strong>, une plateforme Cloud VPN sécurisée (disponible en version gratuite
+          ou professionnelle selon les besoins). Ce service centralisé simplifie la gestion, la supervision et la mise en service des équipements.
+        </p>
+
+        <p>
+          Le modèle <strong>Cosy+</strong>, dernière évolution de la gamme, introduit un niveau de protection renforcé en intégrant une chaîne de confiance 
+          au cœur même de l’architecture matérielle («&nbsp;Hardware Root of Trust&nbsp;»). 
+          Cette approche renforce la cybersécurité et rend l’accès distant encore plus fiable pour les environnements les plus critiques.
+        </p>
+
+        <p>
+          Les routeurs Cosy constituent ainsi une solution de référence pour une télémaintenance industrielle moderne, flexible et sécurisée.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+        <p><strong>Vi Na Vi</strong> déploie, configure et intègre les solutions Ewon dans des environnements industriels complexes, en assurant :</p>
+
+        <ul style="margin-left:20px;">
+          <li><strong>Expertise technique complète :</strong> sélection, configuration et intégration des routeurs, capteurs, automates et solutions de télémétrie.</li>
+          <li>Configuration sécurisée Talk2M et VPN</li>
+          <li><strong>Cybersécurité intégrée :</strong> architectures sécurisées, VPN Talk2M, gestion des accès et protection des sites critiques.</li>
+          <li><strong>Supervision centralisée :</strong> interconnexion avec les plateformes SCADA pour alarmes, historiques et monitoring en temps réel.</li>
+          <li><strong>Réduction des coûts d’exploitation :</strong> moins d’interventions sur site, diminution des arrêts et optimisation du support.</li>
+          <li><strong>Présence locale et appui canadien :</strong> support rapide en Afrique de l’Ouest.</li>
+          <li><strong>Accompagnement complet :</strong> audit, fourniture, installation, formation et maintenance continue.</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+
+       <h3 class="en">Our Network Gateways and Communication Protocol Converters</h3>
+
+        <p>
+          The <strong>Cosy</strong> family of remote access routers allows secure connectivity to industrial equipment — PLCs, HMIs, cameras, and other control 
+          systems — from anywhere. This remote visualization and troubleshooting capability significantly reduces on-site interventions, lowers support costs, 
+          and improves overall system availability.
+        </p>
+
+        <p>
+          All Cosy routers are managed through <strong>Talk2M</strong>, a secure Cloud-based VPN platform available in both free and professional editions. 
+          This centralized service streamlines device management, supervision, and commissioning.
+        </p>
+
+        <p>
+          The latest addition to the range, <strong>Cosy+</strong>, brings enhanced protection by embedding a hardware-level trust chain (“&nbsp;Hardware Root of Trust&nbsp;”). 
+          This architecture strengthens cybersecurity and ensures highly reliable remote access for the most critical environments.
+        </p>
+
+        <p>
+          Cosy routers are therefore an ideal solution for modern, flexible, and secure industrial remote maintenance.
+        </p>
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+        <p><strong>Vi Na Vi</strong> deploys, configures and integrates Ewon solutions in complex industrial environments, ensuring:</p>
+
+        <ul style="margin-left:20px;">
+          <li><strong>Comprehensive technical expertise:</strong> selection, configuration, and integration of routers, sensors, PLCs, and telemetry solutions.</li>
+          <li><strong>Built-in cybersecurity:</strong> secure architectures, Talk2M VPN, access management, and protection of critical sites.</li>
+          <li><strong>Centralized supervision:</strong> seamless integration with SCADA platforms for alarms, historical data, and real-time monitoring.</li>
+          <li><strong>Reduced operational costs:</strong> fewer site visits, decreased downtime, and optimized technical support.</li>
+          <li><strong>Local presence with Canadian support:</strong> fast assistance in West Africa reinforced by Canadian expertise.</li>
+          <li><strong>End-to-end support:</strong> audits, equipment supply, installation, training, and ongoing maintenance.</li>
+        </ul>
+      </div>
+
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="fr" style="font-size:18px; margin-bottom:15px;">
+          Tous domaines d’activité pour des besoins de <strong>Télémétrie</strong> et de 
+          <strong>Télégéstion</strong> par des opérateurs d’installations techniques :
+        </p>
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Accès distant aux automates (PLC)</strong> pour la programmation, les mises à jour et le dépannage.</li>
+          <li><strong>Télémaintenance des machines industrielles</strong> sans déplacement d’équipes sur site.</li>
+          <li><strong>Diagnostic à distance des IHM/HMI</strong> pour un support technique rapide.</li>
+          <li><strong>Surveillance d’équipements critiques</strong> : moteurs, pompes, stations de pompage, convoyeurs, turbines, etc.</li>
+          <li><strong>Connexion sécurisée aux réseaux industriels</strong> via VPN Talk2M.</li>
+          <li><strong>Suivi des alarmes et notifications</strong> par e-mail ou SMS pour des interventions rapides.</li>
+          <li><strong>Accès aux caméras industrielles</strong> pour inspection et monitoring visuel.</li>
+          <li><strong>Support technique international</strong> permettant à des experts à distance d’intervenir sur des installations locales.</li>
+          <li><strong>Intégration IoT</strong> pour la collecte de données vers des plateformes SCADA ou Cloud.</li>
+          <li><strong>Gestion de parcs de machines dispersés</strong> (mines, énergie, eau, télécoms, stations isolées).</li>
+          <li><strong>Accès distant aux stations isolées</strong> : réservoirs, cuves, stations de pompage, postes électriques.</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <p class="en" style="font-size:18px; margin-bottom:15px;">
+          Typical applications for <strong>remote access</strong> and <strong>remote management</strong>:
+        </p>
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Remote access to PLCs</strong> for programming, updates, and troubleshooting.</li>
+          <li><strong>Remote maintenance of industrial machines</strong> without sending technicians on site.</li>
+          <li><strong>Remote diagnostics of HMIs</strong> for fast technical support.</li>
+          <li><strong>Monitoring of critical equipment</strong> such as motors, pumps, pumping stations, conveyors, and turbines.</li>
+          <li><strong>Secure connection to industrial networks</strong> through the Talk2M VPN.</li>
+          <li><strong>Alarm monitoring and notifications</strong> via email or SMS for quick intervention.</li>
+          <li><strong>Access to industrial cameras</strong> for visual inspection and monitoring.</li>
+          <li><strong>International technical support</strong> allowing remote experts to work on local installations.</li>
+          <li><strong>IoT integration</strong> for data collection into SCADA or cloud platforms.</li>
+          <li><strong>Management of distributed machine fleets</strong> (mining, energy, water, telecom, remote stations).</li>
+          <li><strong>Remote access to isolated stations</strong> such as tanks, reservoirs, pumping stations, and electrical substations.</li>
+        </ul>
+
+      </div>
+
+
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px; max-width:1100px; margin-left:auto; margin-right:auto;">
+
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Réduction des coûts de support :</strong> possibilité d’intervenir à distance, améliorant le service client et facilitant la gestion de sites éloignés.</li>
+          <li><strong>Mise en service simplifiée :</strong> aucune expertise informatique avancée n’est nécessaire.</li>
+          <li><strong>Installation rapide :</strong> déploiement sans interruption des automates ou des machines en production.</li>
+          <li><strong>Large choix de communications :</strong> Ethernet, ports Série, WiFi ou réseau cellulaire, avec options de redondance.</li>
+          <li><strong>Plateforme VPN Talk2M intégrée :</strong> gestion d’un grand nombre d’équipements et d’utilisateurs selon les besoins.</li>
+          <li><strong>Cybersécurité renforcée :</strong> protection complète répondant aux exigences des services IT et aux environnements critiques.</li>
+          <li><strong>Commande locale de l’accès distant :</strong> activation/désactivation possible via un commutateur externe pour le contrôle final par l’utilisateur.</li>
+          <li><strong>Alertes configurables :</strong> notifications SMS ou courriel pour anticiper les interventions et optimiser la maintenance.</li>
+          <li><strong>Connexion multi-équipements :</strong> possibilité de relier plusieurs machines à un seul routeur Cosy.</li>
+          <li><strong>Solution éprouvée :</strong> technologie utilisée sur plus de 200&nbsp;000 sites industriels dans le monde.</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; line-height:1.6; margin-left:20px;">
+          <li><strong>Reduced support costs:</strong> remote access allows faster service and efficient management of geographically distant sites.</li>
+          <li><strong>Simplified deployment:</strong> no advanced IT skills required to install or configure the device.</li>
+          <li><strong>Fast installation:</strong> commissioning can be completed without stopping PLCs or production equipment.</li>
+          <li><strong>Flexible communication options:</strong> Ethernet, Serial, WiFi, and Cellular connectivity with possible redundancy.</li>
+          <li><strong>Integrated Talk2M VPN platform:</strong> supports a large number of devices and users depending on operational needs.</li>
+          <li><strong>Enhanced cybersecurity:</strong> end-to-end protection that meets the expectations of modern IT departments and critical environments.</li>
+          <li><strong>Local remote-access control:</strong> the user can enable or disable remote connectivity using an external key switch.</li>
+          <li><strong>Configurable alerts:</strong> SMS and email notifications available for proactive maintenance.</li>
+          <li><strong>Multi-equipment connectivity:</strong> several machines can be managed through a single Cosy router.</li>
+          <li><strong>Proven industrial solution:</strong> deployed on more than 200,000 installations worldwide.</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+</section>
+
+
+
+
+<!--/* Ligne de séparation VISUELLE pour chaque bloc image + texte */ -->
+<div class="section-divider-strong"></div> 
+
+
+
+<section id="geolocalisation" class="section">
+
+
+
+
+  <div class="produit-layout">
+
+    <!-- IMAGES -->
+    <div class="produit-images">
+      <img src="geo_platinum.jpg" alt="">
+      <img src="geo_centi.jpg" alt="">
+      <img src="geo_skyblues.jpg" alt="">
+      <img src="geo_timble.jpg" alt="">
+      <img src="geo_recep.jpg" alt="">
+    </div>
+
+    <!-- TEXTE -->
+    <div class="produit-texte">
+
+
+       <h3 class="fr">Nos solutions de géolocalisation</h3>
+
+      <!-- FR -->
+      <div class="fr">
+
+        <p>
+           La géolocalisation moderne joue un rôle essentiel dans la cartographie, la gestion d’actifs,
+           la surveillance environnementale et les opérations terrain. Grâce à des récepteurs GNSS
+           de nouvelle génération, il est possible d’obtenir des mesures de positionnement fiables
+           et précises, adaptées aux environnements les plus exigeants. Compacts, robustes et faciles
+           à intégrer aux outils numériques actuels, ces récepteurs offrent un positionnement en temps
+           réel pour des applications industrielles, urbaines ou environnementales.
+        </p>
+
+        <h3 class="fr">Récepteurs de géolocalisation – Version précision submétrique (Type R1)</h3>
+      
+          Conçus pour les travaux de terrain nécessitant une précision inférieure au mètre,
+          ces récepteurs GNSS allient <strong>compacité</strong>, <strong>robustesse</strong>
+          et <strong>simplicité d’utilisation</strong>.
+        </p>
+
+        <p>
+          Ils se connectent aisément en <strong>Bluetooth</strong> à tout appareil mobile&nbsp;:
+          téléphone intelligent, tablette, ordinateur ou terminal durci, ce qui permet une
+          intégration immédiate dans les applications terrain.
+        </p>
+
+        <p class="fr">
+        Compatibles avec plusieurs constellations satellites (GPS, GLONASS, Galileo, etc.)
+        et capables d’exploiter différentes sources de corrections différentielles
+        (SBAS, VRS, RTX…), ces récepteurs fournissent un
+        <strong>positionnement précis en temps réel</strong>, partout dans le monde
+        et sans étape de post-traitement.
+       </p>
+
+         <h3 class="fr">Récepteurs de géolocalisation – Version haute précision (Type R2)</h3>
+         
+  
+          <p class="fr">
+      Ces récepteurs GNSS offrent un niveau de précision avancé,
+      allant du submétrique au centimétrique, tout en conservant un format compact
+      et résistant aux conditions difficiles.
+     </p>
+
+     <p class="fr">
+      Ils communiquent facilement via <strong>Bluetooth</strong> et disposent en plus
+      d’une interface <strong>WiFi</strong> avec serveur Web intégré, permettant leur
+      configuration ou leur exploitation directement à partir d’un simple navigateur Internet.
+     </p>
+
+     <p class="fr">
+      Comme les versions submétriques, ils gèrent plusieurs systèmes GNSS
+      (GPS, GLONASS, Galileo…) et peuvent utiliser des corrections temps réel
+      de type SBAS, RTK ou RTX pour garantir une <strong>localisation très précise</strong>
+      sans recourir au post-traitement.
+      </p>
+
+      <p class="fr">
+      Les données générées s’intègrent facilement dans de nombreuses plateformes SIG
+      ou solutions de cartographie, qu’il s’agisse d’applications professionnelles
+      spécialisées ou de logiciels tiers.
+       </p>
+
+
+
+
+
+
+        <h3 style="margin-top:25px;">→ Apport de Vi Na Vi</h3>
+
+        <p><strong>Vi Na Vi</strong> déploie, configure et intègre les solutions Ewon dans des environnements industriels complexes, en assurant :</p>
+
+        <ul style="margin-left:20px;">
+          <li><strong>Expertise technique complète:</strong> Vi Na Vi accompagne les clients dans le choix des technologies GNSS, la configuration des équipements et leur intégration dans les outils SIG.</li>
+          <li><strong>Intégration aux systèmes existants:</strong> Nous assurons la compatibilité des récepteurs GNSS avec les plateformes SIG, SCADA et solutions industrielles déjà en place.</li>
+          <li><strong>Support local et réactif:</strong> Grâce à notre présence à Montréal et Conakry, nous offrons une assistance technique rapide, professionnelle et adaptée aux besoins du terrain.</li>
+          <li> <strong>Sélection rigoureuse des équipements :</strong> Vi Na Vi fournit uniquement des récepteurs fiables et robustes adaptés aux environnements exigeants et aux missions de précision.</li>
+          <li><strong>Solutions adaptées au contexte ouest-africain :</strong> Nos recommandations tiennent compte des réalités locales, de la couverture GNSS régionale et des contraintes opérationnelles.</li>
+          <li><strong>Formation et transfert de compétences:</strong> Nous formons les équipes à l’utilisation, la collecte de données et la maintenance pour leur garantir une autonomie complète.</li>
+          <li><strong>Offres clés en main:</strong> Vi Na Vi propose des solutions complètes incluant récepteurs GNSS, accessoires, logiciels, configuration et service après-vente.</li>
+          <li><strong>Fiabilité et transparence
+            :</strong> Nos solutions sont testées, documentées et présentées avec des performances réelles et des recommandations adaptées à chaque usage.</li>     
+         </ul>
+      </div>
+
+      <!-- EN -->
+
+      <h3 class="en">Our Geolocation Solutions</h3>
+
+      <div class="en">
+
+        <p>
+         Modern geolocation plays a key role in mapping, asset management,
+         environmental monitoring, and field operations. Thanks to next-generation
+         GNSS receivers, it is possible to obtain reliable and accurate positioning
+         data, suitable for even the most demanding environments. Compact, robust,
+         and easy to integrate with today’s digital tools, these receivers deliver
+          real-time positioning for industrial, urban, or environmental applications.
+       </p>
+
+<h3 class="en">Geolocation Receivers – Sub-meter Precision Version (Type R1)</h3>
+
+<p>
+  Designed for field operations requiring accuracy below one meter,
+  these GNSS receivers combine <strong>compactness</strong>, 
+  <strong>ruggedness</strong>, and <strong>ease of use</strong>.
+</p>
+
+<p>
+  They connect seamlessly via <strong>Bluetooth</strong> to any mobile device —
+  smartphone, tablet, computer, or rugged field terminal — allowing
+  immediate integration into field applications.
+</p>
+
+<p>
+  Compatible with multiple satellite constellations (GPS, GLONASS, Galileo, etc.)
+  and capable of using various differential correction sources
+  (SBAS, VRS, RTX…), these receivers provide
+  <strong>real-time precise positioning</strong> worldwide,
+  without requiring post-processing.
+</p>
+
+<h3 class="en">Geolocation Receivers – High-Precision Version (Type R2)</h3>
+
+<p>
+  These GNSS receivers offer an advanced level of accuracy,
+  ranging from sub-meter to centimeter precision, while maintaining
+  a compact format and resistance to harsh environments.
+</p>
+
+<p>
+  They communicate easily via <strong>Bluetooth</strong> and also include
+  a <strong>WiFi</strong> interface with an integrated Web server,
+  enabling configuration or monitoring directly through a standard
+  Internet browser.
+</p>
+
+  <p>
+  Like the sub-meter models, they support multiple GNSS systems
+  (GPS, GLONASS, Galileo…) and can use real-time correction services
+  such as SBAS, RTK, or RTX to ensure <strong>high-precision positioning</strong>
+  without post-processing.
+  </p>
+
+     <p>
+  The collected data integrates smoothly into a wide range of GIS platforms
+  or mapping solutions, whether specialized professional applications
+  or third-party software.
+   </p>
+
+
+        <h3 style="margin-top:25px;">→ Vi Na Vi’s Contribution</h3>
+
+        <p><strong>Vi Na Vi</strong> deploys, configures and integrates Ewon solutions in complex industrial environments, ensuring:</p>
+
+        <ul style="margin-left:20px;">
+         <li><strong>Comprehensive technical expertise:</strong> Vi Na Vi supports clients in selecting GNSS technologies, configuring equipment, and integrating solutions into GIS tools.</li>
+         <li><strong>Integration with existing systems:</strong> We ensure compatibility between GNSS receivers and existing GIS platforms, SCADA systems, and industrial infrastructures.</li>
+         <li><strong>Local and responsive support:</strong> With our presence in Montreal and Conakry, we provide fast, professional technical assistance tailored to field requirements.</li>
+         <li><strong>Rigorous equipment selection:</strong> Vi Na Vi supplies only reliable and robust receivers suited for demanding environments and high-precision missions.</li>
+         <li><strong>Solutions adapted to the West African context:</strong> Our recommendations consider local realities, regional GNSS coverage, and operational constraints.</li>
+         <li><strong>Training and skills transfer:</strong> We train teams in device usage, data collection, and maintenance to ensure complete operational autonomy.</li>
+         <li><strong>Turnkey solutions:</strong> Vi Na Vi offers complete packages including GNSS receivers, accessories, software, configuration, and after-sales support.</li>
+         <li><strong>Reliability and transparency:</strong> Our solutions are tested, documented, and delivered with real performance metrics and recommendations tailored to each application.</li>
+
+        </ul>
+      </div>
+
+      <!-- APPLICATIONS -->
+      <div style="margin-top:50px;">
+
+        <h2 class="fr" style="color:#0a4c78;">Applications</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+          <li>Cartographie et levés topographiques (Relevés terrain, Mise à jour de plans et inventaires)</li>
+          <li>Gestion d’actifs et inventaires (Inventaire de réseaux (eau, électricité, assainissement), Géoréférencement d’ouvrages existants)</li>
+          <li>Environnement et surveillance (Localisation de sites sensibles, Suivi de zones à risques (érosion, pollution, inondations)) </li>
+          <li>Secteur minier (Contrôle des zones d’exploitation, Suivi de développement minier, Relevés géologiques) </li>
+          <li>SIG et modélisation (Alimentation de plateformes SIG (ArcGIS, QGIS, JMap…), Intégration dans modèles 2D/3D)</li>
+          <li>Logistique et mobilité (Gestion de flottes et localisation des véhicules, Navigation et guidage précis) </li>
+          <li>Intervention et sécurité (Appui aux opérations d’urgence, Gestion des zones d'accès restreint, Localisation des équipes sur le terrain) </li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Applications</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; border:none; margin:10px 0 20px 0;">
+
+
+        <ul class="en" style="font-size:17px; margin-left:20px;">
+      <ul class="en" style="font-size:17px; margin-left:20px;">
+          <li>Mapping and topographic surveys (Field surveys, Updating maps and asset inventories)</li>
+          <li>Asset management and inventories (Utility network inventory—water, electricity, sanitation; Georeferencing of existing infrastructure)</li>
+          <li>Environmental monitoring (Location of sensitive sites, Monitoring risk areas—erosion, pollution, flooding)</li>
+          <li>Mining sector (Monitoring extraction zones, Mine development tracking, Geological surveys)</li>
+          <li>GIS and modeling (Feeding GIS platforms such as ArcGIS, QGIS, JMap; Integration into 2D/3D models)</li>
+          <li>Logistics and mobility (Fleet management and vehicle tracking, Precise navigation and guidance)</li>
+          <li>Intervention and safety (Support for emergency operations, Management of restricted-access areas, Field team location)</li>
+           </ul>
+        </ul>
+
+      </div>
+
+
+      <!-- AVANTAGES -->
+      <div style="margin-top:60px;">
+
+        <h2 class="fr" style="color:#0a4c78;">Avantages</h2>
+        <hr class="fr" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="fr" style="font-size:17px; margin-left:20px;">
+          <li>Haute précision en temps réel</li>
+          <li>Compatibilité multi-constellations (Utilisation simultanée des réseaux GPS, GLONASS, Galileo, etc., pour une meilleure fiabilité.)</li>
+          <li>Corrections GNSS avancées (Support des services SBAS, VRS, RTK, RTX, permettant de maintenir une précision stable dans toutes les conditions.)</li>
+          <li>Connectivité flexible (Communication Bluetooth et/ou WiFi facilitant l’intégration avec tout type d’appareil)</li>
+          <li>Grande robustesse terrain</li>
+          <li>Simplicité d’utilisation</li>
+          <li>Intégration SIG transparente</li>
+          <li>Productivité accrue sur le terrain</li>
+        </ul>
+
+        <h2 class="en" style="color:#0a4c78; margin-top:40px;">Advantages</h2>
+        <hr class="en" style="width:60px; height:3px; background:#0a4c78; margin:10px 0 20px 0;">
+
+        <ul class="en" style="font-size:17px; margin-left:20px;">
+         <li>High real-time precision</li>
+         <li>Multi-constellation compatibility (Simultaneous use of GPS, GLONASS, Galileo, etc. for improved reliability)</li>
+         <li>Advanced GNSS corrections (Support for SBAS, VRS, RTK, RTX services to maintain stable accuracy in all conditions)</li>
+         <li>Flexible connectivity (Bluetooth and/or WiFi communication for seamless integration with any device)</li>
+         <li>High field robustness</li>
+         <li>Ease of use</li>
+         <li>Seamless GIS integration</li>
+         <li>Increased productivity in the field</li>
+
+        </ul>
+
+      </div>
+
+    </div> <!-- FIN TEXTE -->
+
+  </div> <!-- FIN LAYOUT -->
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <div class="container" style="padding:16px;">
+      <p class="muted">© 2025 Vi Na Vi — Tous droits réservés · All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.body;
+    const buttons = document.querySelectorAll('[data-setlang]');
+    function setLang(lang) {
+      root.setAttribute('data-lang', lang);
+      buttons.forEach(b => b.classList.toggle('active', b.getAttribute('data-setlang') === lang));
+      try { localStorage.setItem('vinavi.lang', lang); } catch(e) { }
+    }
+    buttons.forEach(b => b.addEventListener('click', () => setLang(b.getAttribute('data-setlang'))));
+    try { const saved = localStorage.getItem('vinavi.lang'); if (saved) setLang(saved); } catch(e) { }
+  </script>
+
+
+<script>
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxM-81CCRG9fKLtDyTZxkaXyywz96OrzTRw9cPPsAf-Jg0A6j3pkrKJoy8e8XXuYhxD/exec";
+
+async function sendCareerForm(ev) {
+  ev.preventDefault();
+
+  const form = document.getElementById("careerForm");
+  if (!form) return;
+
+  // Honeypot anti-spam : si rempli, on ignore
+  const honey = form.querySelector('[name="_honey"]');
+  if (honey && honey.value) {
+    return;
+  }
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    role: form.role.value,
+    message: form.message.value
+  };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",       // ✅ évite les problèmes CORS / preflight
+      body: JSON.stringify(data)
+      // ❌ surtout PAS de headers personnalisés ici
+    });
+  } catch (err) {
+    console.error("Erreur envoi formulaire:", err);
+  }
+
+  // Redirection vers la page de remerciement
+  window.location.href = "merci.html";
+}
+</script>
+
+
+</body>
+</html>
