@@ -543,7 +543,31 @@
     border-radius:14px;
     display:block;
   }
+
+  /* Corrige le décalage des ancres dû au header fixe */
+  :target::before {
+    content: "";
+    display: block;
+    height: 90px;      /* ajuste selon la hauteur de ton header */
+    margin-top: -90px;
+  }/* Corrige l’affichage sur mobile : recentre les cartes */
+@media (max-width: 768px) {
+  #energie-thematiques .cards-container,
+  #energie-thematiques div[style*="flex-wrap"] {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  #energie-thematiques .energie-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 </style>
+
+
+
 
 </header>
 
