@@ -563,6 +563,51 @@
     margin-right: auto;
   }
 }
+/* ===== Responsive mobile pour la page Énergie ===== */
+@media (max-width: 900px) {
+
+  /* 1) Centre la grille des vignettes "Choisissez une thématique" */
+  #energie-thematiques div[style*="flex-wrap"] {
+    justify-content: center !important;
+  }
+
+  /* 2) Blocs image + texte des sections détaillées */
+
+  /* Conteneur principal (image + texte) */
+  #energie-qualite > div[style*="display:flex"],
+  #energie-supervision > div[style*="display:flex"],
+  #energie-instrumentation > div[style*="display:flex"],
+  #energie-production > div[style*="display:flex"],
+  #energie-iot > div[style*="display:flex"],
+  #energie-services > div[style*="display:flex"] {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  /* Bloc image (1er enfant) */
+  #energie-qualite > div[style*="display:flex"] > div:first-child,
+  #energie-supervision > div[style*="display:flex"] > div:first-child,
+  #energie-instrumentation > div[style*="display:flex"] > div:first-child,
+  #energie-production > div[style*="display:flex"] > div:first-child,
+  #energie-iot > div[style*="display:flex"] > div:first-child,
+  #energie-services > div[style*="display:flex"] > div:first-child {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Bloc texte (2e enfant) */
+  #energie-qualite > div[style*="display:flex"] > div:last-child,
+  #energie-supervision > div[style*="display:flex"] > div:last-child,
+  #energie-instrumentation > div[style*="display:flex"] > div:last-child,
+  #energie-production > div[style*="display:flex"] > div:last-child,
+  #energie-iot > div[style*="display:flex"] > div:last-child,
+  #energie-services > div[style*="display:flex"] > div:last-child {
+    width: 100%;
+    text-align: left;   /* texte lisible, mais bloc bien centré */
+  }
+}
 
 </style>
 
