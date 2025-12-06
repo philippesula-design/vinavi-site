@@ -276,17 +276,25 @@
   })();
 </script>
 
-<!-- Nav buttons override -->
+<!-- Nav buttons override – centrage & alignement -->
 <style>
+  /* Conteneur du menu */
   header nav {
-    display: inline-flex;
-    gap: 14px;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;       /* centre les boutons sur la largeur */
+    gap: 12px 18px;                /* espace horizontal / vertical */
+    padding: 8px 0 16px;
   }
+
+  /* Boutons */
   header nav a {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;       /* texte centré dans le chip */
+    min-width: 150px;              /* largeur visuelle plus homogène */
+    text-align: center;
+
     font-weight: 600;
     text-decoration: none;
     padding: 10px 14px;
@@ -297,20 +305,34 @@
     box-shadow: 0 2px 8px rgba(2,8,23,.06);
     transition: background .2s ease, box-shadow .2s ease, transform .08s ease;
   }
+
   header nav a:hover {
     background: #e2e8ff;
     box-shadow: 0 6px 18px rgba(2,8,23,.10);
     transform: translateY(-1px);
   }
+
   header nav a:focus {
     outline: 3px solid var(--ring, rgba(11,95,255,.25));
     outline-offset: 2px;
   }
+
   header nav a.active {
     background: var(--brand, #0b5fff);
     color: #fff;
     border-color: var(--brand, #0b5fff);
     box-shadow: 0 8px 24px var(--ring, rgba(11,95,255,.25));
+  }
+
+  /* Version mobile : 2 boutons par ligne quand possible */
+  @media (max-width: 720px) {
+    header nav {
+      gap: 10px 10px;
+    }
+    header nav a {
+      flex: 1 1 calc(50% - 12px);  /* ~2 colonnes */
+      min-width: 0;
+    }
   }
 </style>
 
@@ -462,7 +484,11 @@
     <a href="#accueil" class="fr">Accueil</a><a href="#accueil" class="en">Home</a>
     <a href="#secteurs" class="fr">Secteurs</a><a href="#secteurs" class="en">Sectors</a>
     <a href="#services" class="fr">Services</a><a href="#services" class="en">Services</a>
-    <a href="solutions.html" class="fr">Solutions</a><a href="solutions.html" class="en">Solutions</a>    
+    <a href="telegestion.html" class="fr">Télégestion</a><a href="telegestion.html" class="en">Remote Monitoring & Control</a>    
+    <a href="energie.html" class="fr">Énergie Électrique</a><a href="energie.html" class="en">Electrical Energy</a>
+    <a href="mines.html" class="fr">Mines</a><a href="mines.html" class="en">Mining</a>
+    <a href="environnement.html" class="fr">Environnement</a><a href="environnement.html" class="en">Environment</a> 
+    <a href="eaux.html" class="fr">Traitement des Eaux</a><a href="eaux.html" class="en">Water Treatment</a>
     <a href="traitement.html" class="fr">Systèmes de Traitement des Eaux</a><a href="traitement.html" class="en">Water Treatment Systems</a>
     <a href="#careers" class="fr">Carrières</a><a href="#careers" class="en">Careers</a>
     <a href="#contacts" class="fr">Contacts</a><a href="#contacts" class="en">Contacts</a>
