@@ -370,34 +370,7 @@
 
 <!-- === NOUVEAU : mise en page logo + texte à droite === -->
 <style>
-    /* ===== Sections énergie : image + texte (mobile) ===== */
-  @media (max-width: 768px) {
-
-    /* Conteneur principal des sections : PQM, supervision, etc. */
-    #energie-qualite > div,
-    #energie-supervision > div,
-    #energie-instrumentation > div,
-    #energie-production > div,
-    #energie-iot > div,
-    #energie-services > div {
-      flex-direction: column;    /* image au-dessus, texte en dessous */
-      align-items: center;       /* centre le bloc */
-    }
-
-    /* Les deux colonnes à l’intérieur (image et texte) */
-    #energie-qualite > div > div,
-    #energie-supervision > div > div,
-    #energie-instrumentation > div > div,
-    #energie-production > div > div,
-    #energie-iot > div > div,
-    #energie-services > div > div {
-      width: 100%;
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
+  
   .header-top{
     /* déjà flex via header .container, on renforce juste le layout */
     display:flex;
@@ -440,6 +413,30 @@
     .header-top{align-items:flex-start;}
     .brand-block{align-items:flex-start;}
   }
+
+    /* ===== Blocs de contenu Énergie : image + texte ===== */
+  .energie-bloc {
+    /* rien de spécial sur PC, le style inline gère la mise en page */
+  }
+
+  /* Version mobile : on empile l'image au-dessus du texte */
+  @media (max-width: 768px) {
+    .energie-bloc {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .energie-bloc > div {
+      width: 100% !important;
+      max-width: 430px;
+    }
+
+    .energie-bloc > div:first-child {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
 </style>
 
 <style>
@@ -504,35 +501,36 @@
   @media (max-width: 900px) {
 
     /* 1) Empile image + texte verticalement */
-    #energie-qualite .container > div[style*="display:flex"],
-    #energie-supervision .container > div[style*="display:flex"],
-    #energie-instrumentation .container > div[style*="display:flex"],
-    #energie-production .container > div[style*="display:flex"],
-    #energie-iot .container > div[style*="display:flex"],
-    #energie-services .container > div[style*="display:flex"] {
+    #energie-qualite > div[style*="display:flex"],
+    #energie-supervision > div[style*="display:flex"],
+    #energie-instrumentation > div[style*="display:flex"],
+    #energie-production > div[style*="display:flex"],
+    #energie-iot > div[style*="display:flex"],
+    #energie-services > div[style*="display:flex"] {
       flex-direction: column;
       align-items: center;
       gap: 20px;
     }
 
     /* 2) Largeur du bloc texte limitée et centrée */
-    #energie-qualite .container > div[style*="display:flex"] > div,
-    #energie-supervision .container > div[style*="display:flex"] > div,
-    #energie-instrumentation .container > div[style*="display:flex"] > div,
-    #energie-production .container > div[style*="display:flex"] > div,
-    #energie-iot .container > div[style*="display:flex"] > div,
-    #energie-services .container > div[style*="display:flex"] > div {
+    #energie-qualite > div[style*="display:flex"] > div,
+    #energie-supervision > div[style*="display:flex"] > div,
+    #energie-instrumentation > div[style*="display:flex"] > div,
+    #energie-production > div[style*="display:flex"] > div,
+    #energie-iot > div[style*="display:flex"] > div,
+    #energie-services > div[style*="display:flex"] > div {
       width: 100%;
       max-width: 640px;
+      text-align: left;   /* texte lisible */
     }
 
-    /* 3) Image centrée et bien responsive */
-    #energie-qualite .container > div[style*="display:flex"] img,
-    #energie-supervision .container > div[style*="display:flex"] img,
-    #energie-instrumentation .container > div[style*="display:flex"] img,
-    #energie-production .container > div[style*="display:flex"] img,
-    #energie-iot .container > div[style*="display:flex"] img,
-    #energie-services .container > div[style*="display:flex"] img {
+    /* 3) Image centrée et responsive */
+    #energie-qualite > div[style*="display:flex"] img,
+    #energie-supervision > div[style*="display:flex"] img,
+    #energie-instrumentation > div[style*="display:flex"] img,
+    #energie-production > div[style*="display:flex"] img,
+    #energie-iot > div[style*="display:flex"] img,
+    #energie-services > div[style*="display:flex"] img {
       display: block;
       max-width: 320px;
       width: 100%;
