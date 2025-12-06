@@ -483,61 +483,109 @@
   }
 </style>
 
-<style>
-  /* Mise en page des vignettes Énergie sur mobile */
-  @media (max-width: 768px) {
-    #energie-thematiques .energie-card {
-      width: 90%;        /* carte quasi pleine largeur mais centrée */
-      max-width: 340px;  /* limite pour ne pas être trop large */
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-</style>
 
 <style>
-  /* Mise en page des sections Énergie sur mobile :
-     image au-dessus + texte centré dans la page */
-  @media (max-width: 900px) {
+/* ===== Cartes thématiques Énergie (vignettes) ===== */
 
-    /* 1) Empile image + texte verticalement */
-    #energie-qualite > div[style*="display:flex"],
-    #energie-supervision > div[style*="display:flex"],
-    #energie-instrumentation > div[style*="display:flex"],
-    #energie-production > div[style*="display:flex"],
-    #energie-iot > div[style*="display:flex"],
-    #energie-services > div[style*="display:flex"] {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
+#energie-thematiques .energie-card {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  padding: 12px 12px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
 
-    /* 2) Largeur du bloc texte limitée et centrée */
-    #energie-qualite > div[style*="display:flex"] > div,
-    #energie-supervision > div[style*="display:flex"] > div,
-    #energie-instrumentation > div[style*="display:flex"] > div,
-    #energie-production > div[style*="display:flex"] > div,
-    #energie-iot > div[style*="display:flex"] > div,
-    #energie-services > div[style*="display:flex"] > div {
-      width: 100%;
-      max-width: 640px;
-      text-align: left;   /* texte lisible */
-    }
+#energie-thematiques a:hover .energie-card {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.18);
+}
 
-    /* 3) Image centrée et responsive */
-    #energie-qualite > div[style*="display:flex"] img,
-    #energie-supervision > div[style*="display:flex"] img,
-    #energie-instrumentation > div[style*="display:flex"] img,
-    #energie-production > div[style*="display:flex"] img,
-    #energie-iot > div[style*="display:flex"] img,
-    #energie-services > div[style*="display:flex"] img {
-      display: block;
-      max-width: 320px;
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-    }
+#energie-thematiques .energie-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Décalage des ancres à cause du header fixe */
+:target::before {
+  content: "";
+  display: block;
+  height: 110px;   /* adapte à la hauteur de ton header */
+  margin-top: -110px;
+}
+
+/* ===== Vignettes Énergie sur mobile (centrées) ===== */
+@media (max-width: 768px) {
+
+  /* cartes presque pleine largeur et centrées */
+  #energie-thematiques .energie-card {
+    width: 90%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
   }
+}
+
+/* ===== Sections détaillées Énergie (image + texte) sur mobile =====
+   Objectif : image au-dessus, texte en dessous, centré dans la page
+*/
+@media (max-width: 900px) {
+
+  /* 1) Conteneur flex qui entoure image + texte */
+  #energie-qualite    .container > div[style*="display:flex"],
+  #energie-supervision .container > div[style*="display:flex"],
+  #energie-instrumentation .container > div[style*="display:flex"],
+  #energie-production .container > div[style*="display:flex"],
+  #energie-iot        .container > div[style*="display:flex"],
+  #energie-services   .container > div[style*="display:flex"] {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* 2) Bloc image (1er enfant) */
+  #energie-qualite    .container > div[style*="display:flex"] > div:first-child,
+  #energie-supervision .container > div[style*="display:flex"] > div:first-child,
+  #energie-instrumentation .container > div[style*="display:flex"] > div:first-child,
+  #energie-production .container > div[style*="display:flex"] > div:first-child,
+  #energie-iot        .container > div[style*="display:flex"] > div:first-child,
+  #energie-services   .container > div[style*="display:flex"] > div:first-child {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* 3) Image responsive et centrée */
+  #energie-qualite    .container > div[style*="display:flex"] img,
+  #energie-supervision .container > div[style*="display:flex"] img,
+  #energie-instrumentation .container > div[style*="display:flex"] img,
+  #energie-production .container > div[style*="display:flex"] img,
+  #energie-iot        .container > div[style*="display:flex"] img,
+  #energie-services   .container > div[style*="display:flex"] img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* 4) Bloc texte (2e enfant) */
+  #energie-qualite    .container > div[style*="display:flex"] > div:last-child,
+  #energie-supervision .container > div[style*="display:flex"] > div:last-child,
+  #energie-instrumentation .container > div[style*="display:flex"] > div:last-child,
+  #energie-production .container > div[style*="display:flex"] > div:last-child,
+  #energie-iot        .container > div[style*="display:flex"] > div:last-child,
+  #energie-services   .container > div[style*="display:flex"] > div:last-child {
+    width: 100%;
+    max-width: 640px;
+    text-align: left;
+    margin: 0 auto;
+  }
+}
 </style>
 
 
@@ -589,99 +637,6 @@
       </nav>
 
 
-      <style>
-  /* Cartes thématiques Énergie – animation au survol */
-  #energie-thematiques .energie-card {
-    width:260px;
-    background:#ffffff;
-    border-radius:18px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.06);
-    padding:12px 12px 18px 12px;
-    text-align:center;
-    cursor:pointer;
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-
-  #energie-thematiques a:hover .energie-card {
-    transform: translateY(-6px);
-    box-shadow:0 12px 30px rgba(15,23,42,0.18);
-  }
-
-  /* Optionnel mais propre : images uniformes */
-  #energie-thematiques .energie-card img {
-    width:100%;
-    height:150px;
-    object-fit:cover;
-    border-radius:14px;
-    display:block;
-  }
-
-  /* Corrige le décalage des ancres dû au header fixe */
-  :target::before {
-    content: "";
-    display: block;
-    height: 90px;      /* ajuste selon la hauteur de ton header */
-    margin-top: -90px;
-  }/* Corrige l’affichage sur mobile : recentre les cartes */
-@media (max-width: 768px) {
-  #energie-thematiques .cards-container,
-  #energie-thematiques div[style*="flex-wrap"] {
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  #energie-thematiques .energie-card {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-/* ===== Responsive mobile pour la page Énergie ===== */
-@media (max-width: 900px) {
-
-  /* 1) Centre la grille des vignettes "Choisissez une thématique" */
-  #energie-thematiques div[style*="flex-wrap"] {
-    justify-content: center !important;
-  }
-
-  /* 2) Blocs image + texte des sections détaillées */
-
-  /* Conteneur principal (image + texte) */
-  #energie-qualite > div[style*="display:flex"],
-  #energie-supervision > div[style*="display:flex"],
-  #energie-instrumentation > div[style*="display:flex"],
-  #energie-production > div[style*="display:flex"],
-  #energie-iot > div[style*="display:flex"],
-  #energie-services > div[style*="display:flex"] {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 24px;
-  }
-
-  /* Bloc image (1er enfant) */
-  #energie-qualite > div[style*="display:flex"] > div:first-child,
-  #energie-supervision > div[style*="display:flex"] > div:first-child,
-  #energie-instrumentation > div[style*="display:flex"] > div:first-child,
-  #energie-production > div[style*="display:flex"] > div:first-child,
-  #energie-iot > div[style*="display:flex"] > div:first-child,
-  #energie-services > div[style*="display:flex"] > div:first-child {
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  /* Bloc texte (2e enfant) */
-  #energie-qualite > div[style*="display:flex"] > div:last-child,
-  #energie-supervision > div[style*="display:flex"] > div:last-child,
-  #energie-instrumentation > div[style*="display:flex"] > div:last-child,
-  #energie-production > div[style*="display:flex"] > div:last-child,
-  #energie-iot > div[style*="display:flex"] > div:last-child,
-  #energie-services > div[style*="display:flex"] > div:last-child {
-    width: 100%;
-    text-align: left;   /* texte lisible, mais bloc bien centré */
-  }
-}
-
-</style>
 
 
 
