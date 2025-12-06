@@ -370,6 +370,34 @@
 
 <!-- === NOUVEAU : mise en page logo + texte à droite === -->
 <style>
+    /* ===== Sections énergie : image + texte (mobile) ===== */
+  @media (max-width: 768px) {
+
+    /* Conteneur principal des sections : PQM, supervision, etc. */
+    #energie-qualite > div,
+    #energie-supervision > div,
+    #energie-instrumentation > div,
+    #energie-production > div,
+    #energie-iot > div,
+    #energie-services > div {
+      flex-direction: column;    /* image au-dessus, texte en dessous */
+      align-items: center;       /* centre le bloc */
+    }
+
+    /* Les deux colonnes à l’intérieur (image et texte) */
+    #energie-qualite > div > div,
+    #energie-supervision > div > div,
+    #energie-instrumentation > div > div,
+    #energie-production > div > div,
+    #energie-iot > div > div,
+    #energie-services > div > div {
+      width: 100%;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .header-top{
     /* déjà flex via header .container, on renforce juste le layout */
     display:flex;
