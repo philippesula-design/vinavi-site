@@ -620,6 +620,31 @@
 }
 </style>
 
+<style>
+  /* Mobile : le bandeau ne reste plus collé en haut
+     et les ancres ne sont plus décalées */
+  @media (max-width: 768px) {
+
+    /* le header et variantes cessent d'être "sticky" */
+    header,
+    .site-header,
+    nav.topbar {
+      position: static;
+    }
+
+    .chapters-bar {
+      position: static;
+    }
+
+    /* on annule le décalage global des ancres sur mobile */
+    :target::before {
+      height: 0;
+      margin-top: 0;
+    }
+  }
+</style>
+
+
 
 </head>
 
