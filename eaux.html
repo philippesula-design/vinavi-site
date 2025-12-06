@@ -490,10 +490,27 @@
 }
 </style>
 
+<style>
+  /* Police identique à energie.html */
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font: 15px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Inter,
+          "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+</style>
 
 
 
 </head>
+
+
+
+
+
 <body data-lang="fr">
 <header class="main-header">
 
@@ -526,7 +543,7 @@
   <!-- Ligne du menu : aligné à gauche -->
   <nav class="main-nav container">
     <a href="index.html" class="fr">Accueil</a><a href="index.html" class="en">Home</a>
-    <a href="instrumentation.html" class="fr">Télégestion</a><a href="instrumentation.html" class="en">Remote Management</a>
+    <a href="solutions.html" class="fr">Télégestion</a><a href="solutions.html" class="en">Remote Management</a>
     <a href="mines.html" class="fr">Mines</a><a href="mines.html" class="en">Mining</a>
     <a href="environnement.html" class="fr">Environnement</a><a href="environnement.html" class="en">Environment</a> 
     <a href="energie.html" class="fr">Énergie Électrique</a><a href="energie.html" class="en">Electrical Energy</a>
@@ -561,43 +578,80 @@
 
 
 <style>
-/* Cartes télégestion – mise en forme globale */
-#eaux-carte .cards-eaux {
-  gap: 24px;
+/* ==== Cartes thématiques Eaux : style "grandes vignettes" ==== */
+
+#eaux-carte {
+  background: #f6f8fc;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-/* Lien de carte */
+#eaux-carte .cards-eaux {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 26px;
+  justify-items: center;
+}
+
+/* Lien complet cliquable */
 #eaux-carte .card-link {
   text-decoration: none;
   color: inherit;
+  width: 100%;
+  max-width: 320px;
 }
 
-/* Bloc figure */
+/* Carte (fond blanc + ombre + angle arrondi) */
 #eaux-carte .card-figure {
   margin: 0;
-  text-align: center;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Image de carte (taille uniforme + réduction) */
+/* Effet au survol */
+#eaux-carte .card-figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.20);
+}
+
+/* Image en haut de la carte */
 #eaux-carte .card-img {
   width: 100%;
-  height: 160px;        /* <-- ajuste ici si tu veux plus petit ou plus grand */
-  object-fit: cover;    /* recadrage propre sans déformation */
-  border-radius: 8px;
-  cursor: pointer;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
 }
 
-/* Titres sous les images */
+/* Titre sous l'image */
 #eaux-carte .card-title {
-  margin-top: 10px;
+  margin: 12px 4px 4px;
   font-size: 16px;
-  line-height: 1.3;
+  line-height: 1.35;
+  font-weight: 600;
+  text-align: center;
 }
 </style>
 
 
+
 <!-- ===== Cartes cliquables Télégestion ===== -->
 <section id="eaux-carte" class="section">
+  <h3 class="fr" style="text-align:center; margin-bottom:28px;">
+  Choisissez une thématique
+</h3>
+
+<h3 class="en" style="text-align:center; margin-bottom:28px;">
+  Choose a theme
+</h3>
+
   <div class="container pad">
     <div class="grid cols-3 cards-eaux">
 

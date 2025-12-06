@@ -425,9 +425,33 @@
   }
 </style>
 
+<style>
+  /* Vignettes images pour la page Énergie */
+  .energie-vignette {
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.12);
+    border: 1px solid rgba(148,163,184,0.35);
+  }
+
+  .energie-vignette img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+</style>
 
 
 </head>
+
+
+
+
+
 <body data-lang="fr">
 <header class="main-header">
 
@@ -460,17 +484,755 @@
   <!-- Ligne du menu : aligné à gauche -->
   <nav class="main-nav container">
     <a href="index.html" class="fr">Accueil</a><a href="index.html" class="en">Home</a>
-    <a href="instrumentation.html" class="fr">Télégestion</a><a href="instrumentation.html" class="en">Remote Management</a>
+    <a href="solutions.html" class="fr">Télégestion</a><a href="solutions.html" class="en">Remote Management</a>
     <a href="mines.html" class="fr">Mines</a><a href="mines.html" class="en">Mining</a>
     <a href="environnement.html" class="fr">Environnement</a><a href="environnement.html" class="en">Environment</a> 
      <a href="energie.html" class="fr">Énergie Électrique</a><a href="energie.html" class="en">Electrical Energy</a>
     <a href="eaux.html" class="fr">Traitement des eaux</a><a href="eaux.html" class="en">Water Treatment</a>
       </nav>
 
+
+      <style>
+  /* Cartes thématiques Énergie – animation au survol */
+  #energie-thematiques .energie-card {
+    width:260px;
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.06);
+    padding:12px 12px 18px 12px;
+    text-align:center;
+    cursor:pointer;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+
+  #energie-thematiques a:hover .energie-card {
+    transform: translateY(-6px);
+    box-shadow:0 12px 30px rgba(15,23,42,0.18);
+  }
+
+  /* Optionnel mais propre : images uniformes */
+  #energie-thematiques .energie-card img {
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:14px;
+    display:block;
+  }
+</style>
+
 </header>
 
 
 
+<!-- ===== MENU DES THÉMATIQUES ÉNERGIE ===== -->
+<section id="energie-thematiques" class="section">
+
+  <!-- VERSION FRANÇAISE -->
+  <div class="fr">
+    <div style="
+        max-width:1200px;
+        margin:30px auto 50px auto;
+    ">
+  <h3 class="fr" style="text-align:center; margin-bottom:28px;">
+  Choisissez une thématique
+</h3>
+
+      <div style="
+          display:flex;
+          flex-wrap:wrap;
+          justify-content:center;
+          gap:24px;
+      ">
+
+        <!-- Carte 1 : Qualité d'énergie -->
+
+<a href="#energie-qualite" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+    <img src="vinavi_energie_pqm.jpg"
+         alt="Analyseurs de réseaux et qualité d’énergie">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & qualité d’énergie
+    </div>
+  </div>
+</a>
+
+
+
+
+
+        <!-- Carte 2 : Supervision postes -->
+        <a href="#energie-supervision" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+            <img src="vinavi_energie_scada.jpg"
+         alt="Analyseurs de réseaux et qualité d’énergie">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & qualité d’énergie
+    </div>
+  </div>
+</a>
+
+
+
+        <!-- Carte 3 : Instrumentation électrique -->
+        <a href="#energie-instrumentation" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+           <img src="vinavi_energie_instrumentation.jpg"
+         alt="Analyseurs de réseaux et qualité d’énergie">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & qualité d’énergie
+    </div>
+  </div>
+</a>
+
+      <!-- Carte 4 : Production d'énergie -->
+  <a href="#energie-production" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+                      <img src="vinavi_energie_production.jpg"
+         alt="Analyseurs de réseaux et qualité d’énergie">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & qualité d’énergie
+    </div>
+  </div>
+</a>
+
+ <!-- Carte 5 : Communications & IoT -->
+        <a href="#energie-iot" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+                      <img src="vinavi_energie_iot.jpg"
+         alt="Analyseurs de réseaux et qualité d’énergie">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & qualité d’énergie
+    </div>
+  </div>
+</a>
+
+<a href="#energie-services" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+ <img src="vinavi_energie_services.jpg"
+         alt="Analyseurs de réseaux et qualité d’énergie">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & qualité d’énergie
+    </div>
+  </div>
+</a>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ENGLISH VERSION -->
+  <div class="en">
+    <div style="
+        max-width:1200px;
+        margin:30px auto 50px auto;
+    ">
+      <h3 style="text-align:center; margin-bottom:25px;">
+        Select a topic
+      </h3>
+
+      <div style="
+          display:flex;
+          flex-wrap:wrap;
+          justify-content:center;
+          gap:24px;
+      ">
+
+<!-- Card 1: Power Quality -->
+
+<a href="#energie-qualite" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+    <img src="vinavi_energie_pqm.jpg"
+         alt="Power quality and network analyzers">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & Power Quality
+    </div>
+  </div>
+</a>
+
+
+<!-- Card 2: Substation Supervision -->
+<a href="#energie-supervision" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+    <img src="vinavi_energie_scada.jpg"
+         alt="Power quality and network analyzers">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & Power Quality
+    </div>
+  </div>
+</a>
+
+
+<!-- Card 3: Electrical Instrumentation -->
+<a href="#energie-instrumentation" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+    <img src="vinavi_energie_instrumentation.jpg"
+         alt="Power quality and network analyzers">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & Power Quality
+    </div>
+  </div>
+</a>
+
+
+<!-- Card 4: Energy Production -->
+<a href="#energie-production" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+    <img src="vinavi_energie_production.jpg"
+         alt="Power quality and network analyzers">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & Power Quality
+    </div>
+  </div>
+</a>
+
+
+<!-- Card 5: Communications & IoT -->
+<a href="#energie-iot" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+    <img src="vinavi_energie_iot.jpg"
+         alt="Power quality and network analyzers">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & Power Quality
+    </div>
+  </div>
+</a>
+
+
+<!-- Card 6: Services -->
+<a href="#energie-services" style="text-decoration:none; color:inherit;">
+  <div class="energie-card">
+    <img src="vinavi_energie_services.jpg"
+         alt="Power quality and network analyzers">
+    <div style="margin-top:10px; font-weight:600;">
+      Monitoring & Power Quality
+    </div>
+  </div>
+</a>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<!-- ===== Contenu principal page ÉNERGIE ===== -->
+
+<!-- SECTION INTRODUCTION -->
+<section id="energie-intro" class="section">
+
+  <div style="
+      display:flex;
+      align-items:center;
+      gap:40px;
+      margin-top:25px;
+      margin-bottom:60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+  ">
+
+   <!-- IMAGE -->
+   <div style="flex:0 0 320px; text-align:center;">
+    <div class="energie-vignette">
+     <img src="vinavi_energie_intro.jpg"
+         alt="Réseau électrique et poste de distribution">
+   </div>
+ </div>
+
+    <!-- TEXTE -->
+    <div style="flex:1; font-size:18px; line-height:1.55;">
+
+      <!-- FR -->
+      <div class="fr">
+        <h3 style="margin-bottom:15px;">
+          Solutions d’instrumentation et de supervision pour l’énergie
+        </h3>
+        <p>
+          Vi Na Vi accompagne les opérateurs d’électricité, les sites industriels et les exploitations
+          minières dans la <strong>mesure</strong>, le <strong>monitoring</strong> et la
+          <strong>supervision</strong> de leurs réseaux énergétiques, sans intervenir sur les systèmes de
+          commande ou de contrôle.
+        </p>
+        <p>
+          Notre rôle est de fournir des <strong>instruments fiables</strong>, une
+          <strong>télémétrie robuste</strong> et des <strong>plateformes de visualisation claires</strong>,
+          pour aider les équipes d’exploitation à prendre de meilleures décisions et à améliorer la
+          qualité de service.
+        </p>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 style="margin-bottom:15px;">
+          Instrumentation and monitoring solutions for the energy sector
+        </h3>
+        <p>
+          Vi Na Vi supports utilities, industrial facilities and mining sites with
+          <strong>measurement</strong>, <strong>monitoring</strong> and <strong>supervision</strong> of
+          their power networks, without acting on control or command systems.
+        </p>
+        <p>
+          Our role is to provide <strong>reliable instruments</strong>, <strong>robust telemetry</strong>
+          and <strong>clear visualization platforms</strong>, helping operations teams make better
+          decisions and improve service quality.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr style="border:none; border-top:2px solid #e0e0e0; margin:40px auto; max-width:1200px;">
+
+
+<!-- SECTION 1 : QUALITÉ D’ÉNERGIE & ANALYSE RESEAU -->
+<section id="energie-qualite" class="section">
+  <div style="
+      display:flex;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+  ">
+
+    <!-- IMAGE -->
+    <div style="flex:0 0 320px; text-align:center;">
+      <div class="energie-vignette">
+      <img src="vinavi_energie_pqm.jpg"
+           alt="Analyseur de qualité d’énergie installé dans un tableau électrique"
+           style="width:100%; max-width:320px; height:auto; border-radius:12px;">
+      </div>
+    </div>
+    <!-- TEXTE -->
+    <div style="flex:1; font-size:18px; line-height:1.55;">
+
+      <!-- FR -->
+      <div class="fr">
+        <h3 style="margin-bottom:15px;">
+          Monitoring et qualité de l’énergie
+        </h3>
+        <p>
+          Vi Na Vi propose une gamme d’<strong>analyseurs de réseaux (PQM)</strong> et d’instruments de
+          mesure permettant de caractériser finement le comportement des réseaux électriques&nbsp;:
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Mesure des tensions, courants et puissances actives/réactives</li>
+          <li>Suivi des <strong>harmoniques</strong>, du <strong>flicker</strong> et des déséquilibres de phases</li>
+          <li>Détection des creux et surtensions, microcoupures et transitoires</li>
+          <li>Enregistrement des événements et génération de rapports automatiques</li>
+          <li>Analyse des pertes techniques et des conditions de charge</li>
+        </ul>
+        <p>
+          Ces données peuvent être intégrées dans des <strong>SCADA</strong> ou des tableaux de bord Web
+          pour aider les équipes techniques à documenter les incidents, planifier les investissements et
+          améliorer progressivement la qualité d’alimentation.
+        </p>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 style="margin-bottom:15px;">
+          Power quality monitoring and network analysis
+        </h3>
+        <p>
+          Vi Na Vi supplies a range of <strong>power quality analyzers (PQM)</strong> and measurement
+          instruments to accurately characterize the behaviour of electrical networks:
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Measurement of voltages, currents and active/reactive power</li>
+          <li>Tracking of <strong>harmonics</strong>, <strong>flicker</strong> and phase unbalance</li>
+          <li>Detection of sags, swells, micro-outages and transients</li>
+          <li>Event recording and automatic report generation</li>
+          <li>Analysis of technical losses and loading conditions</li>
+        </ul>
+        <p>
+          All this information can be integrated into <strong>SCADA systems</strong> or Web dashboards to
+          help technical teams document incidents, plan investments and progressively improve power
+          quality.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr style="border:none; border-top:2px solid #e0e0e0; margin:40px auto; max-width:1200px;">
+
+
+<!-- SECTION 2 : SUPERVISION & TELEMETRIE DES POSTES -->
+<section id="energie-supervision" class="section">
+  <div style="
+      display:flex;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+  ">
+
+    <!-- IMAGE -->
+    <div style="flex:0 0 320px; text-align:center;">
+      <div class="energie-vignette">
+      <img src="vinavi_energie_scada.jpg"
+           alt="Écran de supervision SCADA pour réseau électrique"
+           style="width:100%; max-width:320px; height:auto; border-radius:12px;">
+    </div>
+     </div>
+    <!-- TEXTE -->
+    <div style="flex:1; font-size:18px; line-height:1.55;">
+
+      <!-- FR -->
+      <div class="fr">
+        <h3 style="margin-bottom:15px;">
+          Supervision et télémétrie des postes électriques
+        </h3>
+        <p>
+          Vi Na Vi conçoit des solutions de <strong>télémétrie</strong> et de
+          <strong>supervision</strong> pour les postes MT/BT, les réseaux urbains et les sites isolés.
+          L’objectif est de rendre l’information disponible en temps réel, sans intervenir sur la
+          commande des équipements.
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Acquisition de données via Modbus, IEC, DNP3, MQTT, etc.</li>
+          <li>Suivi de l’état des transformateurs, cellules, batteries et auxiliaires</li>
+          <li>Surveillance de l’environnement des postes (température, humidité, fumée, intrusion)</li>
+          <li>Alarmes et historiques consultables via interfaces Web ou SCADA</li>
+          <li>Visualisation synthétique pour les centres de conduite et les équipes de terrain</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 style="margin-bottom:15px;">
+          Substation supervision and telemetry
+        </h3>
+        <p>
+          Vi Na Vi designs <strong>telemetry</strong> and <strong>supervision</strong> solutions for MV/LV
+          substations, urban grids and remote sites. The goal is to make information available in real
+          time, without acting on equipment control.
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Data acquisition through Modbus, IEC, DNP3, MQTT and other protocols</li>
+          <li>Monitoring of transformers, switchgear, batteries and auxiliary systems</li>
+          <li>Environmental surveillance (temperature, humidity, smoke, intrusion)</li>
+          <li>Alarm and event history accessible from Web interfaces or SCADA</li>
+          <li>Clear overview for control centres and field teams</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr style="border:none; border-top:2px solid #e0e0e0; margin:40px auto; max-width:1200px;">
+
+
+<!-- SECTION 3 : INSTRUMENTATION ELECTRIQUE -->
+<section id="energie-instrumentation" class="section">
+  <div style="
+      display:flex;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+  ">
+
+    <!-- IMAGE -->
+    <div style="flex:0 0 320px; text-align:center;">
+      <div class="energie-vignette">
+      <img src="vinavi_energie_instrumentation.jpg"
+           alt="Capteurs électriques et transformateurs de courant"
+           style="width:100%; max-width:320px; height:auto; border-radius:12px;">
+    </div>
+    </div>
+    <!-- TEXTE -->
+    <div style="flex:1; font-size:18px; line-height:1.55;">
+
+      <!-- FR -->
+      <div class="fr">
+        <h3 style="margin-bottom:15px;">
+          Instrumentation électrique pour les réseaux d’énergie
+        </h3>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Transformateurs de courant et de tension pour la mesure et la protection</li>
+          <li>Multimètres de tableau et compteurs d’énergie communicants</li>
+          <li>Enregistreurs d’événements électriques et data loggers autonomes</li>
+          <li>Capteurs de température, d’humidité, de fumée et d’ouverture de porte</li>
+          <li>Solutions compactes pour postes isolés, mini-réseaux ou centrales mobiles</li>
+        </ul>
+        <p>
+          Les instruments sont sélectionnés en fonction des contraintes de chaque projet&nbsp;:
+          disponibilité énergétique, conditions climatiques, connectivité et exigences de maintenance.
+        </p>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 style="margin-bottom:15px;">
+          Electrical instrumentation for power networks
+        </h3>
+     
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Current and voltage transformers for measurement and protection</li>
+          <li>Panel meters and communicating energy meters</li>
+          <li>Electrical event recorders and autonomous data loggers</li>
+          <li>Temperature, humidity, smoke and door status sensors</li>
+          <li>Compact solutions for remote substations, mini-grids or mobile plants</li>
+        </ul>
+        <p>
+          Instruments are selected according to each project’s constraints: available power, climatic
+          conditions, connectivity and maintenance requirements.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr style="border:none; border-top:2px solid #e0e0e0; margin:40px auto; max-width:1200px;">
+
+
+<!-- SECTION 4 : MONITORING DE LA PRODUCTION (HYDRO, SOLAIRE, GROUPES) -->
+<section id="energie-production" class="section">
+  <div style="
+      display:flex;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+  ">
+
+    <!-- IMAGE -->
+    <div style="flex:0 0 320px; text-align:center;">
+      <div class="energie-vignette">
+      <img src="vinavi_energie_production.jpg"
+           alt="Centrale hydroélectrique et champs solaires"
+           style="width:100%; max-width:320px; height:auto; border-radius:12px;">
+    </div>
+      </div>
+
+    <!-- TEXTE -->
+    <div style="flex:1; font-size:18px; line-height:1.55;">
+
+      <!-- FR -->
+      <div class="fr">
+        <h3 style="margin-bottom:15px;">
+          Monitoring de la production d’énergie
+        </h3>
+        <p>
+          Vi Na Vi met en place des solutions d’instrumentation et de télémétrie pour
+          <strong>surveiller la production</strong> d’électricité sans intervenir sur les systèmes de
+          commande.
+        </p>
+        <h4 style="margin-top:15px; margin-bottom:8px;">Hydroélectricité</h4>
+        <ul style="margin-left:20px; margin-top:4px;">
+          <li>Mesure de niveau des retenues et canaux d’amenée</li>
+          <li>Débitmètres pour conduites forcées et canaux ouverts</li>
+          <li>Suivi des vibrations et températures des groupes de production</li>
+        </ul>
+
+        <h4 style="margin-top:15px; margin-bottom:8px;">Solaire et hybrides</h4>
+        <ul style="margin-left:20px; margin-top:4px;">
+          <li>Suivi des strings PV (tension, courant, puissance)</li>
+          <li>Mesure de l’irradiation et de la température des modules</li>
+          <li>Monitoring des batteries et onduleurs</li>
+        </ul>
+
+        <h4 style="margin-top:15px; margin-bottom:8px;">Groupes électrogènes</h4>
+        <ul style="margin-left:20px; margin-top:4px;">
+          <li>Suivi des heures de fonctionnement et de la consommation de carburant</li>
+          <li>Surveillance de la température, de la pression d’huile et des vibrations</li>
+          <li>Historisation des alarmes et des arrêts intempestifs</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 style="margin-bottom:15px;">
+          Energy production monitoring
+        </h3>
+        <p>
+          Vi Na Vi deploys instrumentation and telemetry solutions to
+          <strong>monitor power generation</strong> without acting on control systems.
+        </p>
+        <h4 style="margin-top:15px; margin-bottom:8px;">Hydropower</h4>
+        <ul style="margin-left:20px; margin-top:4px;">
+          <li>Water level measurement in reservoirs and headraces</li>
+          <li>Flowmeters for penstocks and open channels</li>
+          <li>Monitoring of generator vibration and temperature</li>
+        </ul>
+
+        <h4 style="margin-top:15px; margin-bottom:8px;">Solar and hybrid plants</h4>
+        <ul style="margin-left:20px; margin-top:4px;">
+          <li>Monitoring of PV strings (voltage, current, power)</li>
+          <li>Measurement of solar irradiance and module temperature</li>
+          <li>Battery and inverter monitoring</li>
+        </ul>
+
+        <h4 style="margin-top:15px; margin-bottom:8px;">Gensets</h4>
+        <ul style="margin-left:20px; margin-top:4px;">
+          <li>Tracking of operating hours and fuel consumption</li>
+          <li>Temperature, oil pressure and vibration monitoring</li>
+          <li>Historical logging of alarms and unexpected shutdowns</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr style="border:none; border-top:2px solid #e0e0e0; margin:40px auto; max-width:1200px;">
+
+
+<!-- SECTION 5 : COMMUNICATIONS & IOT -->
+<section id="energie-iot" class="section">
+  <div style="
+      display:flex;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+  ">
+
+    <!-- IMAGE -->
+    <div style="flex:0 0 320px; text-align:center;">
+      <div class="energie-vignette">
+      <img src="vinavi_energie_iot.jpg"
+           alt="Passerelles de communication industrielles et IoT"
+           style="width:100%; max-width:320px; height:auto; border-radius:12px;">
+    </div>
+    </div>
+
+    <!-- TEXTE -->
+    <div style="flex:1; font-size:18px; line-height:1.55;">
+
+      <!-- FR -->
+      <div class="fr">
+        <h3 style="margin-bottom:15px;">
+          Communications industrielles et IoT pour l’énergie
+        </h3>
+        <p>
+          Une bonne mesure n’a de valeur que si les données arrivent au bon endroit. Vi Na Vi intègre des
+          <strong>passerelles de communication</strong> et des solutions IoT adaptées aux contraintes des
+          réseaux électriques.
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Passerelles industrielles (cellulaire, radio, Ethernet, satellite)</li>
+          <li>Conversion de protocoles&nbsp;: Modbus, DNP3, IEC, MQTT, OPC-UA, etc.</li>
+          <li>Télédiagnostic et accès à distance aux équipements (lecture et supervision)</li>
+          <li>Connexion sécurisée vers des plateformes Cloud ou des SCADA existants</li>
+          <li>Solutions adaptées aux postes urbains comme aux sites éloignés</li>
+        </ul>
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 style="margin-bottom:15px;">
+          Industrial communications and IoT for power systems
+        </h3>
+        <p>
+          Measurements only create value if data reaches the right place. Vi Na Vi integrates
+          <strong>communication gateways</strong> and IoT solutions tailored to the constraints of power
+          networks.
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Industrial gateways (cellular, radio, Ethernet, satellite)</li>
+          <li>Protocol conversion: Modbus, DNP3, IEC, MQTT, OPC-UA, etc.</li>
+          <li>Remote diagnostics and equipment access (read and monitoring)</li>
+          <li>Secure connectivity to Cloud platforms or existing SCADA systems</li>
+          <li>Solutions suitable for both urban substations and remote sites</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr style="border:none; border-top:2px solid #e0e0e0; margin:40px auto; max-width:1200px;">
+
+
+<!-- SECTION 6 : SERVICES VI NA VI POUR LE SECTEUR ENERGETIQUE -->
+<section id="energie-services" class="section">
+  <div style="
+      display:flex;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:60px;
+      max-width:1200px;
+      margin-left:auto;
+      margin-right:auto;
+  ">
+
+    <!-- IMAGE -->
+    <div style="flex:0 0 320px; text-align:center;">
+      <div class="energie-vignette">
+      <img src="vinavi_energie_services.jpg"
+           alt="Équipe Vi Na Vi sur site énergétique"
+           style="width:100%; max-width:320px; height:auto; border-radius:12px;">
+    </div>
+    </div>
+
+    <!-- TEXTE -->
+    <div style="flex:1; font-size:18px; line-height:1.55;">
+
+      <!-- FR -->
+      <div class="fr">
+        <h3 style="margin-bottom:15px;">
+          Services Vi Na Vi pour le secteur de l’énergie
+        </h3>
+        <p>
+          Au-delà de la fourniture d’instruments, Vi Na Vi accompagne ses clients sur l’ensemble du cycle
+          de vie des projets de mesure et de supervision.
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Études et audits de qualité d’énergie</li>
+          <li>Diagnostic de performance des postes et réseaux</li>
+          <li>Sélection et fourniture des instruments d’instrumentation et de télémétrie</li>
+          <li>Intégration des données dans des SCADA ou plateformes Web</li>
+          <li>Installation, configuration et mise en service sur site</li>
+          <li>Formation des équipes techniques (opérateurs de réseaux, mines, industriels)</li>
+          <li>Support technique à distance, avec des partenaires canadiens et locaux</li>
+        </ul>
+   
+      </div>
+
+      <!-- EN -->
+      <div class="en">
+        <h3 style="margin-bottom:15px;">
+          Vi Na Vi services for the energy sector
+        </h3>
+        <p>
+          Beyond supplying instruments, Vi Na Vi supports its customers throughout the life cycle of
+          measurement and supervision projects.
+        </p>
+        <ul style="margin-left:20px; margin-top:8px;">
+          <li>Power quality studies and audits</li>
+          <li>Performance diagnostics for substations and networks</li>
+          <li>Selection and supply of instrumentation and telemetry equipment</li>
+          <li>Data integration into SCADA systems or Web platforms</li>
+          <li>On-site installation, configuration and commissioning</li>
+          <li>Training for technical teams (utilities, mining, industrial plants)</li>
+          <li>Remote technical support with Canadian and local partners</li>
+        </ul>
+   
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
 
