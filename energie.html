@@ -370,9 +370,7 @@
 
 <!-- === NOUVEAU : mise en page logo + texte à droite === -->
 <style>
-  
   .header-top{
-    /* déjà flex via header .container, on renforce juste le layout */
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -414,30 +412,12 @@
     .brand-block{align-items:flex-start;}
   }
 
-    /* ===== Blocs de contenu Énergie : image + texte ===== */
-  .energie-bloc {
-    /* rien de spécial sur PC, le style inline gère la mise en page */
-  }
 
-  /* Version mobile : on empile l'image au-dessus du texte */
-  @media (max-width: 768px) {
-    .energie-bloc {
-      flex-direction: column;
-      align-items: center;
-    }
 
-    .energie-bloc > div {
-      width: 100% !important;
-      max-width: 430px;
-    }
-
-    .energie-bloc > div:first-child {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  }
 
 </style>
+
+
 
 <style>
   /* Décalage pour que les sections ne passent pas sous le header sticky */
@@ -519,17 +499,6 @@
   margin-top: -110px;
 }
 
-/* ===== Vignettes Énergie sur mobile (centrées) ===== */
-@media (max-width: 768px) {
-
-  /* cartes presque pleine largeur et centrées */
-  #energie-thematiques .energie-card {
-    width: 90%;
-    max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 /* ===== Sections détaillées Énergie (image + texte) sur mobile =====
    Objectif : image au-dessus, texte en dessous, centré dans la page
@@ -588,6 +557,68 @@
 }
 </style>
 
+<style>
+/* ===== Mise en page mobile des sections Énergie =====
+   Objectif : image au-dessus, texte en dessous, centré dans la page
+*/
+@media (max-width: 900px) {
+
+  /* 1) Conteneur flex (image + texte) */
+  #energie-intro       > div[style*="display:flex"],
+  #energie-qualite     > div[style*="display:flex"],
+  #energie-supervision > div[style*="display:flex"],
+  #energie-instrumentation > div[style*="display:flex"],
+  #energie-production  > div[style*="display:flex"],
+  #energie-iot         > div[style*="display:flex"],
+  #energie-services    > div[style*="display:flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    gap: 18px;
+  }
+
+  /* 2) Bloc image (1er enfant) */
+  #energie-intro       > div[style*="display:flex"] > div:first-child,
+  #energie-qualite     > div[style*="display:flex"] > div:first-child,
+  #energie-supervision > div[style*="display:flex"] > div:first-child,
+  #energie-instrumentation > div[style*="display:flex"] > div:first-child,
+  #energie-production  > div[style*="display:flex"] > div:first-child,
+  #energie-iot         > div[style*="display:flex"] > div:first-child,
+  #energie-services    > div[style*="display:flex"] > div:first-child {
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 10px;
+  }
+
+  /* 3) Image */
+  #energie-intro img,
+  #energie-qualite img,
+  #energie-supervision img,
+  #energie-instrumentation img,
+  #energie-production img,
+  #energie-iot img,
+  #energie-services img {
+    width: 100%;
+    height: auto;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* 4) Bloc texte */
+  #energie-intro       > div[style*="display:flex"] > div:last-child,
+  #energie-qualite     > div[style*="display:flex"] > div:last-child,
+  #energie-supervision > div[style*="display:flex"] > div:last-child,
+  #energie-instrumentation > div[style*="display:flex"] > div:last-child,
+  #energie-production  > div[style*="display:flex"] > div:last-child,
+  #energie-iot         > div[style*="display:flex"] > div:last-child,
+  #energie-services    > div[style*="display:flex"] > div:last-child {
+    width: 100%;
+    max-width: 650px;
+    text-align: left;
+    margin: 0 auto;
+  }
+}
+</style>
 
 
 </head>
