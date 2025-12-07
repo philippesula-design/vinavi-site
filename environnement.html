@@ -114,7 +114,6 @@
   form button:hover{opacity:.95}
   footer{border-top:1px solid var(--line);background:#fff}
   footer .muted{color:var(--muted);font-size:12px}
-  :target::before{content:"";display:block;height:70px;margin-top:-70px}
 </style>
 
 
@@ -371,7 +370,6 @@
   .chapters-bar a:hover{ background:#e2e8ff; box-shadow:0 6px 18px rgba(2,8,23,.10); transform: translateY(-1px) }
   .chapters-bar a.active{ background: var(--brand,#0b5fff); color:#fff; border-color: var(--brand,#0b5fff); box-shadow:0 8px 24px rgba(11,95,255,.25) }
 
-  :target::before{content:""; display:block; height:78px; margin-top:-78px}
 </style>
 
 <style>
@@ -565,7 +563,68 @@
   }
 </style>
 
+<style>
+  /* On neutralise le hack global :target pour cette page */
+  :target::before {
+    content: none;      /* plus de pseudo-élément */
+    height: 0;
+    margin-top: 0;
+  }
 
+  /* On gère le décalage uniquement avec scroll-margin-top */
+  #qualite-mesure-eau,
+  #surveillance-air,
+  #innondation-pluviometrie,
+  #pollution,
+  #minier,
+  #contacts {
+    scroll-margin-top: 110px;   /* hauteur de ton header sur PC */
+  }
+
+  /* Sur mobile, le header n'est plus sticky → pas de décalage */
+  @media (max-width: 768px) {
+    #qualite-mesure-eau,
+    #surveillance-air,
+    #innondation-pluviometrie,
+    #pollution,
+    #minier,
+    #contacts {
+      scroll-margin-top: 0;
+    }
+  }
+</style>
+
+<style>
+  /* On désactive le hack :target pour cette page */
+  :target::before{
+    content:"";
+    display:block;
+    height:0;
+    margin-top:0;
+  }
+
+  /* On gère le décalage uniquement avec scroll-margin-top */
+  #qualite-mesure-eau,
+  #surveillance-air,
+  #innondation-pluviometrie,
+  #pollution,
+  #minier,
+  #contacts{
+    scroll-margin-top:140px; /* ajuste à 130–150 si besoin */
+  }
+
+  /* Sur mobile, le header n’est plus collant => pas de décalage */
+  @media (max-width:768px){
+    #qualite-mesure-eau,
+    #surveillance-air,
+    #innondation-pluviometrie,
+    #pollution,
+    #minier,
+    #contacts{
+      scroll-margin-top:0;
+    }
+  }
+</style>
 
 </head>
 
