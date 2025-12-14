@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vi Na Vi — Ingénierie, Automatisation & SCADA</title>
+<title>Vi Na Vi — Mines</title>
 <meta name="description" content="Vi Na Vi — Consultation technique, Ingénierie, Contrôle industriel, Industrie 4.0, SCADA & IT.">
 <!-- FAVICONS -->
 <link rel="icon" type="public/png" sizes="16x16" href="/favicon-16.png">
@@ -393,7 +393,6 @@
 <!-- === NOUVEAU : mise en page logo + texte à droite === -->
 <style>
   .header-top{
-    /* déjà flex via header .container, on renforce juste le layout */
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -434,7 +433,13 @@
     .header-top{align-items:flex-start;}
     .brand-block{align-items:flex-start;}
   }
+
+
+
+
 </style>
+
+
 
 <style>
   /* Décalage pour que les sections ne passent pas sous le header sticky */
@@ -448,16 +453,294 @@
 </style>
 
 <style>
-  /* Décalage pour que les sections ne passent pas sous le header sticky */
-  
-  #contacts {
-    scroll-margin-top: 140px; /* ajuste à 100–140px selon ton header si besoin */
+  /* Vignettes images pour la page Énergie */
+  .energie-vignette {
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.12);
+    border: 1px solid rgba(148,163,184,0.35);
+  }
+
+  .energie-vignette img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    object-fit: cover;
   }
 </style>
 
 
+<style>
+  /* Décalage des ancres pour la page Énergie */
+  #energie-qualite,
+  #energie-supervision,
+  #energie-instrumentation,
+  #energie-production,
+  #energie-iot,
+  #energie-services {
+    scroll-margin-top: 130px; /* ajuste à 110–140 si tu veux affiner */
+  }
+</style>
+
+
+<style>
+/* ===== Cartes thématiques Énergie (vignettes) ===== */
+
+#energie-thematiques .energie-card {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  padding: 12px 12px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+#energie-thematiques a:hover .energie-card {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.18);
+}
+
+#energie-thematiques .energie-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Décalage des ancres à cause du header fixe */
+:target::before {
+  content: "";
+  display: block;
+  height: 110px;   /* adapte à la hauteur de ton header */
+  margin-top: -110px;
+}
+
+
+/* ===== Sections détaillées Énergie (image + texte) sur mobile =====
+   Objectif : image au-dessus, texte en dessous, centré dans la page
+*/
+@media (max-width: 900px) {
+
+  /* 1) Conteneur flex qui entoure image + texte */
+  #energie-qualite    .container > div[style*="display:flex"],
+  #energie-supervision .container > div[style*="display:flex"],
+  #energie-instrumentation .container > div[style*="display:flex"],
+  #energie-production .container > div[style*="display:flex"],
+  #energie-iot        .container > div[style*="display:flex"],
+  #energie-services   .container > div[style*="display:flex"] {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* 2) Bloc image (1er enfant) */
+  #energie-qualite    .container > div[style*="display:flex"] > div:first-child,
+  #energie-supervision .container > div[style*="display:flex"] > div:first-child,
+  #energie-instrumentation .container > div[style*="display:flex"] > div:first-child,
+  #energie-production .container > div[style*="display:flex"] > div:first-child,
+  #energie-iot        .container > div[style*="display:flex"] > div:first-child,
+  #energie-services   .container > div[style*="display:flex"] > div:first-child {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* 3) Image responsive et centrée */
+  #energie-qualite    .container > div[style*="display:flex"] img,
+  #energie-supervision .container > div[style*="display:flex"] img,
+  #energie-instrumentation .container > div[style*="display:flex"] img,
+  #energie-production .container > div[style*="display:flex"] img,
+  #energie-iot        .container > div[style*="display:flex"] img,
+  #energie-services   .container > div[style*="display:flex"] img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* 4) Bloc texte (2e enfant) */
+  #energie-qualite    .container > div[style*="display:flex"] > div:last-child,
+  #energie-supervision .container > div[style*="display:flex"] > div:last-child,
+  #energie-instrumentation .container > div[style*="display:flex"] > div:last-child,
+  #energie-production .container > div[style*="display:flex"] > div:last-child,
+  #energie-iot        .container > div[style*="display:flex"] > div:last-child,
+  #energie-services   .container > div[style*="display:flex"] > div:last-child {
+    width: 100%;
+    max-width: 640px;
+    text-align: left;
+    margin: 0 auto;
+  }
+}
+</style>
+
+<style>
+/* ===== Mise en page mobile des sections Énergie =====
+   Objectif : image au-dessus, texte en dessous, centré dans la page
+*/
+@media (max-width: 900px) {
+
+  /* 1) Conteneur flex (image + texte) */
+  #energie-intro       > div[style*="display:flex"],
+  #energie-qualite     > div[style*="display:flex"],
+  #energie-supervision > div[style*="display:flex"],
+  #energie-instrumentation > div[style*="display:flex"],
+  #energie-production  > div[style*="display:flex"],
+  #energie-iot         > div[style*="display:flex"],
+  #energie-services    > div[style*="display:flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    gap: 18px;
+  }
+
+  /* 2) Bloc image (1er enfant) */
+  #energie-intro       > div[style*="display:flex"] > div:first-child,
+  #energie-qualite     > div[style*="display:flex"] > div:first-child,
+  #energie-supervision > div[style*="display:flex"] > div:first-child,
+  #energie-instrumentation > div[style*="display:flex"] > div:first-child,
+  #energie-production  > div[style*="display:flex"] > div:first-child,
+  #energie-iot         > div[style*="display:flex"] > div:first-child,
+  #energie-services    > div[style*="display:flex"] > div:first-child {
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 10px;
+  }
+
+  /* 3) Image */
+  #energie-intro img,
+  #energie-qualite img,
+  #energie-supervision img,
+  #energie-instrumentation img,
+  #energie-production img,
+  #energie-iot img,
+  #energie-services img {
+    width: 100%;
+    height: auto;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* 4) Bloc texte */
+  #energie-intro       > div[style*="display:flex"] > div:last-child,
+  #energie-qualite     > div[style*="display:flex"] > div:last-child,
+  #energie-supervision > div[style*="display:flex"] > div:last-child,
+  #energie-instrumentation > div[style*="display:flex"] > div:last-child,
+  #energie-production  > div[style*="display:flex"] > div:last-child,
+  #energie-iot         > div[style*="display:flex"] > div:last-child,
+  #energie-services    > div[style*="display:flex"] > div:last-child {
+    width: 100%;
+    max-width: 650px;
+    text-align: left;
+    margin: 0 auto;
+  }
+}
+</style>
+
+<style>
+  /* Mobile : le bandeau ne reste plus collé en haut
+     et les ancres ne sont plus décalées */
+  @media (max-width: 768px) {
+
+    /* le header et variantes cessent d'être "sticky" */
+    header,
+    .site-header,
+    nav.topbar {
+      position: static;
+    }
+
+    .chapters-bar {
+      position: static;
+    }
+
+    /* on annule le décalage global des ancres sur mobile */
+    :target::before {
+      height: 0;
+      margin-top: 0;
+    }
+  }
+</style>
+
+<style>
+  /* Décalage pour que les sections ne passent pas sous le header sticky */
+  
+  #contacts {
+    scroll-margin-top: 140px; /* ajuste à 100–130px selon ton header si besoin */
+  }
+</style>
+
+
+
+<style>
+  /* ===== Vignettes / Packs — page Mines (même format que energie.html) ===== */
+  #mines-thematiques .energie-card { width:260px; background:#fff; border-radius:18px; box-shadow:0 4px 14px rgba(0,0,0,0.06);
+    padding:12px 12px 18px; text-align:center; cursor:pointer; transition: transform .18s ease, box-shadow .18s ease; }
+  #mines-thematiques a:hover .energie-card { transform: translateY(-6px); box-shadow:0 12px 30px rgba(15,23,42,0.18); }
+  #mines-thematiques .energie-card img { width:100%; height:150px; object-fit:cover; border-radius:14px; display:block; }
+
+  /* Décalage des ancres (header sticky) */
+  #mines-qc1, #mines-qc2, #mines-geotech, #mines-qhse, #mines-exploration, #mines-eau { scroll-margin-top: 130px; }
+
+  /* Mobile : sections pack (image au-dessus, texte en dessous) */
+  @media (max-width: 900px){
+    #mines-qc1 .container > div[style*="display:flex"],
+    #mines-qc2 .container > div[style*="display:flex"],
+    #mines-geotech .container > div[style*="display:flex"],
+    #mines-qhse .container > div[style*="display:flex"],
+    #mines-exploration .container > div[style*="display:flex"],
+    #mines-eau .container > div[style*="display:flex"]{
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    #mines-qc1 .container > div[style*="display:flex"] img,
+    #mines-qc2 .container > div[style*="display:flex"] img,
+    #mines-geotech .container > div[style*="display:flex"] img,
+    #mines-qhse .container > div[style*="display:flex"] img,
+    #mines-exploration .container > div[style*="display:flex"] img,
+    #mines-eau .container > div[style*="display:flex"] img{
+      display:block; width:100%; max-width:320px; height:auto; margin:0 auto;
+    }
+    #mines-qc1 .container > div[style*="display:flex"] > div:last-child,
+    #mines-qc2 .container > div[style*="display:flex"] > div:last-child,
+    #mines-geotech .container > div[style*="display:flex"] > div:last-child,
+    #mines-qhse .container > div[style*="display:flex"] > div:last-child,
+    #mines-exploration .container > div[style*="display:flex"] > div:last-child,
+    #mines-eau .container > div[style*="display:flex"] > div:last-child{
+      width:100%; max-width:650px; text-align:left; margin:0 auto;
+    }
+  }
+
+  /* Bloc équipements */
+  .pack-equipements{ margin-top:14px; padding:14px 16px; background:#f8fafc; border:1px solid var(--line); border-radius:14px; }
+  .pack-equipements h4{ margin:0 0 10px 0; font-size:18px; }
+  .pack-equipements ul{ margin:0; padding-left:18px; line-height:1.7; font-size:16px; }
+
+  /* Section Demande de devis */
+  #demande-devis { scroll-margin-top: 130px; }
+  #demande-devis .devis-wrap{ display:flex; gap:22px; align-items:stretch; }
+  #demande-devis .devis-side{ flex:1; min-width:280px; }
+  #demande-devis .devis-form{ flex:1; min-width:280px; }
+  .btn-outline{ background:#ffffff; color: var(--brand, #0b5fff); border:1px solid rgba(11,95,255,.24); }
+  .btn-outline:hover{ background:#f3f6ff; }
+  @media (max-width: 900px){
+    #demande-devis .devis-wrap{ flex-direction:column; }
+  }
+</style>
+
 </head>
+
+
+
+
+
 <body data-lang="fr">
+  
 <header class="main-header">
 
   <!-- Ligne supérieure : logo + textes + langues -->
@@ -489,8 +772,6 @@
   <!-- Ligne du menu : aligné à gauche -->
   <nav class="main-nav container">
     <a href="index.html" class="fr">Accueil</a><a href="index.html" class="en">Home</a>
-    <a href="#secteurs" class="fr">Secteurs</a><a href="#secteurs" class="en">Sectors</a>
-    <a href="#services" class="fr">Services</a><a href="#services" class="en">Services</a>
     <a href="telegestion.html" class="fr">Télégestion</a><a href="telegestion.html" class="en">Remote Monitoring & Control</a>    
     <a href="energie.html" class="fr">Énergie Électrique</a><a href="energie.html" class="en">Electrical Energy</a>
     <a href="mines.html" class="fr">Mines</a><a href="mines.html" class="en">Mining</a>
@@ -501,11 +782,482 @@
 
   </nav>
 
+
 </header>
 
 
 
-  <section id="contacts" class="section">
+
+<!-- ===== MENU DES PACKS — MINES ===== -->
+<section id="mines-thematiques" class="section">
+  <div class="container">
+    <h2 class="fr" style="text-align:center; margin-bottom:10px;">Mines — Packs de solutions</h2>
+    <h2 class="en" style="text-align:center; margin-bottom:10px;">Mining — Solution Packs</h2>
+
+    <p class="lead fr" style="text-align:center; margin-bottom:26px;">
+      Échantillonnage • Contrôle des matériaux • Géotechnique • Environnement • Instrumentation terrain • Services d’intégration
+    </p>
+    <p class="lead en" style="text-align:center; margin-bottom:26px;">
+      Sampling • Materials Testing • Geotechnical • Environmental • Field Instrumentation • Integration Services
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:24px;">
+
+      <a href="#mines-qc1" style="text-decoration:none; color:inherit;">
+        <div class="energie-card">
+          <img src="vinavi_mines_qc1.jpg" alt="Pack QC niveau 1">
+          <div class="fr" style="margin-top:10px; font-weight:600;">Contrôle Qualité Minerai — LOI & Humidité — Petite mine</div>
+          <div class="en" style="margin-top:10px; font-weight:600;">Ore QC — LOI & Moisture — Small mine</div>
+        </div>
+      </a>
+
+      <a href="#mines-qc2" style="text-decoration:none; color:inherit;">
+        <div class="energie-card">
+          <img src="vinavi_mines_qc2.jpg" alt="Pack QC niveau 2">
+          <div class="fr" style="margin-top:10px; font-weight:600;">Laboratoire Contrôle Qualité Minerai — Mine industrielle</div>
+          <div class="en" style="margin-top:10px; font-weight:600;">Ore Quality Control Laboratory — Industrial mine</div>
+        </div>
+      </a>
+
+      <a href="#mines-geotech" style="text-decoration:none; color:inherit;">
+        <div class="energie-card">
+          <img src="vinavi_mines_geotech.jpg" alt="Pack géotechnique">
+          <div class="fr" style="margin-top:10px; font-weight:600;">Géotechnique — Routes & plateformes</div>
+          <div class="en" style="margin-top:10px; font-weight:600;">Geotechnical — Roads & pads</div>
+        </div>
+      </a>
+
+      <a href="#mines-qhse" style="text-decoration:none; color:inherit;">
+        <div class="energie-card">
+          <img src="vinavi_mines_qhse.jpg" alt="Pack environnement QHSE">
+          <div class="fr" style="margin-top:10px; font-weight:600;">Environnement — QHSE — Eau, Air & Poussières</div>
+          <div class="en" style="margin-top:10px; font-weight:600;">Environment — HSE — Water, Air & Dust</div>
+        </div>
+      </a>
+
+      <a href="#mines-exploration" style="text-decoration:none; color:inherit;">
+        <div class="energie-card">
+          <img src="vinavi_mines_exploration.jpg" alt="Pack exploration">
+          <div class="fr" style="margin-top:10px; font-weight:600;">Exploration — Terrain & Échantillonnage</div>
+          <div class="en" style="margin-top:10px; font-weight:600;">Exploration — Field Sampling</div>
+        </div>
+      </a>
+
+      <a href="#mines-eau" style="text-decoration:none; color:inherit;">
+        <div class="energie-card">
+          <img src="vinavi_mines_eau.jpg" alt="Pack échantillonnage et analyse de l'eau">
+          <div class="fr" style="margin-top:10px; font-weight:600;">Eaux Minières — Prélèvement & Analyse</div>
+          <div class="en" style="margin-top:10px; font-weight:600;">Mining Water — Sampling & Analysis</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACK 1 ===== -->
+<section id="mines-qc1" class="section">
+  <div class="container">
+    <h2 class="fr">Contrôle Qualité Minerai — LOI & Humidité — Préparation d’échantillons & tests de routine (site mine)</h2>
+    <h2 class="en">Ore QC — LOI & Moisture — Sample prep & routine testing (mine site)</h2>
+
+    <div style="display:flex; align-items:center; gap:40px; margin-top:18px;">
+      <div style="flex:0 0 320px; text-align:center;">
+        <img src="vinavi_mines_qc1.jpg" alt="Pack QC Niveau 1" style="width:100%; max-width:300px; height:auto; border-radius:12px;">
+        <div class="fr" style="margin-top:10px; font-size:14px; color:#64748b;"></div>
+        <div class="en" style="margin-top:10px; font-size:14px; color:#64748b;"></div>
+      </div>
+
+      <div style="flex:1; font-size:18px; line-height:1.65;">
+       <p class="fr">Pack opérationnel dédié au contrôle rapide des paramètres essentiels du minerai
+(humidité, perte au feu – LOI, granulométrie et préparation d’échantillons),
+directement sur site minier, afin de soutenir le contrôle qualité quotidien
+et sécuriser les décisions d’exploitation.
+       </p>
+       <ul class="fr">
+       <li><strong>Objectif :</strong> fournir des résultats fiables en temps court pour le suivi de production.</li>
+       <li><strong>Usage :</strong> laboratoire de site, contrôle à réception, suivi quotidien du minerai.</li>
+       <li><strong>Valeur ajoutée :</strong> réduction des écarts, meilleure répétabilité et décisions plus rapides.</li>
+       </ul>
+
+      <p class="en">Operational pack designed for rapid control of key ore parameters
+(moisture, Loss on Ignition – LOI, particle size distribution and sample preparation),
+directly at the mine site, supporting daily quality monitoring
+and operational decision-making.
+      </p>
+      <ul class="en">
+      <li><strong>Objective:</strong> deliver reliable results within short turnaround times.</li>
+      <li><strong>Use:</strong> on-site laboratory, reception control, daily ore monitoring.</li>
+      <li><strong>Added value:</strong> reduced variability, improved repeatability, faster decisions.</li>
+      </ul>
+
+        <div class="pack-equipements">
+          <h4 class="fr">Équipements / instruments inclus</h4>
+          <h4 class="en">Included equipment / instruments</h4>
+          <ul class="fr">
+            <li>Balance de précision</li>
+            <li>Étuve de séchage</li>
+            <li>Four LOI (perte au feu)</li>
+            <li>Broyeur de laboratoire</li>
+            <li>Tamisage (tamis + tamiseuse)</li>
+            <li>Fendeur / diviseur d’échantillons</li>
+            <li>Verrerie de base & accessoires</li>
+          </ul>
+          <ul class="en">
+            <li>Precision balance</li>
+            <li>Drying oven</li>
+            <li>LOI furnace (loss on ignition)</li>
+            <li>Laboratory mill</li>
+            <li>Sieve set + sieve shaker</li>
+            <li>Sample splitter</li>
+            <li>Basic lab glassware & accessories</li>
+          </ul>
+        </div>
+
+        <p class="fr" style="margin-top:14px;">
+          <a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a>
+        </p>
+        <p class="en" style="margin-top:14px;">
+          <a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACK 2 ===== -->
+<section id="mines-qc2" class="section section--alt">
+  <div class="container">
+    <h2 class="fr">Laboratoire Contrôle Qualité — Mine industrielle</h2>
+    <h2 class="en">Ore Qualitity Control — Industrial mine</h2>
+
+    <div style="display:flex; align-items:center; gap:40px; margin-top:18px;">
+      <div style="flex:0 0 320px; text-align:center;">
+        <img src="vinavi_mines_qc2.jpg" alt="Pack QC Niveau 2" style="width:100%; max-width:300px; height:auto; border-radius:12px;">
+      </div>
+
+      <div style="flex:1; font-size:18px; line-height:1.65;">
+        <p class="fr">
+          Pack renforcé destiné aux sites miniers industriels nécessitant un débit d’analyse plus élevé et une standardisation avancée des procédures
+          de préparation et de contrôle qualité des échantillons.
+        </p>
+        <ul class="fr">
+        <li><strong>Performance :</strong> capacité accrue, traçabilité et reproductibilité des résultats.</li>
+        <li><strong>Organisation :</strong> flux d’échantillons optimisés et réduction des goulots d’étranglement.</li>
+        <li><strong>Productivité :</strong> soutien aux opérations à grande échelle et aux exigences industrielles.</li>
+        </ul>
+        <p class="en">
+          Enhanced laboratory pack designed for industrial-scale mining operations, requiring higher analytical throughput and advanced standardization
+          of sample preparation and quality control procedures.
+        </p>
+        <ul class="en">
+        <li><strong>Performance:</strong> increased capacity, traceability, and result repeatability.</li>
+        <li><strong>Organization:</strong> optimized sample flow and reduced bottlenecks.</li>
+        <li><strong>Productivity:</strong> support for large-scale operations and industrial requirements.</li>
+        </ul>
+
+
+        <div class="pack-equipements">
+          <h4 class="fr">Équipements / instruments inclus</h4>
+          <h4 class="en">Included equipment / instruments</h4>
+          <ul class="fr">
+            <li>Éléments du Contrôle Qualité Minerai — LOI & Humidité</li>
+            <li>Diviseur rotatif / automatique (selon configuration)</li>
+            <li>Broyeur haute capacité (disques / anneaux)</li>
+            <li>Étuve grand volume</li>
+            <li>Pycnomètre / densité (si requis)</li>
+          </ul>
+          <ul class="en">
+            <li>Items from Ore QC — LOI & Moisture</li>
+            <li>Rotary / automatic sample divider (config-dependent)</li>
+            <li>High-capacity mill (disc / ring)</li>
+            <li>Large-volume oven</li>
+            <li>Pycnometer / density tools (if required)</li>
+          </ul>
+        </div>
+
+        <p class="fr" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+        <p class="en" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACK 3 ===== -->
+<section id="mines-geotech" class="section">
+  <div class="container">
+    <h2 class="fr">Géotechnique — Routes & plateformes minières</h2>
+    <h2 class="en">Geotechnical — Mining roads & pads</h2>
+
+    <div style="display:flex; align-items:center; gap:40px; margin-top:18px;">
+      <div style="flex:0 0 320px; text-align:center;">
+        <img src="vinavi_mines_geotech.jpg" alt="Pack Géotechnique" style="width:100%; max-width:300px; height:auto; border-radius:12px;">
+      </div>
+
+      <div style="flex:1; font-size:18px; line-height:1.65;">
+        <p class="fr">Instrumentation et équipements de mesure dédiés aux essais de portance, de compaction et à la caractérisation des sols utilisés dans les infrastructures minières
+          (routes internes, plateformes, digues et remblais).        
+        </p>
+
+        <ul class="fr">
+        <li><strong>Mesures :</strong> paramètres mécaniques, densité in situ et portance.</li>
+        <li><strong>Objectif :</strong> sécuriser les ouvrages et réduire les risques géotechniques.</li>
+        <li><strong>Applications :</strong> contrôle terrain, validation des travaux et suivi des performances.</li>
+        </ul>
+        <p class="en">Instrumentation and measurement equipment dedicated to bearing capacity, compaction testing, and soil characterization for mining infrastructures
+        (internal roads, platforms, embankments, and dikes).        
+      </p>
+
+      <ul class="en">
+      <li><strong>Measurements:</strong> mechanical parameters, in-situ density, and bearing capacity.</li>
+      <li><strong>Objective:</strong> secure earthworks and reduce geotechnical risks.</li>
+      <li><strong>Applications:</strong> field control, work validation, and performance monitoring.</li>
+      </ul>
+
+        <div class="pack-equipements">
+          <h4 class="fr">Équipements / instruments inclus</h4>
+          <h4 class="en">Included equipment / instruments</h4>
+          <ul class="fr">
+            <li>Proctor / compactage</li>
+            <li>CBR</li>
+            <li>Densité in situ (sable / alternatives)</li>
+            <li>DCP (Dynamic Cone Penetrometer)</li>
+            <li>Limites d’Atterberg</li>
+            <li>Oedomètre / consolidation (si requis)</li>
+          </ul>
+          <ul class="en">
+            <li>Proctor / compaction</li>
+            <li>CBR</li>
+            <li>In-situ density (sand cone / alternatives)</li>
+            <li>DCP (Dynamic Cone Penetrometer)</li>
+            <li>Atterberg limits</li>
+            <li>Oedometer / consolidation (if required)</li>
+          </ul>
+        </div>
+
+        <p class="fr" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+        <p class="en" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACK 4 ===== -->
+<section id="mines-qhse" class="section section--alt">
+  <div class="container">
+    <h2 class="fr">Environnement — QHSE — Eau, Air & Poussières</h2>
+    <h2 class="en">Environment — HSE — Water, Air & Dust</h2>
+
+    <div style="display:flex; align-items:center; gap:40px; margin-top:18px;">
+      <div style="flex:0 0 320px; text-align:center;">
+        <img src="vinavi_mines_qhse.jpg" alt="Pack Environnement QHSE" style="width:100%; max-width:300px; height:auto; border-radius:12px;">
+      </div>
+
+      <div style="flex:1; font-size:18px; line-height:1.65;">
+        <p class="fr">Solutions d’instrumentation environnementale destinées au suivi opérationnel des paramètres eau, air et poussières autour des sites miniers,
+         dans une logique de conformité réglementaire et de gestion QHSE.        
+        </p>
+        <ul lass="fr">
+        <li><strong>Mesures :</strong> campagnes ponctuelles ou monitoring continu selon les besoins.</li>
+        <li><strong>Exploitation :</strong> données exploitables pour tableaux de bord, alertes et rapports.</li>
+        <li><strong>Conformité :</strong> appui aux exigences environnementales et HSE du site.</li>
+        </ul>
+
+        <p class="en">
+        Environmental instrumentation solutions designed for operational monitoring of water, air, and dust parameters around mining sites, supporting regulatory compliance and HSE management.        
+       </p>
+       <ul class="en">
+       <li><strong>Measurements:</strong> spot campaigns or continuous monitoring as required.</li>
+       <li><strong>Operation:</strong> actionable data for dashboards, alerts, and reporting.</li>
+       <li><strong>Compliance:</strong> support for environmental and HSE requirements.</li>
+       </ul>
+
+
+        <div class="pack-equipements">
+          <h4 class="fr">Équipements / instruments inclus</h4>
+          <h4 class="en">Included equipment / instruments</h4>
+          <ul class="fr">
+            <li>pH / conductivité / température (multiparamètre)</li>
+            <li>Turbidité (si requis)</li>
+            <li>Capteurs poussières PM10 / PM2.5 (selon configuration)</li>
+            <li>Pompes et consommables de prélèvement</li>
+            <li>Kits de terrain (glacière, flacons, étiquetage)</li>
+          </ul>
+          <ul class="en">
+            <li>pH / conductivity / temperature (multiparameter)</li>
+            <li>Turbidity (if required)</li>
+            <li>Dust sensors PM10 / PM2.5 (config-dependent)</li>
+            <li>Sampling pumps & consumables</li>
+            <li>Field kits (cooler, bottles, labeling)</li>
+          </ul>
+        </div>
+
+        <p class="fr" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+        <p class="en" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACK 5 ===== -->
+<section id="mines-exploration" class="section">
+  <div class="container">
+    <h2 class="fr">Exploration — Terrain & Échantillonnage</h2>
+    <h2 class="en">Exploration — Field Sampling</h2>
+
+    <div style="display:flex; align-items:center; gap:40px; margin-top:18px;">
+      <div style="flex:0 0 320px; text-align:center;">
+        <img src="vinavi_mines_exploration.jpg" alt="Pack Exploration" style="width:100%; max-width:300px; height:auto; border-radius:12px;">
+      </div>
+
+      <div style="flex:1; font-size:18px; line-height:1.65;">
+        <p class="fr">Outils et instruments terrain dédiés à la prospection, à la cartographie et à l’échantillonnage géologique, assurant une collecte structurée et une traçabilité fiable des données.        
+        </p>
+
+        <ul class="fr">
+        <li><strong>Terrain :</strong> reconnaissance, levés et prélèvements initiaux.</li>
+        <li><strong>Traçabilité :</strong> identification claire des échantillons et des données associées.</li>
+        <li><strong>Décision :</strong> amélioration de la qualité des données d’exploration.</li>
+        </ul>
+        <p class="en"> Field tools and instruments dedicated to geological prospecting, mapping, and sampling, ensuring structured data collection and reliable sample traceability.        
+        </p>
+        
+        <ul class="en">
+        <li><strong>Field work:</strong> reconnaissance, surveys, and initial sampling.</li>
+        <li><strong>Traceability:</strong> clear identification of samples and associated data.</li>
+        <li><strong>Decision support:</strong> improved quality of exploration data.</li>
+        </ul>
+
+        <div class="pack-equipements">
+          <h4 class="fr">Équipements / instruments inclus</h4>
+          <h4 class="en">Included equipment / instruments</h4>
+          <ul class="fr">
+            <li>GPS / GNSS (selon configuration)</li>
+            <li>Boussole / clinomètre</li>
+            <li>Marteau de géologue</li>
+            <li>Loupe / microscope portable</li>
+            <li>Sacs d’échantillons, étiquettes, marqueurs</li>
+          </ul>
+          <ul class="en">
+            <li>GPS / GNSS (config-dependent)</li>
+            <li>Compass / clinometer</li>
+            <li>Geologist hammer</li>
+            <li>Hand lens / portable microscope</li>
+            <li>Sample bags, tags, markers</li>
+          </ul>
+        </div>
+
+        <p class="fr" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+        <p class="en" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACK 6 ===== -->
+<section id="mines-eau" class="section section--alt">
+  <div class="container">
+    <h2 class="fr">Eaux Minières — Prélèvement & Analyse</h2>
+    <h2 class="en">Mining Water — Sampling & Analysis</h2>
+
+    <div style="display:flex; align-items:center; gap:40px; margin-top:18px;">
+      <div style="flex:0 0 320px; text-align:center;">
+        <img src="vinavi_mines_eau.jpg" alt="Échantillonnage et analyse de l'eau" style="width:100%; max-width:300px; height:auto; border-radius:12px;">
+      </div>
+
+      <div style="flex:1; font-size:18px; line-height:1.65;">
+        <p class="fr">Pack dédié au suivi des eaux minières : prélèvements, analyses in situ et surveillance des rejets, bassins et eaux de process, avec possibilité d’intégration en télémétrie ou SCADA.        
+        </p>
+      <ul class="fr">
+      <li><strong>Surveillance :</strong> eaux de surface, eaux de process et rejets.</li>
+      <li><strong>Conformité :</strong> appui aux exigences réglementaires et environnementales.</li>
+      <li><strong>Évolution :</strong> intégration possible en systèmes de supervision et de télégestion.</li>
+      </ul>
+
+        <p class="en">Pack dedicated to mining water monitoring, including sampling, in-situ analysis, and surveillance of discharges, ponds, and process water,
+            with optional integration into telemetry or SCADA systems.        
+         </p>
+
+         <ul class="en">
+        <li><strong>Monitoring:</strong> surface water, process water, and effluents.</li>
+        <li><strong>Compliance:</strong> support for regulatory and environmental requirements.</li>
+        <li><strong>Scalability:</strong> optional integration into supervision and remote monitoring systems.</li>
+        </ul>
+
+        <div class="pack-equipements">
+          <h4 class="fr">Équipements / instruments inclus</h4>
+          <h4 class="en">Included equipment / instruments</h4>
+          <ul class="fr">
+            <li>Échantillonneurs et accessoires de prélèvement</li>
+            <li>Multiparamètres in situ (pH, CE, température, ORP, O₂ selon besoin)</li>
+            <li>Turbidité / MES (selon configuration)</li>
+            <li>Consommables, flacons, chaîne de traçabilité</li>
+            <li>Options : sondes fixes + transmission (cellulaire/RTU)</li>
+          </ul>
+          <ul class="en">
+            <li>Water samplers and sampling accessories</li>
+            <li>In-situ multiparameter meters (pH, EC, temperature, ORP, DO as needed)</li>
+            <li>Turbidity / TSS (config-dependent)</li>
+            <li>Consumables, bottles, chain-of-custody</li>
+            <li>Options: fixed probes + telemetry (cellular/RTU)</li>
+          </ul>
+        </div>
+
+        <p class="fr" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+        <p class="en" style="margin-top:14px;"><a class="btn" href="#demande-devis"><span class="fr">Demander un devis</span><span class="en">Request a quote</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMANDE DE DEVIS (formulaire) ===== -->
+<section id="demande-devis" class="section section--alt">
+  <div class="container pad">
+    <h2 class="fr">Demande de devis</h2>
+    <h2 class="en">Request a quote</h2>
+
+    <p class="lead fr">
+      Décrivez votre besoin (mine, laboratoire, géotechnique, QHSE, eau) et nous vous recontactons rapidement.
+    </p>
+    <p class="lead en">
+      Describe your need (mining, lab, geotechnical, HSE, water) and we will get back to you promptly.
+    </p>
+
+    <!-- Formulaire (seul) -->
+    <div class="devis-form card" style="margin-top:18px; max-width:720px;">
+      <form class="contact" action="https://formsubmit.co/info@vinavi.ca" method="POST">
+        <!-- FormSubmit options -->
+        <input type="hidden" name="_subject" value="Vi Na Vi — Demande de devis (Mines)">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <input class="input" type="text" name="name" placeholder="Nom / Name" required>
+        <input class="input" type="email" name="email" placeholder="Email" required>
+        <input class="input" type="text" name="company" placeholder="Entreprise / Company">
+        <textarea name="message" placeholder="Message" required></textarea>
+
+        <button type="submit">
+          <span class="fr">Envoyer</span>
+          <span class="en">Send</span>
+        </button>
+
+        <!-- Bouton retour packs (conservé) -->
+        <div style="margin-top:14px;">
+          <a class="btn btn-outline" href="#mines-thematiques">
+            <span class="fr">← Retour au choix des packs</span>
+            <span class="en">← Back to packs selection</span>
+          </a>
+        </div>
+
+        <p class="captcha-note fr" style="margin-top:12px;">Note : vous recevrez une copie automatique.</p>
+        <p class="captcha-note en" style="margin-top:12px;">Note: you will receive an automatic copy.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<section id="contacts" class="section">
     <div class="container pad">
       <h2 class="fr">Contacts</h2>
       <h2 class="en">Contacts</h2>
@@ -531,7 +1283,6 @@
       </div>
     </div>
   </section>
-
 
 
 
